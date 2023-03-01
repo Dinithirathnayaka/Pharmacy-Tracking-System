@@ -14,10 +14,10 @@ const postSchema = new Schema(
       required: true,
     },
 
-    // photo: {
-    //   type: String,
-    //   required: false,
-    // },
+    image: {
+      type: String,
+      required: false,
+    },
 
     // username: {
     //   type: String,
