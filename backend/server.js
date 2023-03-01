@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/posts");
+const medicineRoutes = require("./routes/medicines");
+const doctorRoutes = require("./routes/doctors");
 const multer = require("multer");
 
 //express app
@@ -32,6 +34,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 //routes
 app.use("/api/posts", postRoutes);
+app.use("/api/medicines", medicineRoutes);
+app.use("/api/doctors", doctorRoutes);
 
 //connect to db
 mongoose

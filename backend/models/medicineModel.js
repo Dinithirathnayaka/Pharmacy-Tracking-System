@@ -2,14 +2,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema(
+const medicineSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
-
-    desc: {
+    name: {
       type: String,
       required: true,
     },
@@ -18,8 +13,18 @@ const postSchema = new Schema(
       type: String,
       required: false,
     },
+
+    desc: {
+      type: String,
+      required: true,
+    },
+
+    quantity: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Medicine", medicineSchema);
