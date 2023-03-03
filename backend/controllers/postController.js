@@ -1,4 +1,5 @@
 const Post = require("../models/postModel");
+const multer = require("multer");
 const mongoose = require("mongoose");
 
 //get all posts
@@ -25,17 +26,38 @@ const getPost = async (req, res) => {
   res.status(200).json(post);
 };
 
+//storage
+const Storage = multer.diskStorage({
+  destination: "uploads",
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({
+  storage: Storage,
+}).single("testimage");
+
 //create new post
 const createPost = async (req, res) => {
-  const { title, desc } = req.body;
-
-  //add doc to db
-  try {
-    const post = await Post.create({ title, desc });
-    res.status(200).json(post);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+  upload(req, res, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const newPost = new Post({
+        title: req.body.title,
+        desc: req.body.desc,
+        image: {
+          data: req.file.filename,
+          contentType: "image/png",
+        },
+      });
+      newPost
+        .save()
+        .then(() => res.send("successfully uploaded"))
+        .catch((err) => console.log(err));
+    }
+  });
 };
 
 //delete a post
