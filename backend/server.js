@@ -6,6 +6,7 @@ const postRoutes = require("./routes/posts");
 const medicineRoutes = require("./routes/medicines");
 const doctorRoutes = require("./routes/doctors");
 const commentRoutes = require("./routes/comments");
+const userRoutes = require("./routes/users");
 
 //express app
 const app = express();
@@ -22,6 +23,7 @@ app.use("/api/posts", postRoutes);
 app.use("/api/medicines", medicineRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/comments/", commentRoutes);
+app.use("/api/user/", userRoutes);
 
 //connect to db
 mongoose
