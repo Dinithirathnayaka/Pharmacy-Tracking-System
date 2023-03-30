@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Hero_img from "../../images/hero_img.png";
 
 const Hero = () => {
@@ -18,9 +18,9 @@ const Hero = () => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Similique soluta harum cupiditate
                 </div>
-                <NavLink href="#" className="btn btn-primary shadow-none">
+                <Link to="sign_up" className="btn btn-primary shadow-none">
                   SIGN UP
-                </NavLink>
+                </Link>
               </div>
             </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import navLogo from "../images/pts_logo.png";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 
 const StarterNavBar = () => {
   return (
@@ -41,9 +41,9 @@ const StarterNavBar = () => {
                 CONTACT
               </NavLink>
             </div>
-            <NavLink href="#" className="btn btn-primary shadow-none">
+            <Link to="sign_in" className="btn btn-primary shadow-none">
               SIGN IN
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
