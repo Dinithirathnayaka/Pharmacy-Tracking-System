@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* SETUP */
+:root {
+  /* Color styles */
+  --primary: #0195e8;
+  --primary-light: #4db4ee;
+  --primary-dark: #0062df;
+  --main-black: #000609;
+  --dark-brown: #341413;
+  --orange: #fc8c00;
+  --orange-light: #fdba66;
+  --grey: #eeeeee;
+  --white: #ffffff;
+
+  /*Font size desktop*/
+  --header-1: 54px;
+  --header-2: 48px;
+
+  /*Font size mobile*/
+  --header-3: 42px;
+  --header-4: 32px;
+
+  --text-medium: 18px;
+  --text-regular: 16px;
+  --text-light: 13px;
+
+  /*Font weight*/
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/*NAVBAR*/
+.btn {
+  padding: 15px 25px;
+  border-radius: 6px;
+  font-size: var(--text-medium);
+  font-weight: var(--font-weight-medium);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--orange) !important;
+}
+
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: var(--orange-light) !;
+}
+
+.navbar {
+  padding: 28px 0;
+}
+
+a.nav-link {
+  font-size: var(--text-regular) !important;
+  font-weight: var(--font-weight-semi-bold) !important;
+  margin: 0 10px;
+}
+
+a.nav-link:hover {
+  border-bottom: 2px solid red;
+}
+
+/* Hero */
+section.hero {
+  margin: 3rem 0;
+}
+
+.text-label,
+.text-hero-bold,
+.text-hero-regular {
+  margin: 24px 0;
+}
+
+.text-label {
+  color: var(--orange);
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+.text-hero-bold {
+  color: var(--dark-brown);
+  font-size: var(--header-1);
+  font-weight: var(--font-weight-bold);
+  line-height: 74px;
+}
+.text-hero-regular {
+  color: black;
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+.hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-img img {
+  width: 80%;
+  padding: 10px;
 }
