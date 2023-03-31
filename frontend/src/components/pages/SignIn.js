@@ -4,9 +4,9 @@ import { NavLink, Outlet } from "react-router-dom";
 const SignIn = () => {
   return (
     <div>
-      <NavLink to="/main" className="" href="#">
-        Sign In
-      </NavLink>
+      <div>
+        <NavLink to="/main/">Sign In</NavLink>
+      </div>
       <Outlet />
     </div>
   );

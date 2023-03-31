@@ -13,6 +13,9 @@ import CreateAccount from "./components/pages/CreateAccount";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import ResetPassword from "./components/pages/ResetPassword";
 import MainNavbar from "./components/MainNavbar/MainNavbar";
+import Stock from "./components/pages/Main/Stock";
+import Locate from "./components/pages/Main/Locate";
+import SocialPedia from "./components/pages/Main/SocialPedia";
 
 import {
   createBrowserRouter,
@@ -23,17 +26,24 @@ import {
 
 const starter = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<StarterNavBar />}>
-      <Route index element={<Hero />} />
-      <Route path="services" element={<Services />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="sign_up" element={<SignUp />} />
-      <Route path="sign_in" element={<SignIn />} />
-      <Route path="create_account" element={<CreateAccount />} />
-      <Route path="forgot_password" element={<ForgotPassword />} />
-      <Route path="reset_password" element={<ResetPassword />} />
-      <Route path="register_pharmacist" element={<RegisterPharmacist />} />
+    <Route>
+      <Route path="/" element={<StarterNavBar />}>
+        <Route index element={<Hero />} />
+        <Route path="services" element={<Services />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="sign_up" element={<SignUp />} />
+        <Route path="sign_in" element={<SignIn />} />
+        <Route path="create_account" element={<CreateAccount />} />
+        <Route path="forgot_password" element={<ForgotPassword />} />
+        <Route path="reset_password" element={<ResetPassword />} />
+        <Route path="register_pharmacist" element={<RegisterPharmacist />} />
+      </Route>
+      <Route path="/main/" element={<MainNavbar />}>
+        <Route index element={<SocialPedia />} />
+        <Route path="stock" element={<Stock />} />
+        <Route path="locate" element={<Locate />} />
+      </Route>
     </Route>
   )
 );
