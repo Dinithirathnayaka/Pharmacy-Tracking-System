@@ -1,7 +1,9 @@
 /* Google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* SETUP */
+/*-----------------------
+  ------- SETUP-------------
+  ------------------------- */
 :root {
   /* Color styles */
   --primary: #0195e8;
@@ -11,7 +13,7 @@
   --dark-brown: #341413;
   --orange: #fc8c00;
   --green: #006924;
-  --green-light: #80B492;
+  --green-light: #80b492;
   --orange-light: #fdba66;
   --grey: #eeeeee;
   --white: #ffffff;
@@ -43,7 +45,9 @@
   font-family: "Poppins", sans-serif;
 }
 
-/*NAVBAR*/
+/*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
 .btn {
   padding: 15px 25px;
   border-radius: 6px;
@@ -75,7 +79,9 @@ a.nav-link:hover {
   border-bottom: 2px solid red;
 }
 
-/* Hero */
+/*-----------------------
+  ------- HERO-------------
+  ------------------------- */
 section.hero {
   margin: 3rem 0;
 }
@@ -112,4 +118,161 @@ section.hero {
 .hero-img img {
   width: 80%;
   padding: 10px;
+}
+
+/*-----------------------
+  ------- LEFTBAR-------------
+  ------------------------- */
+
+.leftbar {
+  background-color: white;
+  flex: 25%;
+  height: calc(100vh -50px);
+}
+
+.leftbarProfile {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.leftbarProfileDetails {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.leftbarImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.leftbarProfileName {
+  cursor: pointer;
+  font-family: "Balsamiq Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #050505;
+}
+
+/* .leftbarDesignation{
+    width: 62px;
+    height: 20px;
+    font-family: 'Actor';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #050505;
+} */
+
+.leftbarWrapper {
+  padding: 20px;
+}
+
+.leftbarList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.leftbarListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.leftbarListIcon {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.leftbarListIconName {
+  cursor: pointer;
+}
+
+/*-----------------------
+  ------- FEED-------------
+  ------------------------- */
+.feed {
+  flex: 50%;
+  background-color: white;
+}
+
+/*-----------------------
+  ------- RIGHTBAR-------------
+  ------------------------- */
+
+/* DESKTOP VERSIONS ONLY */
+@media (min-width: 1399.98px) {
+  .container {
+    width: 84%;
+  }
+}
+
+/*MOBILE VERSIONS ONLY*/
+@media (max-width: 576px) {
+  /*NAVBAR*/
+  .navbar {
+    padding: 18px 0;
+  }
+
+  .navbar .nav-link {
+    text-align: center;
+  }
+
+  section.hero {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .btn {
+    display: block;
+    margin: 1rem 0;
+  }
+  .text-label,
+  .text-hero-bold,
+  .text-hero-regular {
+    text-align: center;
+  }
+  .text-hero-bold {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--header-3);
+    line-height: 44px;
+  }
+}
+
+/* TABLET SMALL VERSION ONLY */
+@media (max-width: 768px) {
+  /*NAVBAR*/
+  .navbar {
+    padding: 28px 0;
+  }
+
+  .navbar .nav-link {
+    text-align: left;
+  }
+
+  .btn {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .text-hero-bold {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--header-3);
+    line-height: 44px;
+  }
+  section.hero {
+    margin: 1rem 0;
+  }
 }

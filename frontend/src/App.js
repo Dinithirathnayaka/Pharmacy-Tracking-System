@@ -1,59 +1,30 @@
-import "./App.css";
-import StarterNavBar from "./components/StarterNavbar/StarterNavBar";
+import StarterNavBar from "./components/StarterNavBar";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Services from "./components/Services";
+import Hero from "./components/Hero";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
+import { Pharmacistregister } from "./pages/PharmacistRegister";
+import Profile from "./components/Profile";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-//pages
-import About from "./components/pages/about/About";
-import Contact from "./components/pages/contact/Contact";
-import Services from "./components/pages/services/Services";
-import Hero from "./components/pages/hero/Hero";
-import SignIn from "./components/pages/SignIn";
-import SignUp from "./components/pages/SignUp";
-import RegisterPharmacist from "./components/pages/RegisterPharmacist";
-import CreateAccount from "./components/pages/CreateAccount";
-import ForgotPassword from "./components/pages/ForgotPassword";
-import ResetPassword from "./components/pages/ResetPassword";
-import MainNavbar from "./components/MainNavbar/MainNavbar";
-import Stock from "./components/pages/Main/Stock";
-import Locate from "./components/pages/Main/Locate";
-import SocialPedia from "./components/pages/Main/SocialPedia";
-
-import {
-  createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
-
-const starter = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<StarterNavBar />}>
-        <Route index element={<Hero />} />
-        <Route path="services" element={<Services />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="sign_up" element={<SignUp />} />
-        <Route path="sign_in" element={<SignIn />} />
-        <Route path="create_account" element={<CreateAccount />} />
-        <Route path="forgot_password" element={<ForgotPassword />} />
-        <Route path="reset_password" element={<ResetPassword />} />
-        <Route path="register_pharmacist" element={<RegisterPharmacist />} />
-      </Route>
-      <Route path="/main/" element={<MainNavbar />}>
-        <Route index element={<SocialPedia />} />
-        <Route path="stock" element={<Stock />} />
-        <Route path="locate" element={<Locate />} />
-      </Route>
-    </Route>
-  )
-);
-
-function App() {
+export default function App() {
   return (
-    <main>
-      <RouterProvider router={starter} />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StarterNavBar />}>
+          <Route index element={<Hero />} />
+          <Route path="services" element={<Services />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/phamacistregister" element={<Pharmacistregister />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

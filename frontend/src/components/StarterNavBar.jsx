@@ -1,5 +1,5 @@
 import React from "react";
-import navLogo from "../images/pts_logo.png";
+import navLogo from "../assets/images/pts_logo.png";
 import { NavLink, Link, Outlet } from "react-router-dom";
 
 const StarterNavBar = () => {
