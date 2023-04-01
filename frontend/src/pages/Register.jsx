@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import RegisterImg from "../assets/images/register.jpeg";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ export const Register = (props) => {
 
   return (
     <div className="form-container">
-      <img src={RegisterImg} alt="user icon" />
+      <img src="assets/images/register.jpeg" alt="user icon" />
       <div id="create-account">CREATE AN ACCOUNT</div>
       <form className="register-form" onSubmit={handleSubmit}>
         <input

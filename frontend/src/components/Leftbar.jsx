@@ -7,7 +7,6 @@ import {
   Call,
   Email,
 } from "@mui/icons-material";
-import Person1 from "../assets/images/person/1.jpg";
 
 export default function Leftbar() {
   return (
@@ -15,7 +14,11 @@ export default function Leftbar() {
       <div className="leftbarWrapper">
         <ul className="leftbarProfile">
           <li className="leftbarProfileDetails">
-            <img className="leftbarImg" src={Person1} alt="person1" />
+            <img
+              className="leftbarImg"
+              src="assets/images/person/1.jpg"
+              alt="person1"
+            />
             <span className="leftbarProfileName">Amila Aponsu</span>
           </li>
         </ul>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Hero_img from "../assets/images/hero_img.png";
 
 const Hero = () => {
   return (
@@ -29,7 +28,11 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-duration="3000"
             >
-              <img className="img-fuid" src={Hero_img} alt="" />
+              <img
+                className="img-fuid"
+                src="assets/images/hero_img.png"
+                alt=""
+              />
             </div>
           </div>
         </div>

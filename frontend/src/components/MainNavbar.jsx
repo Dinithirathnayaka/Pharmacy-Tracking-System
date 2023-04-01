@@ -1,5 +1,4 @@
 import React from "react";
-import navLogo from "../assets/images/pts_logo.png";
 import { NavLink, Link, Outlet } from "react-router-dom";
 
 const MainNavBar = () => {
@@ -11,7 +10,7 @@ const MainNavBar = () => {
             <img
               className="img-fluid"
               style={{ width: "60px" }}
-              src={navLogo}
+              src="assets/images/pts_logo.png"
               alt="PTS"
             />
           </a>

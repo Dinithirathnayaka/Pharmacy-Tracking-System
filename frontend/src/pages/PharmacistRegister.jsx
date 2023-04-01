@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PharmacyImg from "../assets/images/Pharmacies.jpeg";
 
 export const Pharmacistregister = (props) => {
   const [fullname, setFullname] = useState("");
@@ -19,7 +18,7 @@ export const Pharmacistregister = (props) => {
 
   return (
     <div className="form-container">
-      <img src={PharmacyImg} />
+      <img src="assets/images/Pharmacies.jpeg" />
       <div id="pharmacy-register">REGISTER AS A PHARMACIST</div>
 
       <form className="pharmacist-form" onSubmit={handleSubmit}>
