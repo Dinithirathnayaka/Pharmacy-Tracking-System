@@ -40,7 +40,7 @@ const StarterNavBar = () => {
                 CONTACT
               </NavLink>
             </div>
-            <Link to="sign_in" className="btn btn-primary shadow-none">
+            <Link to="login" className="btn btn-primary shadow-none">
               SIGN IN
             </Link>
           </div>

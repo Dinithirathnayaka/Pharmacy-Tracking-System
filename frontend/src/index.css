@@ -45,6 +45,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: #f2f2f2;
+}
+
 /*-----------------------
   ------- NAVBAR-------------
   ------------------------- */
@@ -73,17 +77,27 @@ a.nav-link {
   font-size: var(--text-regular) !important;
   font-weight: var(--font-weight-semi-bold) !important;
   margin: 0 10px;
+  border-bottom: 2px solid transparent;
 }
 
 a.nav-link:hover {
   border-bottom: 2px solid red;
 }
 
+a.nav-link.active {
+  border-bottom: 2px solid red;
+}
+
 /*-----------------------
   ------- HERO-------------
   ------------------------- */
-section.hero {
-  margin: 3rem 0;
+.hero {
+  height: calc(100vh - 113px);
+  /* height: 85vh; */
+  background-image: url("../public/assets/images/82254436b9.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .text-label,
@@ -113,11 +127,64 @@ section.hero {
 .hero-img {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .hero-img img {
   width: 80%;
-  padding: 10px;
+  padding: 0px;
+}
+
+/*-----------------------
+  ------- SERVICES-------------
+  ------------------------- */
+
+.services {
+  height: 80vh;
+  text-align: center;
+}
+
+.card-container {
+  position: relative;
+  top: 15%;
+}
+
+.card-container .card {
+  border-radius: 20px;
+}
+
+.services-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.service-card img {
+  width: 30%;
+  margin-top: 5px;
+}
+
+.service-card:hover {
+  background-color: #0195e8 !important;
+  color: #fff;
+}
+
+/*-------------------------
+  ------- ABOUT-------------
+  ------------------------- */
+
+.about-card-container {
+  position: relative;
+  margin-top: 10%;
+}
+
+.about-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
 }
 
 /*-----------------------
@@ -220,17 +287,18 @@ section.hero {
   }
 }
 
-/*MOBILE VERSIONS ONLY*/
+/* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
-  /*NAVBAR*/
+  /*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
   .navbar {
     padding: 18px 0;
   }
 
-  .navbar .nav-link {
-    text-align: center;
-  }
-
+  /*-----------------------
+  ------- HERO-------------
+  ------------------------- */
   section.hero {
     margin: 1rem 0;
     text-align: center;
@@ -251,9 +319,11 @@ section.hero {
   }
 }
 
-/* TABLET SMALL VERSION ONLY */
+/* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
-  /*NAVBAR*/
+  /*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
   .navbar {
     padding: 28px 0;
   }
@@ -272,7 +342,71 @@ section.hero {
     font-size: var(--header-3);
     line-height: 44px;
   }
+
+  /*-----------------------
+  ----------HERO-----------
+  ------------------------- */
   section.hero {
     margin: 1rem 0;
+  }
+
+  /*-----------------------------
+    ----------SERVICES-----------
+    ----------------------------- */
+  .services {
+    height: auto;
+    text-align: center;
+  }
+
+  .card-container {
+    margin-top: auto;
+  }
+
+  .card-footer button {
+    width: 100%;
+  }
+
+  /*-----------------------------
+    ----------ABOUT-----------
+    ----------------------------- */
+  .about {
+    height: auto;
+  }
+
+  .about h5 {
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .about-card-container {
+    margin-top: 20px;
+  }
+
+  .about h5,
+  .about p {
+    text-align: center;
+  }
+
+  .card-container {
+    margin-top: auto;
+  }
+
+  .about-card-container button {
+    width: 100%;
+  }
+}
+
+/* After the toggler button appears */
+@media (max-width: 991px) {
+  /* Navbar */
+  a.nav-link,
+  a.nav-link:hover,
+  a.nav-link.active {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    height: calc(100vh - 97.31px);
+    overflow: hidden;
   }
 }

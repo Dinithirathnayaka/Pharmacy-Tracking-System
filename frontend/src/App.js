@@ -11,20 +11,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<StarterNavBar />}>
-          <Route index element={<Hero />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StarterNavBar />}>
+            <Route index element={<Hero />} />
+            <Route path="services" element={<Services />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/phamacistregister" element={<Pharmacistregister />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/phamacistregister" element={<Pharmacistregister />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
