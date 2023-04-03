@@ -7,11 +7,13 @@ import React from "react";
 
 export default function Profile() {
   return (
-    <div>
-      <MainNavbar />
+    <>
+    <MainNavbar />
+    <div className="profileContainer">
       <Leftbar />
       <Feed />
       <Rightbar />
     </div>
+    </>
   );
 }

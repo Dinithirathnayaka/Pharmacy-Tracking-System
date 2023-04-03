@@ -191,11 +191,19 @@ a.nav-link.active {
   ------- LEFTBAR-------------
   ------------------------- */
 
+  .profileContainer{
+    display: flex;
+  }
+
+
+/*-----------------------
+  ------- LEFTBAR-------------
+  ------------------------- */
+
 .leftbar {
-  background-color: white;
   flex: 25%;
-  height: calc(100vh -50px);
 }
+
 
 .leftbarProfile {
   padding: 0;
@@ -220,7 +228,6 @@ a.nav-link.active {
 
 .leftbarProfileName {
   cursor: pointer;
-  font-family: "Balsamiq Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -230,21 +237,15 @@ a.nav-link.active {
   color: #050505;
 }
 
-/* .leftbarDesignation{
-    width: 62px;
-    height: 20px;
-    font-family: 'Actor';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    color: #050505;
-} */
-
 .leftbarWrapper {
+  height: calc(100vh -50px);
+  margin: 20px 10px;
   padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+background-color: white
+;
 }
 
 .leftbarList {
@@ -271,14 +272,270 @@ a.nav-link.active {
 /*-----------------------
   ------- FEED-------------
   ------------------------- */
-.feed {
+
+
+.feed{
   flex: 50%;
+}
+
+.feedWrapper{
+   padding: 20px; 
+}
+
+
+
+/*-----------------------
+  ------- SHARE-------------
+  ------------------------- */
+
+
+
+.shareWrapper{
   background-color: white;
+  height: calc(100vh -50px);
+  margin: 20px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+
+.shareTop{
+  display: flex;
+  align-items: center;
+}
+
+.shareProfileImg{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.shareInput{
+  border: none;
+  width: 80%;
+
+}
+
+.shareInput:focus{
+  outline: none;
+}
+
+.shareHr{
+  margin: 20px;
+}
+
+.shareBottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shareOptions{
+  display: flex;
+  margin-left: 30%;
+}
+
+.shareOption{
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.shareIcon{
+  font-size: 18px;
+  margin-right: 3px;
+}
+
+.shareIconText{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shareButton{
+  border: 0;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: green;
+  font-weight: 500;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+/*-----------------------
+  ------- POST-------------
+  ------------------------- */
+
+  
+.postWrapper{
+  background-color: white;
+  height: calc(100vh -50px);
+  margin: 20px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68); 
+box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+
+.postTop{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.postTopLeft{
+display: flex;
+align-items: center;
+}
+
+.postProfileImg{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.postUserName{
+font-size: 15px;
+font-weight: 500;
+margin: 0 10px;
+cursor: pointer;
+}
+
+.postDate{
+font-size: 12px;
+}
+
+.morevert{
+  cursor: pointer;
+}
+
+.postCenter{
+margin: 20px 0;
+
+}
+
+.postImg{
+margin-top: 20px;
+width:100% ;
+max-height: 300px;
+object-fit: contain;
+}
+
+.likeCommentCount{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.postBottomLeft{
+display: flex;
+align-items: center;
+
+}
+
+.likeIcon{
+width: 24px;
+height: 24px;
+margin-right:5px ;
+cursor: pointer;
+}
+
+.postLikeCounter,.postLike{
+font-size: 15px;
+cursor: pointer;
+
+}
+
+.postCommentText{
+font-size: 15px;
+cursor: pointer;
+border-bottom: 1px dashed grey;
+}
+
+
+.likeAndComment{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 30%;
+}
+
+.commentPreview{
+  display: flex;
+}
+
+.commenterImg{
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.commenterDetails{
+  padding: 9px 15px;
+  width: 341px;
+  height: 53px;
+  background-color: rgb(234, 232, 232);
+  left: 581px;
+  top: 1832px;
+  border-radius: 18px;
+}
+
+.commenterName{
+  font-weight: 400;
+  font-size: 13px;
+  color: #050505;
+  cursor: pointer;
+}
+
+.comment{
+  font-weight: 200;
+  font-size: 11px;
+  color: #050505;
+  cursor: pointer;
+}
+
+.commentDetails{
+  display: flex;
+  color: grey;
+  font-size: 10px;
+}
+
+.commentDetailsText{
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.commentInput{
+  border: none;
+  width: 85%;
+  padding: 9px 15px;
+  height: 53px;
+  background-color: rgb(234, 232, 232);
+  border-radius: 100px;
+}
+
+.commentInput:focus{
+  outline: none;
 }
 
 /*-----------------------
   ------- RIGHTBAR-------------
   ------------------------- */
+
+  .rightbar {
+    flex: 50%;
+    background-color: white;
+  }
 
 /* DESKTOP VERSIONS ONLY */
 @media (min-width: 1399.98px) {
