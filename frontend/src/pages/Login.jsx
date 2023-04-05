@@ -17,7 +17,7 @@ export const Login = (props) => {
       <form className="login-form" onSubmit={handleSubmit}>
         <input
           value={email}
-          onCharge={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="Email address"
           id="email"
@@ -25,7 +25,7 @@ export const Login = (props) => {
         />
         <input
           value={pass}
-          onCharge={(e) => setPass(e.target.value)}
+          onChange={(e) => setPass(e.target.value)}
           type="password"
           placeholder="Password"
           id="password"

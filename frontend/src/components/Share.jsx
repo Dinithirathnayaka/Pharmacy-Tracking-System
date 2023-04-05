@@ -1,12 +1,15 @@
-
-import { PermMedia, Label} from "@mui/icons-material";
+import { PermMedia, Label } from "@mui/icons-material";
 
 export default function Share() {
   return (
-    <div classNme="share">
+    <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="/assets/images/person/1.jpg" alt="person1" />
+          <img
+            className="shareProfileImg"
+            src="/assets/images/person/1.jpg"
+            alt="person1"
+          />
           <input placeholder="What's in your mind?" className="shareInput" />
         </div>
         <hr className="shareHr" />
