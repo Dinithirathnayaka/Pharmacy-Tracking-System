@@ -1,46 +1,53 @@
 import React, { useState } from "react";
+import { Form } from "react-bootstrap";
+import { HiMail } from "react-icons/hi";
+import { FaLock } from "react-icons/fa";
+import "../Styles/Login.css";
 
-export const Login = (props) => {
+export const Login = () => {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(email);
+  // };
 
   return (
     <div className="form-container">
-      <img src="assets/images/login.png" alt="user icon" />
-      <div id="user-login">USER LOGIN</div>
-
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          value={email}
-          onCharge={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email address"
-          id="email"
-          name="email"
+      <div className="login">
+        {" "}
+        <img
+          src="assets/images/login.png"
+          alt="user icon"
+          className="loginimg"
         />
-        <input
-          value={pass}
-          onCharge={(e) => setPass(e.target.value)}
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-        />
-        <button type="submit">SUBMIT</button>
-      </form>
+        <h5 className="user-login">USER LOGIN</h5>
+        <Form className="login-form">
+          <div className="emailcon">
+            <HiMail className="emailicon" />
+            <input type="email" placeholder="Email address" className="email" />
+          </div>
 
-      <button
-        className="link-button"
-        onClick={() => props.onFormSwitch("register")}
-      >
-        Don't have an account?
-      </button>
-      <button className="link-button">Forgot password?</button>
+          <br />
+          <div className="passcon">
+            <FaLock className="lockicon" />
+            <input
+              type="password"
+              placeholder="Password"
+              className="password"
+            />
+          </div>
+
+          <br />
+          <input type="submit" value="SUBMIT" className="submitbtn" />
+        </Form>
+        <div className="extra">
+          {" "}
+          <p className="noaccount">Don't have an account?</p>
+          <p className="nopassword">Forgot password?</p>
+        </div>
+      </div>
     </div>
   );
 };
