@@ -1,4 +1,4 @@
-.form-container {
+.reset-container {
   width: auto;
   height: 100vh;
   align-items: center;
@@ -10,7 +10,7 @@
   background-size: cover;
 }
 
-.login {
+.reset {
   height: 450px;
   width: 450px;
   padding: 25px;
@@ -22,13 +22,13 @@
   text-align: center;
 }
 
-.loginimg {
+.resetimg {
   width: 70px !important;
   margin-left: auto;
   margin-right: auto;
   text-align: center !important;
 }
-.user-login {
+.user-reset {
   text-align: center;
   color: #0195e8;
   font-weight: 600;
@@ -60,31 +60,6 @@
   outline: none;
 }
 
-.passcon {
-  display: flex;
-  width: 400px;
-  border: 2px solid #000000;
-  padding: 3px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-}
-
-.lockicon {
-  margin-top: 5px;
-  margin-right: 10px;
-}
-
-.password {
-  border: none;
-  width: 350px;
-  height: 30px;
-}
-
-.password:focus {
-  outline: none;
-}
-
 .submitbtn {
   height: 40px;
   width: 399px;
@@ -94,23 +69,15 @@
   border-radius: 8px;
   margin-top: 50px;
 }
-.extra {
+
+.back {
   display: flex;
-  justify-content: space-between;
   border: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.noaccount .nopassword {
-  margin-bottom: none;
+.backicon {
+  margin-top: 5px;
+  margin-right: 10px;
 }
-
-/* .nav-link {
-  text-decoration: none !important;
-  color: #000000;
-  font-size: 10px !important;
-}
-
-.nav-link:hover {
-  color: #000000 !important;
-  text-decoration: none;
-} */

@@ -5,7 +5,8 @@ import Services from "./components/Services";
 import Hero from "./components/Hero";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { Pharmacistregister } from "./pages/PharmacistRegister";
+// import { Pharmacistregister } from "./pages/PharmacistRegister";
+import { Reset } from "./pages/ResetPassword";
 import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -23,8 +24,8 @@ export default function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/phamacistregister" element={<Pharmacistregister />} />
-          
+          {/* <Route path="/phamacistregister" element={<Pharmacistregister />} /> */}
+          <Route path="/reset" element={<Reset />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
