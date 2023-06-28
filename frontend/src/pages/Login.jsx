@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../Styles/Login.css";
 
 export const Login = () => {
@@ -45,8 +45,20 @@ export const Login = () => {
         </Form>
         <div className="extra">
           {" "}
-          <p className="noaccount">Don't have an account?</p>
-          <p className="nopassword">Forgot password?</p>
+          <Link
+            to="/register"
+            className="noaccount"
+            style={{ textDecoration: "none", color: "#000000" }}
+          >
+            Don't have an account?{" "}
+          </Link>
+          <Link
+            to="/reset"
+            className="nopassword"
+            style={{ textDecoration: "none", color: "#000000" }}
+          >
+            Forgot password?{" "}
+          </Link>
         </div>
       </div>
     </div>
