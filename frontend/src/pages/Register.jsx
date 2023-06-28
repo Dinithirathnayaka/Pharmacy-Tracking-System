@@ -1,56 +1,63 @@
 import React, { useState } from "react";
+import { Form } from "react-bootstrap";
+import { HiMail } from "react-icons/hi";
+import { FaLock } from "react-icons/fa";
 
-export const Register = (props) => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [confirmpass, setConfirmpass] = useState("");
+import "../Styles/Register.css";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
-  };
+export const Register = () => {
+  // const [email, setEmail] = useState("");
+  // const [pass, setPass] = useState("");
+  // const [confirmpass, setConfirmpass] = useState("");
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(email);
+  // };
 
   return (
-    <div className="form-container">
-      <img src="assets/images/register.jpeg" alt="user icon" />
-      <div id="create-account">CREATE AN ACCOUNT</div>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <input
-          value={email}
-          onCharge={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email address"
-          id="email"
-          name="email"
+    <div className="register-container">
+      <div className="register">
+        <img
+          src="assets/images/register.jpeg"
+          alt="user icon"
+          className="registerimg"
         />
+        <h5 className="create-account">CREATE AN ACCOUNT</h5>
+        <Form className="register-form">
+          <div className="emailconreg">
+            <HiMail className="emailicon" />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="emailreg"
+            />
+          </div>
+          <br />
+          <div className="passconreg">
+            <FaLock className="lockiconreg" />
+            <input
+              type="password"
+              placeholder="Password"
+              className="passwordreg"
+            />
+          </div>{" "}
+          <br />
+          <div className="passconreg">
+            <FaLock className="lockiconreg" />
+            <input
+              type="password"
+              placeholder="Confirm password"
+              className="passwordconfirmreg"
+            />
+          </div>
+          <br />
+          <input type="submit" value="SUBMIT" className="registerbtn" />
+          <br />
+        </Form>
 
-        <input
-          value={pass}
-          onCharge={(e) => setPass(e.target.value)}
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-        />
-
-        <input
-          value={confirmpass}
-          onCharge={(e) => setConfirmpass(e.target.value)}
-          type="password"
-          placeholder="Confirm password"
-          id="cpassword"
-          name="cpassword"
-        />
-
-        <button type="submit">SUBMIT</button>
-      </form>
-
-      <button
-        className="link-button"
-        onClick={() => props.onFormSwitch("pharmacistregister")}
-      >
-        Register as a pharmacist
-      </button>
+        <p className="register-pharmacist">Register as a pharmacist</p>
+      </div>
     </div>
   );
 };
