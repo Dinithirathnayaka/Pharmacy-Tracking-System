@@ -26,7 +26,7 @@ const StarterNavBar = () => {
             <i className="bx bx-menu"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav ms-auto">
+            <div style={{ marginRight: "4rem" }} className="navbar-nav ms-auto">
               <NavLink to="/" className="nav-link" aria-current="page" href="#">
                 HOME
               </NavLink>
@@ -40,7 +40,7 @@ const StarterNavBar = () => {
                 CONTACT
               </NavLink>
             </div>
-            <Link to="sign_in" className="btn btn-primary shadow-none">
+            <Link to="login" className="btn btn-primary shadow-none">
               SIGN IN
             </Link>
           </div>

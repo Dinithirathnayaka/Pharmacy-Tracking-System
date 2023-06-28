@@ -22,22 +22,16 @@ export const Login = () => {
           alt="user icon"
           className="loginimg"
         />
-        <h5 className="user-login">USER LOGIN</h5>
-        <Form className="login-form">
-          <div className="emailcon">
-            <HiMail className="emailicon" />
-            <input type="email" placeholder="Email address" className="email" />
-          </div>
-
-          <br />
-          <div className="passcon">
-            <FaLock className="lockicon" />
-            <input
-              type="password"
-              placeholder="Password"
-              className="password"
-            />
-          </div>
+        <input
+          value={pass}
+          onCharge={(e) => setPass(e.target.value)}
+          type="password"
+          placeholder="Password"
+          id="password"
+          name="password"
+        />
+        <button type="submit">SUBMIT</button>
+      </form>
 
           <br />
           <input type="submit" value="SUBMIT" className="submitbtn" />
