@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
+import pts_logo from './images/pts_logo.png';
 
 const MainNavBar = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand">
             <img
               className="img-fluid"
               style={{ width: "60px" }}
-              src="assets/images/pts_logo.png"
+              src={pts_logo}
               alt="PTS"
             />
           </a>
@@ -26,8 +27,8 @@ const MainNavBar = () => {
             <i className="bx bx-menu"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav ms-auto">
-              <NavLink to="/main/" className="nav-link" aria-current="page">
+            <div style={{ marginRight: "4rem" }} className="navbar-nav ms-auto">
+              <NavLink to="/main" className="nav-link" aria-current="page" end>
                 HOME
               </NavLink>
               <NavLink to="stock" className="nav-link">
@@ -36,7 +37,13 @@ const MainNavBar = () => {
               <NavLink to="locate" className="nav-link">
                 LOCATE US
               </NavLink>
+              <NavLink to="viewdoctor" className="nav-link">
+                VIEW DOCTOR
+              </NavLink>
             </div>
+            <Link to="sign_out" className="btn btn-primary shadow-none">
+              SIGN OUT
+            </Link>
           </div>
         </div>
       </nav>

@@ -13,7 +13,7 @@ function Contact() {
         </p>
 
         <div className="row">
-          <div className="col-md-9 mb-md-0 mb-5 mx-auto">
+          <div className="col-md-9  mb-5 mx-auto">
             <form
               className="mt-5"
               id="contact-form"
@@ -31,6 +31,7 @@ function Contact() {
                       id="name"
                       name="name"
                       className="form-control"
+                      placeholder="Enter your name"
                     />
                   </div>
                 </div>
@@ -45,6 +46,7 @@ function Contact() {
                       id="email"
                       name="email"
                       className="form-control"
+                      placeholder="Enter your email"
                     />
                   </div>
                 </div>
@@ -61,6 +63,7 @@ function Contact() {
                       id="subject"
                       name="subject"
                       className="form-control"
+                      placeholder="Enter the subject"
                     />
                   </div>
                 </div>
@@ -76,15 +79,15 @@ function Contact() {
                       name="message"
                       rows="2"
                       className="form-control md-textarea"
+                      placeholder="Type your message"
                     ></textarea>
                   </div>
                 </div>
               </div>
+              <div className="text-md-left mb-2">
+                <a className="btn btn-primary">Send</a>
+              </div>
             </form>
-
-            <div className="text-md-left mb-2">
-              <a className="btn btn-primary">Send</a>
-            </div>
           </div>
         </div>
       </section>

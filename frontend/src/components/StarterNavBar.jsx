@@ -6,7 +6,7 @@ const StarterNavBar = () => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" >
             <img
               className="img-fluid"
               style={{ width: "60px" }}
@@ -27,16 +27,16 @@ const StarterNavBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <div style={{ marginRight: "4rem" }} className="navbar-nav ms-auto">
-              <NavLink to="/" className="nav-link" aria-current="page" href="#">
+              <NavLink to="/" className="nav-link" aria-current="page">
                 HOME
               </NavLink>
-              <NavLink to="services" className="nav-link" href="#">
+              <NavLink to="services" className="nav-link">
                 SERVICES
               </NavLink>
-              <NavLink to="about" className="nav-link" href="#">
+              <NavLink to="about" className="nav-link">
                 ABOUT
               </NavLink>
-              <NavLink to="contact" className="nav-link" href="#">
+              <NavLink to="contact" className="nav-link">
                 CONTACT
               </NavLink>
             </div>
