@@ -11,7 +11,7 @@ import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./components/Stock";
 import Locate from "./components/Locate";
-import MainNavBar from "./components/MainNavBar";
+import MainNavBar from "./components/MainNavbar";
 
 import ViewDoctor from "./components/ViewDoctor";
 
