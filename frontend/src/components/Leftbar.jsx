@@ -16,7 +16,7 @@ export default function Leftbar() {
           <li className="leftbarProfileDetails">
             <img
               className="leftbarImg"
-              src="assets/images/person/1.jpg"
+              src="/assets/images/person/1.jpg"
               alt="person1"
             />
             <span className="leftbarProfileName">Amila Aponsu</span>
