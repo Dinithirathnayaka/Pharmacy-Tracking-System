@@ -656,29 +656,18 @@ a.nav-link.active {
 }
 
 .rightbarWrapper{
-  margin-left: 20px;
-}
+  /* margin-left: 20px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  background-color: white; */
 
-.birthdayContainer{
-  display: flex;
-  align-items: center;
-}
-
-.birthdayImg{
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
-
-birthdayText{
-  font-weight: 300;
-  font-size: 15px;
-}
-
-.rightbarAd{
-  width: 100%;
+  height: calc(100vh -50px);
+  margin: 20px 10px;
+  padding: 20px;
   border-radius: 10px;
-  margin: 30px 0;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  background-color: white;
 }
 
 .rightbarTitle{
@@ -970,4 +959,155 @@ birthdayText{
     height: calc(100vh - 97.31px);
     overflow: hidden;
   }
+}
+
+
+/*----------------CREATEPOST--------------*/
+
+.modalBackground{
+  width: 45%;
+  height: 400px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 300px;
+
+}
+
+.modalContainer{
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 50px 50px rgba(0,0,0,0.52); 
+box-shadow: 5px 5px 50px 50px rgba(0,0,0,0.52);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalTop{
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalText{
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.closeButton{
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalHr{
+  margin: 10px;
+}
+
+.modalBody{
+  flex: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+.profileDetails{
+  display: flex;
+}
+
+.createPostProfileImg{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.createPostProfileName{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.createPostText{
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 100px;
+}
+
+.createPostText:focus{
+  outline: none;
+}
+
+.postOptions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   border-style:outset;
+   border-color: rgb(238, 238, 238);
+   border-width: 2px;
+   padding: 10px;
+}
+
+.optionsText{
+  font-size: 18px;
+}
+
+.postOptionIcons{
+  display: flex;
+}
+
+.imageColor{
+  margin-right: 10px;
+  color:rgb(0, 194, 0);
+  cursor: pointer;
+}
+
+.tagColor{
+  margin-right: 10px;
+  color:rgb(0, 117, 185);
+  cursor: pointer;
+}
+
+.emotionColor{
+  margin-right: 10px;
+  color:orange;
+  cursor: pointer;
+}
+
+.locationColor{
+  margin-right: 10px;
+  color:red;
+  cursor: pointer;
+}
+
+.optionColor{
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.modalBottom{
+  display: flex;
+}
+
+.postButton{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(0, 106, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
 }

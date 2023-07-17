@@ -1,6 +1,11 @@
-import { PermMedia, Label } from "@mui/icons-material";
+import { PermMedia, LocalOffer, AddReaction, LocationOn } from "@mui/icons-material";
+import {useState} from "react"
+import Createpost from "./Createpost";
 
 export default function Share() {
+
+  const [openModal,setOpenModal] = useState(false);
+
   return (
     <div className="share">
       <div className="shareWrapper">
@@ -16,15 +21,27 @@ export default function Share() {
         <div className="shareBottom">
           <div className="shareOptions">
             <div className="shareOption">
-              <PermMedia htmlColor="tomato" className="shareIcon" />
+              <PermMedia htmlColor="green" className="shareIcon" />
               <span className="shareIconText">Photo</span>
             </div>
             <div className="shareOption">
-              <Label htmlColor="blue" className="shareIcon" />
+              <LocalOffer htmlColor="blue" className="shareIcon" />
               <span className="shareIconText">Tag</span>
             </div>
+            <div className="shareOption">
+              <AddReaction htmlColor="orange" className="shareIcon" />
+              <span className="shareIconText">Feeling</span>
+            </div>
+            <div className="shareOption">
+              <LocationOn htmlColor="red" className="shareIcon" />
+              <span className="shareIconText">Location</span>
+            </div>
+            
           </div>
-          <button className="shareButton">Share</button>
+          <button className="shareButton" onClick={() => {
+                    setOpenModal(true);
+                }}>Share</button>
+                {openModal && <Createpost closeModal={setOpenModal} />}
         </div>
       </div>
     </div>
