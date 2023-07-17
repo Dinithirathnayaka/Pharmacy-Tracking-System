@@ -28,7 +28,7 @@ export default function Createpost({closeModal}) {
                 </div>
             </div>
             <div className="modalBottom">
-                <button className="postButton">P o s t</button>
+                <button className="postButton">Post</button>
             </div>
         </div>
     </div>
