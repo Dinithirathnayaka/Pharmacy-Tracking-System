@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
-import pts_logo from './images/pts_logo.png';
+import pts_logo from "./images/pts_logo.png";
 
-const MainNavBar = () => {
+const MainNavbar = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -53,4 +53,4 @@ const MainNavBar = () => {
   );
 };
 
-export default MainNavBar;
+export default MainNavbar;
