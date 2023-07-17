@@ -42,8 +42,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  /* font-family: "Gumela Regular"; */
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -75,7 +74,6 @@ body {
 }
 
 a.nav-link {
-  font-family: "Gumela Regular";
   font-size: var(--text-medium) !important;
   font-weight: var(--font-weight-semi-bold) !important;
   margin: 0 10px;
@@ -219,102 +217,102 @@ a.nav-link.active {
   ------- TOPBAR-------------
   ------------------------- */
 
-  .topbarContainer{
-    height: 50px;
-    width: 100%;
-    background-color:rgb(0, 94, 255) ;
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
+.topbarContainer {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(0, 94, 255);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
 
-.topbarLeft{
-    flex: 3;
+.topbarLeft {
+  flex: 3;
 }
 
-.topbarLogo{
-    font-size: 20px;
-    margin-left: 20px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
+.topbarLogo {
+  font-size: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
-.topbarCenter{
-    flex: 3;
+.topbarCenter {
+  flex: 3;
 }
 
-.searchbar{
-    width: 100%;
-    height: 30px;
-    background-color: white;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
+.searchbar {
+  width: 100%;
+  height: 30px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.searchIcon{
-    font-size: 20px !important;
-    margin-left: 10px;
+.searchIcon {
+  font-size: 20px !important;
+  margin-left: 10px;
 }
 
-.searchInput{
-    border: none;
-    width: 90%;
+.searchInput {
+  border: none;
+  width: 90%;
 }
 
-.searchInput:focus{
-    outline: none;
+.searchInput:focus {
+  outline: none;
 }
 
-.topbarRight{
-    flex: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
+.topbarRight {
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
 }
 
-.topbarLink{
-    margin-right: 25px;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: bold;
+.topbarLink {
+  margin-right: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.topbarIcons{
-    display: flex;
+.topbarIcons {
+  display: flex;
 }
 
-.topbarIconItem{
-    margin-right: 15px;
-    cursor: pointer;
-    position: relative;
+.topbarIconItem {
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
 }
 
-.topbarIconBadge{
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-    flood-color: white;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size:x-small;
-    font-weight: bold;
+.topbarIconBadge {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  flood-color: white;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-small;
+  font-weight: bold;
 }
 
-.topbarImg{
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
+.topbarImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 /*-----------------------
@@ -331,7 +329,7 @@ a.nav-link.active {
   ------------------------- */
 
 .leftbar {
-  flex:25%;
+  flex: 25%;
 }
 
 .leftbarProfile {
@@ -650,62 +648,60 @@ a.nav-link.active {
   ------- RIGHTBAR-------------
   ------------------------- */
 
-
-.rightbar{
+.rightbar {
   flex: 25%;
 }
 
-.rightbarWrapper{
+.rightbarWrapper {
   margin-left: 20px;
 }
 
-.birthdayContainer{
+.birthdayContainer {
   display: flex;
   align-items: center;
 }
 
-.birthdayImg{
+.birthdayImg {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
 
-birthdayText{
+birthdayText {
   font-weight: 300;
   font-size: 15px;
 }
 
-.rightbarAd{
+.rightbarAd {
   width: 100%;
   border-radius: 10px;
   margin: 30px 0;
 }
 
-.rightbarTitle{
+.rightbarTitle {
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.onlineFriendList{
+.onlineFriendList {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.rightbarFriend{
+.rightbarFriend {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.rightbarProfileImgContainer{
+.rightbarProfileImgContainer {
   margin-right: 10px;
   position: relative;
-
 }
 
-.rightbarProfileImg{
+.rightbarProfileImg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -713,7 +709,7 @@ birthdayText{
   cursor: pointer;
 }
 
-.rightbarOnline{
+.rightbarOnline {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -724,11 +720,10 @@ birthdayText{
   border: 2px solid white;
 }
 
-.rightbarUserName{
+.rightbarUserName {
   font-weight: normal;
   cursor: pointer;
 }
-
 
 /*--------------------------
   --------VIEW DOCTOR-------

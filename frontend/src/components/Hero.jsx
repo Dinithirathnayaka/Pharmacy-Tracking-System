@@ -16,7 +16,7 @@ const Hero = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Similique soluta harum cupiditate
               </div>
-              <Link to="sign_up" className="btn btn-primary shadow-none">
+              <Link to="/register" className="btn btn-primary shadow-none">
                 SIGN UP
               </Link>
             </div>

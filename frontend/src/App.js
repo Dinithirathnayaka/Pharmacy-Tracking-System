@@ -11,9 +11,9 @@ import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./components/Stock";
 import Locate from "./components/Locate";
-import MainNavBar from "./components/MainNavbar";
 
 import ViewDoctor from "./components/ViewDoctor";
+import MainNavbar from "./components/MainNavbar";
 
 export default function App() {
   return (
@@ -32,7 +32,7 @@ export default function App() {
           <Route path="/phamacistregister" element={<Pharmacistregister />} />
           <Route path="/reset" element={<Reset />} />
 
-          <Route path="/main" element={<MainNavBar />}>
+          <Route path="/main" element={<MainNavbar />}>
             <Route index element={<Profile />} />
             <Route path="stock" element={<Stock />} />
             <Route path="locate" element={<Locate />} />
