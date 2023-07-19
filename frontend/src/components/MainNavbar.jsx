@@ -6,7 +6,7 @@ const MainNavbar = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <div className="container">
+        <div className="container-fluid">
           <a className="navbar-brand">
             <img
               className="img-fluid"
@@ -26,6 +26,7 @@ const MainNavbar = () => {
           >
             <i className="bx bx-menu"></i>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <div style={{ marginRight: "4rem" }} className="navbar-nav ms-auto">
               <NavLink to="/main" className="nav-link" aria-current="page" end>
@@ -45,6 +46,7 @@ const MainNavbar = () => {
               SIGN OUT
             </Link>
           </div>
+
         </div>
       </nav>
 

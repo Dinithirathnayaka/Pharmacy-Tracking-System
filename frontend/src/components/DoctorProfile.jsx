@@ -1,7 +1,7 @@
 import profilePic from "./images/profile.jpg";
 import backImg from "./images/back.jpg";
 
-const DoctorProfile = () => {
+const DoctorProfile = ({ profile }) => {
   return (
     <>
       <div className="card h-100 shadow doctor_card">
@@ -22,7 +22,7 @@ const DoctorProfile = () => {
         </div>
 
         <div className="doctor_profile_contacts">
-          <h3 className="text-center">Full name</h3>
+          <h3 className="text-center">{profile.name}</h3>
           <ul>
             <li>
               <i className="bx bx-envelope"></i>
@@ -30,7 +30,7 @@ const DoctorProfile = () => {
             </li>
             <li>
               <i className="bx bx-phone-call"></i>
-              <span>phone number</span>
+              <span>{profile.tel}</span>
             </li>
             <li>
               <i className="bx bx-current-location"></i>

@@ -12,8 +12,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./components/Stock";
 import Locate from "./components/Locate";
 
-import ViewDoctor from "./components/ViewDoctor";
+import ViewDoctor from "./pages/ViewDoctor";
 import MainNavbar from "./components/MainNavbar";
+import Topbar from "./components/Topbar";
 
 export default function App() {
   return (
