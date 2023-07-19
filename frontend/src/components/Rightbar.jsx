@@ -1,3 +1,5 @@
+import "../Styles/Rightbar.css";
+
 export default function Rightbar() {
   return (
     <div className="rightbar">

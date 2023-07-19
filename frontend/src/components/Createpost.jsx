@@ -1,5 +1,6 @@
 import React from 'react'
 import {PermMedia, LocalOffer, AddReaction, LocationOn, MoreHoriz}  from "@mui/icons-material"
+import "../Styles/Createpost.css";
 
 export default function Createpost({closeModal}) {
   return (

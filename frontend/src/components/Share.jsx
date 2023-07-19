@@ -1,6 +1,7 @@
 import { PermMedia, LocalOffer, AddReaction, LocationOn } from "@mui/icons-material";
 import {useState} from "react"
 import Createpost from "./Createpost";
+import "../Styles/Share.css";
 
 export default function Share() {
 

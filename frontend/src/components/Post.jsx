@@ -1,5 +1,6 @@
 
 import { MoreVert, Favorite, ThumbUp,ThumbUpOffAlt,ChatBubbleOutline } from "@mui/icons-material";
+import "../Styles/Post.css";
 
 export default function Post() {
   return (

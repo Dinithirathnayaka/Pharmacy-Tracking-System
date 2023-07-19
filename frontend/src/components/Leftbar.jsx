@@ -7,6 +7,7 @@ import {
   Call,
   Email,
 } from "@mui/icons-material";
+import "../Styles/Leftbar.css";
 
 export default function Leftbar() {
   return (
