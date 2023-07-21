@@ -4,9 +4,9 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 const StarterNavBar = () => {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+      <nav className="navbar navbar-expand-lg navbar-light shadow starter-navbar">
         <div className="container">
-          <a className="navbar-brand" >
+          <a className="navbar-brand">
             <img
               className="img-fluid"
               style={{ width: "60px" }}

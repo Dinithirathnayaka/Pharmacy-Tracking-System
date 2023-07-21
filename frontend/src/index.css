@@ -69,29 +69,36 @@ body {
   background-color: var(--orange-light) !important;
 }
 
-.navbar {
-  padding: 28px 0;
+.starter-navbar {
+  background-color: #0062df !important;
 }
 
+/* .navbar {
+  padding: 28px 0;
+} */
+
 a.nav-link {
-  font-size: var(--text-medium) !important;
+  font-size: var(--text-regular) !important;
   font-weight: var(--font-weight-semi-bold) !important;
   margin: 0 10px;
   border-bottom: 2px solid transparent;
+  color: #eeeeee !important;
 }
 
 a.nav-link:hover {
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red; */
   color: var(--orange) !important;
 }
 
 a.nav-link.active {
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red; */
+  color: var(--orange) !important;
 }
 
 /*-----------------------
   ------- HERO-------------
   ------------------------- */
+
 .hero {
   height: calc(100vh - 113px);
   background-image: url("../public/assets/images/82254436b9.jpg");
@@ -212,7 +219,6 @@ a.nav-link.active {
 .contact-details p {
   width: auto;
 }
-
 
 /*--------------------------
   --------VIEW DOCTOR-------
@@ -388,11 +394,9 @@ a.nav-link.active {
     line-height: 44px;
   }
 
-  /*-----------------------
-  ----------HERO-----------
-  ------------------------- */
-  section.hero {
-    margin: 1rem 0;
+  .hero {
+    height: calc(100vh - 57.11px);
+    overflow: hidden;
   }
 
   /*-----------------------------

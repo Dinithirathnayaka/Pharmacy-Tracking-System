@@ -1,11 +1,16 @@
 import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import pts_logo from "./images/pts_logo.png";
+import { Person, Chat, Notifications, Search } from "@mui/icons-material";
+import "../Styles/Topbar.css";
 
 const MainNavbar = () => {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+      <nav
+        className="navbar navbar-expand-lg navbar-light main-navbar"
+        style={{ backgroundColor: "rgb(0, 94, 255)" }}
+      >
         <div className="container-fluid">
           <a className="navbar-brand">
             <img
@@ -15,6 +20,7 @@ const MainNavbar = () => {
               alt="PTS"
             />
           </a>
+
           <button
             className="navbar-toggler shadow-none"
             type="button"
@@ -28,7 +34,17 @@ const MainNavbar = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div style={{ marginRight: "4rem" }} className="navbar-nav ms-auto">
+            <div className="topbarCenter">
+              <div className="searchbar">
+                <Search className="searchIcon" />
+                <input
+                  placeholder="Search for friend,post or any video"
+                  className="searchInput"
+                />
+              </div>
+            </div>
+
+            <div style={{ marginRight: "3rem" }} className="navbar-nav ms-auto">
               <NavLink to="/main" className="nav-link" aria-current="page" end>
                 HOME
               </NavLink>
@@ -42,11 +58,27 @@ const MainNavbar = () => {
                 VIEW DOCTOR
               </NavLink>
             </div>
-            <Link to="sign_out" className="btn btn-primary shadow-none">
-              SIGN OUT
-            </Link>
-          </div>
 
+            <div className="topbarIcons">
+              <div className="topbarIconItem">
+                <Person />
+                <span className="topbarIconBadge">1</span>
+              </div>
+              <div className="topbarIconItem">
+                <Chat />
+                <span className="topbarIconBadge">2</span>
+              </div>
+              <div className="topbarIconItem">
+                <Notifications />
+                <span className="topbarIconBadge">1</span>
+              </div>
+            </div>
+            <img
+              src="/assets/images/person/1.jpg"
+              alt=""
+              className="topbarImg"
+            />
+          </div>
         </div>
       </nav>
 

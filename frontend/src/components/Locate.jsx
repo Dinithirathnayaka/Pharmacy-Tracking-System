@@ -10,13 +10,13 @@ const Locate = () => {
         title="Locate Us"
         description="Find where we are"
       />
-      <div className="mb-1 h-25 search-container">
+      {/* <div className="mb-1 h-25 search-container">
         <div className="container search-container-block">
           <div className="search-input-container">
             <input id="searchInput" type="text" placeholder="Search here..." />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
