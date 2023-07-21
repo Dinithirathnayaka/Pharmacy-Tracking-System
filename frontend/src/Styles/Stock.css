@@ -1,0 +1,49 @@
+hr {
+    width: 1921px;
+    height:89px;
+    top: 64px;
+    color: #ffffff;
+    box-shadow: 0px 4px 4px 0px #00000040;
+  }
+  
+  .addbutton {
+    background-color: #0168A2;
+    width: Hug (316px);
+    height: Hug (51px);
+    top: 169px;
+    left: 159px;
+    padding: 3px 53px 3px 53px;
+    gap: 10px;
+    color: white;
+    border: none;
+  }
+  
+  table, th, td {
+    border:1px solid white;
+    text-align: center;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #F0F2F5;
+  }
+  tr:nth-child(even) {
+    background-color: white;
+  }
+  
+  th {
+    background-color: black;
+    color: white;
+  }
+  
+  td {
+    width: 235px;
+    gap: 1px;
+    height: Hug(65px);
+    top: 236px;
+    left: 158px;
+  }
+  
+  
+  
+  
+  
