@@ -1,0 +1,335 @@
+.profileWrapper{
+    display: flex;
+    flex: 100%;
+}
+
+.profileLeft{
+    flex: 20%;
+}
+
+.profileCenter{
+    flex: 60%;
+}
+
+.profileRight{
+    flex: 20%;
+}
+
+.profileTop{
+    margin: 40px 0;
+}
+
+.profileTopUp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileDetails{
+    display: flex;
+    align-items: center;
+}
+.ProfilePicture{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.userNameCheckCircle{
+    display: flex;
+}
+
+.userName{
+    font-weight: bold;
+    font-size:20px;
+}
+.checkCircle{
+    color: rgb(0, 64, 255);
+}
+
+
+.userType{
+    font-size: 15px;
+    color: rgb(99, 99, 99);
+}
+.editProfileBtn{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: small;
+    font-weight: bold;
+    background-color: rgb(189, 189, 189);
+}
+
+
+.profileTopDown{
+    display: flex;
+    justify-content: space-between;
+}
+
+.topDownRight{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.messageIcon{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.message{
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.searchButton{
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+    width: 40px;
+}
+
+.searchIcon{
+    margin-right: 7px;
+}
+
+.optionIcon{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.profileBottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileBottomLeft{
+    background-color: white;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    flex: 40%;
+    margin-right: 10px;
+}
+
+.locationBackgroundImg{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+/* .locationInput{
+    position: absolute;
+    bottom: 5%;
+    top: 540px;
+    right: 0;
+    left: 400px;
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 30px;
+}
+
+.locationIcon{
+    color: rgb(133, 133, 133);
+    position: absolute;
+    bottom: 5%;
+    top: 548px;
+    right: 0;
+    left: 400px;
+} */
+
+.profileDetailsList{
+   list-style: none;
+   padding: 0;
+   margin: 20px 0;
+}
+
+.bottomLeftListItems{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bottomLeftListIcon{
+    margin-right:15px;
+    cursor: pointer;
+}
+
+.bottomLeftListIconName{
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profileBottomRight{
+    background-color: white;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    flex: 50%;
+}
+  
+  .postTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .postTopLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .postProfileImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .postUserName {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .postDate {
+    font-size: 12px;
+  }
+  
+  .morevert {
+    cursor: pointer;
+  }
+  
+  .postCenter {
+    margin: 20px 0;
+  }
+  
+  .postImg {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  .likeCommentCount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .postBottomLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .likeIcon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .postLikeCounter,
+  .postLike {
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .postCommentText {
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px dashed grey;
+  }
+  
+  .likeAndComment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 30%;
+  }
+  
+  .commentPreview {
+    display: flex;
+  }
+  
+  .commenterImg {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .commenterDetails {
+    padding: 9px 15px;
+    width: 341px;
+    height: 53px;
+    background-color: rgb(234, 232, 232);
+    left: 581px;
+    top: 1832px;
+    border-radius: 18px;
+  }
+  
+  .commenterName {
+    font-weight: 400;
+    font-size: 13px;
+    color: #050505;
+    cursor: pointer;
+  }
+  
+  .comment {
+    font-weight: 200;
+    font-size: 11px;
+    color: #050505;
+    cursor: pointer;
+  }
+  
+  .commentDetails {
+    display: flex;
+    color: grey;
+    font-size: 10px;
+  }
+  
+  .commentDetailsText {
+    margin: 0 20px;
+    cursor: pointer;
+  }
+
+  .commentProfileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .commentInput {
+    border: none;
+    width: 85%;
+    padding: 9px 15px;
+    height: 35px;
+    background-color: rgb(234, 232, 232);
+    border-radius: 100px;
+    font-size: 15px;
+  }
+  
+  .commentInput:focus {
+    outline: none;
+  }
+  

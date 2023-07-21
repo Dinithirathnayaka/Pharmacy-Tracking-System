@@ -7,7 +7,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Reset } from "./pages/ResetPassword";
-import Profile from "./components/Profile";
+import EditProfile from "./components/EditProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./components/Stock";
 import Locate from "./components/Locate";
@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/reset" element={<Reset />} />
 
           <Route path="/main" element={<MainNavbar />}>
-            <Route index element={<Profile />} />
+            <Route index element={<EditProfile />} />
             <Route path="stock" element={<Stock />} />
             <Route path="locate" element={<Locate />} />
             <Route path="viewdoctor" element={<ViewDoctor />} />
