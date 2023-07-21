@@ -73,11 +73,14 @@ const MainNavbar = () => {
                 <span className="topbarIconBadge">1</span>
               </div>
             </div>
-            <img
-              src="/assets/images/person/1.jpg"
-              alt=""
-              className="topbarImg"
-            />
+            <NavLink to="editprofile">
+              {" "}
+              <img
+                src="/assets/images/person/1.jpg"
+                alt=""
+                className="topbarImg"
+              />
+            </NavLink>
           </div>
         </div>
       </nav>
