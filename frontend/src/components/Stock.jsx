@@ -11,10 +11,12 @@ const Stock = () => {
         title="View Stock"
         description="View available medicine"
       />
+
+      <hr/>
       <div className="container">
 
         <div>
-          <hr/>
+          
           <button  className="addbutton" style={{marginBottom:"10px"}}>Add medicine</button>
         </div>
 
@@ -73,7 +75,7 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-            <img src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
+            <img src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px" }}/>
               <img src="/assets/images/bin.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
             </td>
           </tr>

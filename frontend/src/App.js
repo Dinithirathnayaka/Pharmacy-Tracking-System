@@ -8,6 +8,7 @@ import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Reset } from "./pages/ResetPassword";
 import EditProfile from "./components/EditProfile";
+import AddMedicine from "./components/AddMedicine";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./components/Stock";
 import Locate from "./components/Locate";
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/phamacistregister" element={<Pharmacistregister />} />
           <Route path="/reset" element={<Reset />} />
+          <Route path="/addmedicine" element={<AddMedicine/>} />
 
           <Route path="/main" element={<MainNavbar />}>
             <Route index element={<EditProfile />} />
