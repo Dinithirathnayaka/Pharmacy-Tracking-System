@@ -1,7 +1,7 @@
 import TitleBar from "./TitleBar";
 import viewStk from "./images/analysis.png";
 import "../Styles/Stock.css";
-
+import { NavLink } from "react-router-dom";
 
 const Stock = () => {
   return (
@@ -12,11 +12,18 @@ const Stock = () => {
         description="View available medicine"
       />
 
-      <hr/>
+      <hr />
       <div className="container">
-
-        <div>          
-          <button  className="addbutton" style={{marginBottom:"10px"}}>Add medicine</button>
+        <div
+          className="addbutton"
+          style={{
+            marginBottom: "10px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <a href="addmedicine">Add Medicine</a>
         </div>
 
         <table>
@@ -37,8 +44,16 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img className="action" src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px" }}/>
-              <img className="action" src="/assets/images/bin.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>              
+              <img
+                className="action"
+                src="/assets/images/edit.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
+              <img
+                className="action"
+                src="/assets/images/bin.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
             </td>
           </tr>
           <tr>
@@ -49,8 +64,16 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img className="action" src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
-              <img className="action" src="/assets/images/bin.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
+              <img
+                className="action"
+                src="/assets/images/edit.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
+              <img
+                className="action"
+                src="/assets/images/bin.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
             </td>
           </tr>
           <tr>
@@ -61,8 +84,16 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img className="action" src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
-              <img className="action" src="/assets/images/bin.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>    
+              <img
+                className="action"
+                src="/assets/images/edit.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
+              <img
+                className="action"
+                src="/assets/images/bin.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
             </td>
           </tr>
           <tr>
@@ -73,12 +104,19 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img className="action" src="/assets/images/edit.png" style={{height: "20px",width:"20px",marginRight: "5px" }}/>
-              <img className="action" src="/assets/images/bin.png" style={{height: "20px",width:"20px",marginRight: "5px"}}/>
+              <img
+                className="action"
+                src="/assets/images/edit.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
+              <img
+                className="action"
+                src="/assets/images/bin.png"
+                style={{ height: "20px", width: "20px", marginRight: "5px" }}
+              />
             </td>
           </tr>
         </table>
-  
       </div>
     </>
   );

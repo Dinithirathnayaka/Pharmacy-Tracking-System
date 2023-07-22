@@ -34,7 +34,6 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/pharmacistregister" element={<Pharmacistregister />} />
           <Route path="/reset" element={<Reset />} />
-          <Route path="/addmedicine" element={<AddMedicine />} />
 
           <Route path="/main" element={<MainNavbar />}>
             <Route index element={<Profile />} />
@@ -42,6 +41,7 @@ export default function App() {
             <Route path="locate" element={<Locate />} />
             <Route path="viewdoctor" element={<ViewDoctor />} />
             <Route path="editprofile" element={<EditProfile />} />
+            <Route path="addmedicine" element={<AddMedicine />} />
           </Route>
         </Routes>
       </BrowserRouter>
