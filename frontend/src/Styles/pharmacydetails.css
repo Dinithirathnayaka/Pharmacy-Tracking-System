@@ -1,0 +1,24 @@
+.pharmacyDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pharmacyDetails-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: blue;
+  color: white;
+  width: 60%;
+}
+
+.pharmacyDetails_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

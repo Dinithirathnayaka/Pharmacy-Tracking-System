@@ -1,22 +1,26 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//components
 import StarterNavBar from "./components/StarterNavBar";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import EditProfile from "./components/EditProfile";
+import Profile from "./components/Profile";
+import AddMedicine from "./components/AddMedicine";
+import Stock from "./components/Stock";
 import Services from "./components/Services";
 import Hero from "./components/Hero";
+
+//images
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Reset } from "./pages/ResetPassword";
-import EditProfile from "./components/EditProfile";
-import Profile from "./components/Profile";
-import AddMedicine from "./components/AddMedicine";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Stock from "./components/Stock";
-import Locate from "./components/Locate";
 
+//pages
 import ViewDoctor from "./pages/ViewDoctor";
 import MainNavbar from "./components/MainNavbar";
-import Topbar from "./components/Topbar";
+import LocateUs from "./pages/LocateUs";
 
 export default function App() {
   return (
@@ -38,7 +42,7 @@ export default function App() {
           <Route path="/main" element={<MainNavbar />}>
             <Route index element={<Profile />} />
             <Route path="stock" element={<Stock />} />
-            <Route path="locate" element={<Locate />} />
+            <Route path="locate" element={<LocateUs />} />
             <Route path="viewdoctor" element={<ViewDoctor />} />
             <Route path="editprofile" element={<EditProfile />} />
             <Route path="addmedicine" element={<AddMedicine />} />
