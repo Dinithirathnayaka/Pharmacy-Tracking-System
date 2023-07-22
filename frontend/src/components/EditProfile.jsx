@@ -1,11 +1,16 @@
 import React from 'react'
 import "../Styles/EditProfile.css"
-import Topbar from './Topbar'
 import {Message,CheckCircle,Search,MoreHoriz,LocationOn,
     Info, ThumbUp, RssFeed, PersonSearch, Language, Call, Email,
     MoreVert, Favorite,ThumbUpOffAlt,ChatBubbleOutline} from "@mui/icons-material"
+    
+import { useState } from "react";
+import MessageBox from "./MessageBox";
 
 export default function UserProfile() {
+
+    const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
      
@@ -37,8 +42,22 @@ export default function UserProfile() {
                 <div className="profileTopDown">
                     <div className="topDownLeft"></div>
                     <div className="topDownRight">
-                        <Message className="messageIcon"fontSize='large'/>
-                        <span className="message">Message</span>
+                        <Message 
+                            className="messageIcon"
+                            fontSize='large'
+                            onClick={() => {
+                                setOpenModal(true);
+                                            }
+                                    }
+                        />
+                        <span 
+                            className="message"
+                            onClick={() => {
+                                setOpenModal(true);
+                                            }
+                                    }
+                        >Message</span>
+
                         <button className="searchButton">
                             <Search className="searchIcon" fontSize='large'/>
                         </button>   
@@ -168,7 +187,9 @@ export default function UserProfile() {
             </div>
         </div>
 
-        <div className="profileRight"></div>
+        <div className="profileRight">
+            {openModal && <MessageBox closeModal={setOpenModal} />}
+        </div>
     </div>
      
     </>

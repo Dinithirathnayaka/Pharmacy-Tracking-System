@@ -8,7 +8,7 @@ import {
   Email,
 } from "@mui/icons-material";
 import "../Styles/Leftbar.css";
-import { NavLink } from "react-router-dom";
+
 
 export default function Leftbar() {
   return (
@@ -16,14 +16,11 @@ export default function Leftbar() {
       <div className="leftbarWrapper">
         <ul className="leftbarProfile">
           <li className="leftbarProfileDetails">
-            <NavLink to="editprofile">
-              {" "}
               <img
                 className="leftbarImg"
                 src="/assets/images/person/1.jpg"
                 alt="person1"
               />
-            </NavLink>
 
             <span className="leftbarProfileName">Amila Aponsu</span>
           </li>

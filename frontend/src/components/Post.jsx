@@ -1,6 +1,7 @@
 
 import { MoreVert, Favorite, ThumbUp,ThumbUpOffAlt,ChatBubbleOutline } from "@mui/icons-material";
 import "../Styles/Post.css";
+import { NavLink } from "react-router-dom";
 
 export default function Post() {
   return (
@@ -8,8 +9,13 @@ export default function Post() {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img className="postProfileImg" src="/assets/images/person/2.jpg" alt="" />
-            <span className="postUserName">Nuwan Pradeep</span>
+
+            <NavLink to="editprofile">
+              <img className="postProfileImg" src="/assets/images/person/4.jpg" alt="" />
+            </NavLink>
+            
+              <span className="postUserName" id="abc">Nuwan Pradeep</span>
+
             <span className="postDate">5 min ago</span>
           </div>
           <div className="postTopRight">

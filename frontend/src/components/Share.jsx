@@ -6,7 +6,6 @@ import {
 } from "@mui/icons-material";
 import { useState } from "react";
 import Createpost from "./Createpost";
-import { NavLink } from "react-router-dom";
 import "../Styles/Share.css";
 
 export default function Share() {
@@ -16,13 +15,11 @@ export default function Share() {
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <NavLink to="editprofile">
             <img
               className="shareProfileImg"
               src="/assets/images/person/1.jpg"
               alt="person1"
             />
-          </NavLink>
           <input placeholder="What's in your mind?" className="shareInput" />
         </div>
         <hr className="shareHr" />
