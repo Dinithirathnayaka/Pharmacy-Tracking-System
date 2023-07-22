@@ -263,15 +263,14 @@
     border-radius: 18px;
   }
   
-  .commenterName {
-    font-weight: 400;
+  .commenterName1 {
+    font-weight: bold;
     font-size: 13px;
     color: #050505;
     cursor: pointer;
   }
   
-  .comment {
-    font-weight: 200;
+  .comment1 {
     font-size: 11px;
     color: #050505;
     cursor: pointer;

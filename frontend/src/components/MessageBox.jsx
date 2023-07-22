@@ -1,11 +1,11 @@
 import React from 'react'
 import "../Styles/MessageBox.css"
-import {Call, Videocam, Settings, HighlightOff} from "@mui/icons-material"
+import {Call, Videocam, Settings, HighlightOff,CameraAlt,AttachFile,Send} from "@mui/icons-material"
 
 export default function MessageBox({closeModal}) {
   return (
-    <>
-      <div className="messageBoxWrapper">
+<>
+    <div className="messageBoxWrapper">
         <div className="messageBoxTop">
             <img src="/assets/images/person/3.jpg" alt="" className="messagerProfileImg" />
             <div className="profileStatus">
@@ -33,8 +33,13 @@ export default function MessageBox({closeModal}) {
 
         <hr />
 
-        <div className="messageBoxBottom"></div>
-      </div>
-    </>
+        <div className="messageBoxBottom">
+            <CameraAlt fontSize='medium' className="messageOptionIcon"/>
+            <AttachFile fontSize='medium' className="messageOptionIcon"/>
+            <input placeholder="Type here...." className="typeMessage" required />
+            <Send fontSize='medium' className="messageSendIcon"/>
+        </div>
+    </div>
+</>
   )
 }

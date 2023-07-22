@@ -3,9 +3,12 @@
 .messageBoxWrapper{
     flex: 100%;
     border-radius: 10px;
-    padding: 10px;
     margin-top: 200px;
     margin-right: 20px;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    background-color: white;
+    padding-bottom: 10px;
 }
 
 .messageBoxTop{
@@ -15,6 +18,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    border-radius: 10px 10px 0 0;
 }
 
 .messagerProfileImg{
@@ -46,6 +50,7 @@
 
 .messageOptionIcon{
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .closeBtn{
@@ -74,19 +79,48 @@
 .chat p{
     color: white;
     max-width: 75%;
-    font-size: small;
+    font-size: medium;
     padding: 12px 16px;
-    border-radius: 10px 10px 0 10px;
+    border-radius: 10px 10px 10px 10px;
     background-color: rgb(59, 2, 138);
 }
 
 .incoming p{
     color: black;
     background-color: rgb(206, 206, 206);
-    border: 10px 10px 10px 0;
+    border: 10px 10px 10px 10px;
 }
 
 .recievedImg{
     width: 150px;
     height: 150px;
+    border-radius: 10px;
+}
+
+.messageBoxBottom{
+    margin: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.typeMessage{
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(239, 239, 239);
+    width: 70%;
+    margin-right: 10px;
+    height: 50px;
+    font-size: 15px;
+    outline: none;
+    padding: 5px;
+    font-weight: 400;
+}
+
+.messageSendIcon{
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.typeMessage:valid ~ .messageSendIcon{
+    visibility: visible;
 }

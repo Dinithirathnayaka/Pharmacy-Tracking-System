@@ -161,8 +161,8 @@ export default function UserProfile() {
                                         <img className="commenterImg" src="/assets/images/person/3.jpg" alt="person3" />
                                         <div>
                                             <div className="commenterDetails">
-                                                <div className="commenterName">Nimali Fonseka</div>
-                                                <div className="comment">I need this.</div>
+                                                <div className="commenterName1">Nimali Fonseka</div>
+                                                <div className="comment1">I need this.</div>
                                             </div>
 
                                             <div className="commentDetails">
