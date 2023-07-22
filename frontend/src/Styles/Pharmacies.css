@@ -10,6 +10,12 @@
   background-size: cover;
 }
 
+.editpaharmacisimg {
+  width: 110px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
 .pharmacis {
   height: 95vh;
   width: 450px;
@@ -27,7 +33,22 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center !important;
+  position: relative;
 }
+
+/* .camera {
+  color: #000;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -33px;
+  font-size: 20px;
+} */
+
+.pharmacycertificate {
+  border: 1pzx solid #0195e8;
+  height: 50px;
+}
+
 .pharmacies-register {
   text-align: center;
   color: #0195e8;
@@ -40,7 +61,7 @@
   padding-left: 10px;
   padding-right: 10px;
   height: 80vh;
-  margin-top: -25px;
+  margin-top: 25px;
 }
 
 .pharmacist-form input {

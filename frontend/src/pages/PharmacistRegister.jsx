@@ -1,22 +1,30 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+// import { FaCamera } from "react-icons/fa";
+import { FileUploader } from "react-drag-drop-files";
 import "../Styles/Pharmacies.css";
 
+const fileTypes = ["JPG", "PNG", "GIF"];
 export const Pharmacistregister = () => {
-  //   const [fullname, setFullname] = useState("");
-  //   const [prno, setPrno] = useState("");
-  //   const [pharmacyname, setPharmacyname] = useState("");
-  //   const [pharamacyaddress, setPharamacyaddress] = useState("");
-  //   const [nic, setNic] = useState("");
-  //   const [email, setEmail] = useState("");
-  //   const [profilepic, setProfilepic] = useState("");
-  //   const [pass, setPass] = useState("");
-  //   const [cpass, setCpass] = useState("");
+  // const uploadedImage = React.useRef(null);
+  // const imageUploader = React.useRef(null);
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     console.log(email);
-  //   };
+  // const handleImageUpload = (e) => {
+  //   const [file] = e.target.files;
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     const { current } = uploadedImage;
+  //     current.file = file;
+  //     reader.onload = (e) => {
+  //       current.src = e.target.result;
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+  const [file, setFile] = useState(null);
+  const handleChange = (file) => {
+    setFile(file);
+  };
 
   return (
     <div className="phamacies-container">
@@ -25,96 +33,57 @@ export const Pharmacistregister = () => {
         <h5 className="pharmacies-register">REGISTER AS A PHARMACIST</h5>
 
         <Form className="pharmacist-form">
-          {/* <label for="fullname">Full Name</label> */}
-          <br />
-          <input
-            //   value={fullname}
-            //   onCharge={(e) => setFullname(e.target.value)}
-            type="text"
-            className="fullname"
-            placeholder="Full Name"
-            //   name="fullname"
-          />
-          <br />
-
-          <input
-            //   value={prno}
-            //   onCharge={(e) => setPrno(e.target.value)}
-            type="text"
-            className="prno"
-            placeholder="Pharmacy registration number"
-            //   name="prno"
-          />
-          <br />
-
-          <input
-            //   value={pharmacyname}
-            //   onCharge={(e) => setPharmacyname(e.target.value)}
-            type="text"
-            className="pharmacyname"
-            placeholder="Name of the pharmacy"
-            //   name="pharmacyname"
-          />
-          <br />
-
-          <input
-            //   value={pharamacyaddress}
-            //   onCharge={(e) => setPharamacyaddress(e.target.value)}
-            type="text"
-            className="pharamacyaddress"
-            placeholder="Address of the pharamacy"
-            //   name="pharamacyaddress"
-          />
-          <br />
-
-          <input
-            //   value={nic}
-            //   onCharge={(e) => setNic(e.target.value)}
-            type="text"
-            className="nic"
-            placeholder="NIC"
-            //   name="nic"
-          />
-          <br />
-
-          <input
-            //   value={email}
-            //   onCharge={(e) => setEmail(e.target.value)}
-            type="email"
-            className="email"
-            placeholder="Email"
-            //   name="email"
-          />
-          <br />
-
-          <input
-            //   value={profilepic}
-            //   onCharge={(e) => setProfilepic(e.target.value)}
+          {/* <input
             type="file"
-            className="profilepic"
-            placeholder="No file choosen"
-            //   name="profilepic"
+            accept="image/*"
+            onChange={handleImageUpload}
+            ref={imageUploader}
+            style={{
+              display: "none",
+            }}
+          />
+          <div>
+            <img
+              src="assets/images/Pharmacies.jpeg"
+              ref={uploadedImage}
+              className="pharmaciesimg"
+              style={{
+                width: "150px",
+                height: "150px",
+                borderRadius: "50%",
+                position: "relative",
+                marginTop: "5%",
+              }}
+            />
+          </div>
+          <FaCamera
+            onClick={() => imageUploader.current.click()}
+            className="uploadIcon"
+          /> */}
+
+          <label for="">Full Name</label>
+          <input type="text" className="fullname" />
+          <br />
+
+          <label for="">Enter Email</label>
+          <input type="email" className="email" />
+          <br />
+
+          <label for="">Upload Valid Pharmacies Certificate</label>
+          <FileUploader
+            handleChange={handleChange}
+            name="file"
+            types={fileTypes}
+            className="pharmacycertificate"
           />
           <br />
 
-          <input
-            //   value={pass}
-            //   onCharge={(e) => setPass(e.target.value)}
-            type="password"
-            className="pass"
-            placeholder="Password"
-            //   name="pass"
-          />
+          <label for="">Enter Password</label>
+          <input type="password" className="pass" />
           <br />
 
-          <input
-            //   value={cpass}
-            //   onCharge={(e) => setCpass(e.target.value)}
-            type="password"
-            className="cpass"
-            placeholder="Confirm Password"
-            //   name="cpass"
-          />
+          <label for="">Confirm Password</label>
+          <input type="password" className="cpass" />
           <br />
 
           <input type="submit" value="SUBMIT" className="submitbtnpharmacy" />

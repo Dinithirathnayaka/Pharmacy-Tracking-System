@@ -32,7 +32,7 @@ export default function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/phamacistregister" element={<Pharmacistregister />} />
+          <Route path="/pharmacistregister" element={<Pharmacistregister />} />
           <Route path="/reset" element={<Reset />} />
           <Route path="/addmedicine" element={<AddMedicine />} />
 

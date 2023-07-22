@@ -58,7 +58,7 @@ export const Register = () => {
         </Form>
 
         <Link
-          to="/phamacistregister"
+          to="/pharmacistregister"
           className="register-pharmacist"
           style={{ textDecoration: "none", color: "#000000" }}
         >
