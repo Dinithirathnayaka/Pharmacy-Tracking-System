@@ -125,28 +125,6 @@
     height: 100%;
 }
 
-/* .locationInput{
-    position: absolute;
-    bottom: 5%;
-    top: 540px;
-    right: 0;
-    left: 400px;
-    width: 250px;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    padding-left: 30px;
-}
-
-.locationIcon{
-    color: rgb(133, 133, 133);
-    position: absolute;
-    bottom: 5%;
-    top: 548px;
-    right: 0;
-    left: 400px;
-} */
-
 .profileDetailsList{
    list-style: none;
    padding: 0;
