@@ -15,9 +15,22 @@ function AddMedicine() {
         </div>
 
         <div className='container'>
-
             <div>
-                <button className='Addmedicine'> View Stock </button>
+                <button className='addmedicinebutton'> View Stock </button>
+            </div>
+            <div>
+                <form>
+                    <div className='form'>
+                        Medicine batch no <input className='formInputs' type='text' name='batchNo'/> <br/>
+                        Medicine name <input className='formInputs' type='text' name='medName'/> <br/>
+                        Medicine company <input className='formInputs' type='text' name='medCompany'/> <br/> 
+                        Medicine quality <input className='formInputs' type='text' name='medQuality'/> <br/>
+                        Med expiry date <input className='formInputs' type='text' name='expiryDate'/> <br/>
+                        Medicine type <input className='formInputs' type='text' name='medType'/> <br/>
+                    </div>
+
+                    <button className='savebutton'>SAVE</button>
+                </form>
             </div>
         </div>
     </>
