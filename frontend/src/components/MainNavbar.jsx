@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import pts_logo from "./images/pts_logo.png";
-import { Person, Chat, Notifications, Search } from "@mui/icons-material";
+import { Person, Chat, Notifications } from "@mui/icons-material";
 import "../Styles/Topbar.css";
 import SearchBar from "./SearchBar";
 

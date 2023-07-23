@@ -1,4 +1,3 @@
-import Topbar from "./Topbar";
 import Rightbar from "./Rightbar";
 import Feed from "./Feed";
 import Leftbar from "./Leftbar";
