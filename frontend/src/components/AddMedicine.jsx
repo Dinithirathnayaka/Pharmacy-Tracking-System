@@ -29,37 +29,39 @@ function AddMedicine() {
         </div>
         <div>
           <form>
-            <div className="form">
-              Medicine batch no{" "}
-              <input className="formInputs" type="text" name="batchNo" /> <br />
-              Medicine name{" "}
-              <input className="formInputs" type="text" name="medName" /> <br />
-              Medicine company{" "}
-              <input
-                className="formInputs"
-                type="text"
-                name="medCompany"
-              />{" "}
-              <br />
-              Medicine quality{" "}
-              <input
-                className="formInputs"
-                type="text"
-                name="medQuality"
-              />{" "}
-              <br />
-              Med expiry date{" "}
-              <input
-                className="formInputs"
-                type="text"
-                name="expiryDate"
-              />{" "}
-              <br />
-              Medicine type{" "}
-              <input className="formInputs" type="text" name="medType" /> <br />
-            </div>
+            <table>
+                <div className="form">
+                    <tr>
+                        <td><lable for="batch">Medicine batch no</lable></td>
+                        <td><input className='formInputs' type='text' id="batch" name='batchNo'/></td> 
+                    </tr>
+                    <tr>
+                        <td><lable for="medname">Medicine name </lable></td>
+                        <td><input className='formInputs' type='text' id="medname" name='medName'/></td>
+                    </tr>
+                    <tr>
+                        <td><lable for="medcompany">Medicine company </lable></td>
+                        <td><input className='formInputs' type='text' id="medcompany" name='medCompany'/></td>
+                    </tr>   
+                    <tr>
+                        <td><lable for="medquantity">Medicine quantity </lable></td>
+                        <td><input className='formInputs' type='text' id="medquantity" name='medQuantity'/></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="exdate">Med expiry date </lable></td>
+                        <td><input className='formInputs' type='text' id="exdate" name='expiryDate'/></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="medtype">Medicine type </lable></td>
+                        <td><input className='formInputs' type='text' id="medtype" name='medType'/></td>
+                    </tr> 
+                    <tr>
+                        <td><button className="savebutton">SAVE</button></td>
+                    </tr>
+                </div>
 
-            <button className="savebutton">SAVE</button>
+                
+            </table>
           </form>
         </div>
       </div>

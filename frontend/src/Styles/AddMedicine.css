@@ -27,13 +27,28 @@
   border: 1px;
 
   border: 1px solid;
-
-  margin-left: 462px;
 }
+
+table{
+    width: 80%;
+    background: #ffffff;
+    border: none;
+}
+
+td{
+    text-align: left;
+}
+
+td:nth-child(odd) {
+    width: 25%;
+  }
+  tr:nth-child(even) {
+    width: 75%;
+  }
 
 .savebutton {
   width: 127px;
-  height: 48px;
+  height: 40px;
   top: 910px;
   left: 185px;
   border-radius: 5px;
@@ -42,7 +57,7 @@
   border: none;
 
   font-family: Noto Sans;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 34px;
   letter-spacing: 0em;
