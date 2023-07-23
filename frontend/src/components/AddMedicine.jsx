@@ -32,31 +32,31 @@ function AddMedicine() {
             <table>
                 <div className="form">
                     <tr>
-                        <td><lable for="batch">Medicine batch no</lable></td>
+                        <td style={{ textAlign:"left" }}>Medicine batch no</td>
                         <td><input className='formInputs' type='text' id="batch" name='batchNo'/></td> 
                     </tr>
                     <tr>
-                        <td><lable for="medname">Medicine name </lable></td>
+                        <td style={{ textAlign:"left" }}>Medicine name</td>
                         <td><input className='formInputs' type='text' id="medname" name='medName'/></td>
                     </tr>
                     <tr>
-                        <td><lable for="medcompany">Medicine company </lable></td>
+                        <td style={{ textAlign:"left" }}>Medicine company</td>
                         <td><input className='formInputs' type='text' id="medcompany" name='medCompany'/></td>
                     </tr>   
                     <tr>
-                        <td><lable for="medquantity">Medicine quantity </lable></td>
+                        <td style={{ textAlign:"left" }}>Medicine quantity</td>
                         <td><input className='formInputs' type='text' id="medquantity" name='medQuantity'/></td>
                     </tr> 
                     <tr>
-                        <td><lable for="exdate">Med expiry date </lable></td>
+                        <td style={{ textAlign:"left" }}>Med expiry date</td>
                         <td><input className='formInputs' type='text' id="exdate" name='expiryDate'/></td>
                     </tr> 
                     <tr>
-                        <td><lable for="medtype">Medicine type </lable></td>
+                        <td style={{ textAlign:"left" }}>Medicine type</td>
                         <td><input className='formInputs' type='text' id="medtype" name='medType'/></td>
                     </tr> 
                     <tr>
-                        <td><button className="savebutton">SAVE</button></td>
+                        <td style={{ textAlign:"left" }}><button className="savebutton">SAVE</button></td>
                     </tr>
                 </div>
 
