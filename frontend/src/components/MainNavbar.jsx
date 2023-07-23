@@ -1,10 +1,20 @@
 import React from "react";
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import pts_logo from "./images/pts_logo.png";
 import { Person, Chat, Notifications, Search } from "@mui/icons-material";
 import "../Styles/Topbar.css";
+import SearchBar from "./SearchBar";
+
+import { useSearchContext } from "../context/SearchContext";
 
 const MainNavbar = () => {
+  const { searchQuery, setSearchQuery } = useSearchContext();
+
+  // Function to handle search
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   return (
     <header>
       <nav
@@ -34,15 +44,7 @@ const MainNavbar = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="topbarCenter">
-              <div className="searchbar">
-                <Search className="searchIcon" />
-                <input
-                  placeholder="Search for friend,post or any video"
-                  className="searchInput"
-                />
-              </div>
-            </div>
+            <SearchBar onSearch={handleSearch} />
 
             <div style={{ marginRight: "3rem" }} className="navbar-nav ms-auto">
               <NavLink to="/main" className="nav-link" aria-current="page" end>

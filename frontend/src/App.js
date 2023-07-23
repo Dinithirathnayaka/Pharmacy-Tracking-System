@@ -16,39 +16,58 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Reset } from "./pages/ResetPassword";
+import { useState } from "react";
 
 //pages
 import ViewDoctor from "./pages/ViewDoctor";
 import MainNavbar from "./components/MainNavbar";
 import LocateUs from "./pages/LocateUs";
 
+//context
+import { SearchProvider } from "./context/SearchContext";
+
 export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Function to handle search
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+  
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<StarterNavBar />}>
-            <Route index element={<Hero />} />
-            <Route path="services" element={<Services />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
+      <SearchProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<StarterNavBar />}>
+              <Route index element={<Hero />} />
+              <Route path="services" element={<Services />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+            </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/pharmacistregister" element={<Pharmacistregister />} />
-          <Route path="/reset" element={<Reset />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/pharmacistregister"
+              element={<Pharmacistregister />}
+            />
+            <Route path="/reset" element={<Reset />} />
 
-          <Route path="/main" element={<MainNavbar />}>
-            <Route index element={<Profile />} />
-            <Route path="stock" element={<Stock />} />
-            <Route path="locate" element={<LocateUs />} />
-            <Route path="viewdoctor" element={<ViewDoctor />} />
-            <Route path="editprofile" element={<EditProfile />} />
-            <Route path="addmedicine" element={<AddMedicine />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+            <Route path="/main" element={<MainNavbar />}>
+              <Route index element={<Profile />} />
+              <Route path="stock" element={<Stock />} />
+              <Route path="locate" element={<LocateUs />} />
+              <Route
+                path="viewdoctor"
+                element={<ViewDoctor searchQuery={searchQuery} />}
+              />
+              <Route path="editprofile" element={<EditProfile />} />
+              <Route path="addmedicine" element={<AddMedicine />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </SearchProvider>
     </div>
   );
 }
