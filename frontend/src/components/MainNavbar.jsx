@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import pts_logo from "./images/pts_logo.png";
 import { Person, Chat, Notifications } from "@mui/icons-material";
-import "../Styles/Topbar.css";
+import "../Styles/MainNavBar.css";
 import SearchBar from "./SearchBar";
 
 import { useSearchContext } from "../context/SearchContext";
@@ -17,10 +17,7 @@ const MainNavbar = () => {
 
   return (
     <header>
-      <nav
-        className="navbar navbar-expand-lg navbar-light main-navbar"
-        style={{ backgroundColor: "rgb(0, 94, 255)" }}
-      >
+      <nav className="navbar shadow navbar-expand-lg main-navbar">
         <div className="container-fluid">
           <a className="navbar-brand">
             <img
@@ -61,18 +58,18 @@ const MainNavbar = () => {
               </NavLink>
             </div>
 
-            <div className="topbarIcons">
-              <div className="topbarIconItem">
+            <div className="mainNavBarIcons">
+              <div className="mainNavBarIconItem">
                 <Person />
-                <span className="topbarIconBadge">1</span>
+                <span className="mainNavBarIconBadge">1</span>
               </div>
-              <div className="topbarIconItem">
+              <div className="mainNavBarIconItem">
                 <Chat />
-                <span className="topbarIconBadge">2</span>
+                <span className="mainNavBarIconBadge">2</span>
               </div>
-              <div className="topbarIconItem">
+              <div className="mainNavBarIconItem">
                 <Notifications />
-                <span className="topbarIconBadge">1</span>
+                <span className="mainNavBarIconBadge">1</span>
               </div>
             </div>
             <NavLink to="editprofile">
@@ -80,7 +77,7 @@ const MainNavbar = () => {
               <img
                 src="/assets/images/person/1.jpg"
                 alt=""
-                className="topbarImg"
+                className="mainNavBarImg"
               />
             </NavLink>
           </div>

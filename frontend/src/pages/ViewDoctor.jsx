@@ -7,6 +7,7 @@ import { useSearchContext } from "../context/SearchContext";
 // components
 import DoctorProfile from "../components/DoctorProfile";
 import TitleBar from "../components/TitleBar";
+import DataNotFound from "../components/DataNotFound";
 
 const ViewDoctor = () => {
   const [profiles, setProfiles] = useState(null);
@@ -52,18 +53,17 @@ const ViewDoctor = () => {
       />
 
       <div className="container template_Container">
-        <div className="row row-cols-1 row-cols-md-4 g-5 card-container ">
-          {filteredData &&
-            filteredData.map((profile) => (
+        {filteredData.length === 0 ? (
+          <DataNotFound /> // Use the DataNotFound component here
+        ) : (
+          <div className="row row-cols-1 row-cols-md-4 g-5 card-container">
+            {filteredData.map((profile) => (
               <div className="col" key={profile._id}>
                 <DoctorProfile profile={profile} />
               </div>
             ))}
-        </div>
-      </div>
-
-      <div className="home">
-        <div className="profiles"></div>
+          </div>
+        )}
       </div>
     </>
   );

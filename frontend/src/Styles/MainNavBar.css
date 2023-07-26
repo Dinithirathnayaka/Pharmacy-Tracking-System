@@ -1,18 +1,40 @@
-.topbarContainer {
+.main-navbar {
+  background-color: #fff;
+}
+
+a.nav-link {
+  font-size: var(--text-regular) !important;
+  font-weight: var(--font-weight-semi-bold) !important;
+  margin: 0 10px;
+  border-bottom: 2px solid transparent;
+  color: black !important;
+}
+
+a.nav-link:hover {
+  border-bottom: 2px solid red;
+  color: var(--orange) !important;
+}
+
+a.nav-link.active {
+  border-bottom: 2px solid red;
+  color: var(--orange) !important;
+}
+
+.mainNavBarContainer {
   height: 50px;
   width: 100%;
-  background-color: rgb(0, 94, 255);
+  background-color: white;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
 }
 
-.topbarLeft {
+.mainNavBarLeft {
   flex: 3;
 }
 
-.topbarLogo {
+.mainNavBarLogo {
   font-size: 20px;
   margin-left: 20px;
   font-weight: bold;
@@ -20,11 +42,11 @@
   cursor: pointer;
 }
 
-.topbarCenter {
+.mainNavBarCenter {
   flex: 3;
 }
 
-.topbarRight {
+.mainNavBarRight {
   flex: 5;
   display: flex;
   align-items: center;
@@ -32,25 +54,25 @@
   color: white;
 }
 
-.topbarLink {
+.mainNavBarLink {
   margin-right: 25px;
   font-size: 14px;
   cursor: pointer;
   font-weight: bold;
 }
 
-.topbarIcons {
+.mainNavBarIcons {
   display: flex;
-  color: white;
+  color: black;
 }
 
-.topbarIconItem {
+.mainNavBarIconItem {
   margin-right: 15px;
   cursor: pointer;
   position: relative;
 }
 
-.topbarIconBadge {
+.mainNavBarIconBadge {
   width: 15px;
   height: 15px;
   background-color: red;
@@ -66,7 +88,7 @@
   font-weight: bold;
 }
 
-.topbarImg {
+.mainNavBarImg {
   width: 32px;
   height: 32px;
   border-radius: 50%;

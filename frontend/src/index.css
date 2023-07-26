@@ -73,27 +73,7 @@ body {
   background-color: #0062df !important;
 }
 
-/* .navbar {
-  padding: 28px 0;
-} */
 
-a.nav-link {
-  font-size: var(--text-regular) !important;
-  font-weight: var(--font-weight-semi-bold) !important;
-  margin: 0 10px;
-  border-bottom: 2px solid transparent;
-  color: #eeeeee !important;
-}
-
-a.nav-link:hover {
-  /* border-bottom: 2px solid red; */
-  color: var(--orange) !important;
-}
-
-a.nav-link.active {
-  /* border-bottom: 2px solid red; */
-  color: var(--orange) !important;
-}
 
 /*-----------------------
   ------- HERO-------------
