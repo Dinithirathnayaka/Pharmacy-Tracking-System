@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const About = () => {
   return (
@@ -43,7 +44,12 @@ const About = () => {
                   amount of hands on experience.
                 </p>
                 <div>
-                  <button className="btn btn-primary">Visit our main page</button>
+                  <NavLink to="/main">
+                    {" "}
+                    <button className="btn btn-primary">
+                      Visit our main page
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             </div>

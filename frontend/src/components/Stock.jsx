@@ -14,15 +14,7 @@ const Stock = () => {
 
       <hr />
       <div className="container">
-        <div
-          className="addbutton"
-          style={{
-            marginBottom: "10px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="addbutton text-center ">
           <a href="addmedicine">Add Medicine</a>
         </div>
 

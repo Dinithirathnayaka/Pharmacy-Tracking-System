@@ -10,15 +10,24 @@
   background-color: #0168a2;
   width: 150px;
   height: 40px;
-  top: 169px;
-  left: 159px;
-  gap: 10px;
+  top: 5%;
+  padding: 8px;
   border: #0168a2;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 22px;
 }
 
 .addbutton a {
   text-decoration: none;
   color: white;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
 }
 
 table,
