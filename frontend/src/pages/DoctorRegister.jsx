@@ -4,7 +4,7 @@ import { FileUploader } from "react-drag-drop-files";
 import "../Styles/Pharmacies.css";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
-export const Pharmacistregister = () => {
+export const Doctorregister = () => {
   const [file, setFile] = useState(null);
   const handleChange = (file) => {
     setFile(file);
@@ -13,8 +13,8 @@ export const Pharmacistregister = () => {
   return (
     <div className="phamacies-container">
       <div className="pharmacis">
-        <img src="assets/images/Pharmacies.jpeg" className="pharmaciesimg" />
-        <h5 className="pharmacies-register">REGISTER AS A PHARMACIST</h5>
+        <img src="assets/images/doctor.png" className="pharmaciesimg" />
+        <h5 className="pharmacies-register">REGISTER AS A DOCTOR</h5>
 
         <Form className="pharmacist-form">
           <label for="">Full Name</label>
@@ -25,7 +25,7 @@ export const Pharmacistregister = () => {
           <input type="email" className="email" />
           <br />
 
-          <label for="">Upload Valid Pharmacies Certificate</label>
+          <label for="">Upload Valid Doctor Certificate</label>
           <FileUploader
             handleChange={handleChange}
             name="file"

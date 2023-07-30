@@ -17,6 +17,7 @@ import EditStock from "./components/EditStock";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
+import { Doctorregister } from "./pages/DoctorRegister";
 import { Reset } from "./pages/ResetPassword";
 import ViewDoctor from "./pages/ViewDoctor";
 import MainNavbar from "./components/MainNavbar";
@@ -51,6 +52,7 @@ export default function App() {
               path="/pharmacistregister"
               element={<Pharmacistregister />}
             />
+            <Route path="/registerdoctor" element={<Doctorregister />} />
             <Route path="/reset" element={<Reset />} />
 
             <Route path="/main" element={<MainNavbar />}>

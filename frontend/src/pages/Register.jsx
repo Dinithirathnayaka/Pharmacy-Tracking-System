@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
@@ -57,13 +57,23 @@ export const Register = () => {
           <br />
         </Form>
 
-        <Link
-          to="/pharmacistregister"
-          className="register-pharmacist"
-          style={{ textDecoration: "none", color: "#000000" }}
-        >
-          Register as a pharmacist
-        </Link>
+        <div className="registerperson">
+          <a
+            href="/pharmacistregister"
+            className="register-pharmacist"
+            style={{ textDecoration: "none", color: "#000000" }}
+          >
+            Register as a Pharmacist
+          </a>
+
+          <a
+            href="/registerdoctor"
+            className="register-doctor"
+            style={{ textDecoration: "none", color: "#000000" }}
+          >
+            Register as a Doctor
+          </a>
+        </div>
       </div>
     </div>
   );

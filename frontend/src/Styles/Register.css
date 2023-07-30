@@ -107,3 +107,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.registerperson {
+  display: flex;
+  justify-content: space-between;
+}
