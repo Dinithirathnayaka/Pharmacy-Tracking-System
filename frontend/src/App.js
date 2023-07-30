@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //components
@@ -10,15 +11,13 @@ import AddMedicine from "./components/AddMedicine";
 import Stock from "./components/Stock";
 import Services from "./components/Services";
 import Hero from "./components/Hero";
+import EditStock from "./components/EditStock";
 
-//images
+//pages
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Reset } from "./pages/ResetPassword";
-import { useState } from "react";
-
-//pages
 import ViewDoctor from "./pages/ViewDoctor";
 import MainNavbar from "./components/MainNavbar";
 import LocateUs from "./pages/LocateUs";
@@ -33,7 +32,7 @@ export default function App() {
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
-  
+
   return (
     <div>
       <SearchProvider>
@@ -64,6 +63,7 @@ export default function App() {
               />
               <Route path="editprofile" element={<EditProfile />} />
               <Route path="addmedicine" element={<AddMedicine />} />
+              <Route path="editstock" element={<EditStock />} />
             </Route>
           </Routes>
         </BrowserRouter>

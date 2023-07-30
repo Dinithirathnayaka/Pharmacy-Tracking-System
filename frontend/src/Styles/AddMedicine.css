@@ -27,20 +27,24 @@
   box-shadow: 0px 0px 4px 2px #00000040;
 }
 
-.formInputs, .savebutton{
-    height: 40px;
-    margin-top: 10px;
+.formInputs,
+.savebutton {
+  height: 40px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-table{
-    width: 80%;
-    background: #ffffff;
-    border: 0;
+table {
+  width: 80%;
+  background: #ffffff;
+  border: 0;
 }
 
-td{
-    text-align: left;
-    height:60px;
+td {
+  text-align: left;
+  height: 60px;
+  padding-left: 20px;
 }
 
 .savebutton {
@@ -51,11 +55,6 @@ td{
   background: #0062df;
   box-shadow: 0px 0px 4px 2px #00000040;
   border: none;
-
-  font-family: Noto Sans;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 34px;
-  letter-spacing: 0em;
+  font-size: 15px;
   color: #ffffff;
 }

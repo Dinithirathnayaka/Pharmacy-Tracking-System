@@ -44,11 +44,15 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img
-                className="action"
-                src="/assets/images/edit.png"
-                style={{ height: "20px", width: "20px", marginRight: "5px" }}
-              />
+              <a href="editstock">
+                {" "}
+                <img
+                  className="action"
+                  src="/assets/images/edit.png"
+                  style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                />
+              </a>
+
               <img
                 className="action"
                 src="/assets/images/bin.png"
@@ -64,11 +68,14 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img
-                className="action"
-                src="/assets/images/edit.png"
-                style={{ height: "20px", width: "20px", marginRight: "5px" }}
-              />
+              <a href="editstock">
+                {" "}
+                <img
+                  className="action"
+                  src="/assets/images/edit.png"
+                  style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                />
+              </a>
               <img
                 className="action"
                 src="/assets/images/bin.png"
@@ -84,11 +91,14 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img
-                className="action"
-                src="/assets/images/edit.png"
-                style={{ height: "20px", width: "20px", marginRight: "5px" }}
-              />
+              <a href="editstock">
+                {" "}
+                <img
+                  className="action"
+                  src="/assets/images/edit.png"
+                  style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                />
+              </a>
               <img
                 className="action"
                 src="/assets/images/bin.png"
@@ -104,11 +114,14 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <img
-                className="action"
-                src="/assets/images/edit.png"
-                style={{ height: "20px", width: "20px", marginRight: "5px" }}
-              />
+              <a href="editstock">
+                {" "}
+                <img
+                  className="action"
+                  src="/assets/images/edit.png"
+                  style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                />
+              </a>
               <img
                 className="action"
                 src="/assets/images/bin.png"
