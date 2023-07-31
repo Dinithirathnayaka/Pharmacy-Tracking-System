@@ -73,14 +73,12 @@ body {
   background-color: #0062df !important;
 }
 
-
-
 /*-----------------------
   ------- HERO-------------
   ------------------------- */
 
 .hero {
-  height: calc(100vh - 113px);
+  height: calc(100vh - 116px);
   background-image: url("../public/assets/images/82254436b9.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -422,6 +420,39 @@ body {
   .about-card-container button {
     width: 100%;
   }
+}
+
+/*-----------------------
+  ------- FOOTER STATERPAGE-------------
+  ------------------------- */
+
+.footer {
+  background-color: #0062df;
+  height: auto !important;
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer h5 {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.contacticon {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.followicon {
+  margin-right: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
 }
 
 /* After the toggler button appears */

@@ -15,89 +15,93 @@ function EditStock() {
       <hr />
 
       <div className="container">
-        <div>
+        <div className="addmedicine_container">
           <form>
-            <table>
-              <div className="form">
-                <tr>
-                  <td style={{ textAlign: "left" }}>Medicine batch no</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="batch"
-                      name="batchNo"
-                      value="001"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>Medicine name</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="medname"
-                      name="medName"
-                      value="Name 1"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>Medicine company</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="medcompany"
-                      name="medCompany"
-                      value="ABC Company"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>Medicine quantity</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="medquantity"
-                      name="medQuantity"
-                      value="150"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>Med expiry date</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="exdate"
-                      name="expiryDate"
-                      value="2023/07/30"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>Medicine type</td>
-                  <td>
-                    <input
-                      className="formInputs"
-                      type="text"
-                      id="medtype"
-                      name="medType"
-                      value="Vitamin"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ textAlign: "left" }}>
-                    <button className="savebutton">SAVE</button>
-                  </td>
-                </tr>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Medicine batch no</label>
               </div>
-            </table>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="batch"
+                  name="batchNo"
+                  value="001"
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Medicine name</label>
+              </div>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="medname"
+                  name="medName"
+                  value="Name 1"
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Medicine company</label>
+              </div>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="medcompany"
+                  name="medCompany"
+                  value="ABC Company"
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Medicine quantity</label>
+              </div>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="medquantity"
+                  name="medQuantity"
+                  value="150"
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Med expiry date</label>
+              </div>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="exdate"
+                  name="expiryDate"
+                  value="2023/07/30"
+                />
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-3 col-xs-12">
+                <label>Medicine type</label>
+              </div>
+              <div className="col-md-6 col-xs-12">
+                <input
+                  className="formInputs"
+                  type="text"
+                  id="medtype"
+                  name="medType"
+                  value="Vitamin"
+                />
+              </div>
+            </div>
+            <button className="savebutton">SAVE</button>
           </form>
         </div>
       </div>
