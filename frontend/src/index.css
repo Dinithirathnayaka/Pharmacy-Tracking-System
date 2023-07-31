@@ -78,7 +78,7 @@ body {
   ------------------------- */
 
 .hero {
-  height: calc(100vh - 116px);
+  height: 80vh;
   background-image: url("../public/assets/images/82254436b9.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -158,6 +158,10 @@ body {
 /*-------------------------
   ------- ABOUT-------------
   ------------------------- */
+
+.about-main-container {
+  height: 80vh;
+}
 
 .about-card-container {
   position: relative;
@@ -431,8 +435,9 @@ body {
   height: auto !important;
   /* position: fixed; */
   left: 0;
-  bottom: 0;
+  bottom: 0 !important;
   width: 100%;
+  margin-bottom: -20px;
 }
 
 .footer h5 {
