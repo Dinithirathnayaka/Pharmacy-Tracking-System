@@ -9,10 +9,11 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(email);
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log(email, password);
+  };
 
   return (
     <div className="form-container">
@@ -24,10 +25,16 @@ export const Login = () => {
           className="loginimg"
         />
         <h5 className="user-login">USER LOGIN</h5>
-        <Form className="login-form">
+        <Form className="login-form" onSubmit={handleSubmit}>
           <div className="emailcon">
             <HiMail className="emailicon" />
-            <input type="email" placeholder="Email address" className="email" />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
           </div>
 
           <br />
@@ -37,6 +44,8 @@ export const Login = () => {
               type="password"
               placeholder="Password"
               className="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </div>
 

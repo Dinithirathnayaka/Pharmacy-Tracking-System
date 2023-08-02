@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
-
 import "../Styles/Register.css";
 
 export const Register = () => {
-  // const [email, setEmail] = useState("");
-  // const [pass, setPass] = useState("");
-  // const [confirmpass, setConfirmpass] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(email);
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    console.log(email, password);
+  };
   return (
     <div className="register-container">
       <div className="register">
@@ -24,7 +22,9 @@ export const Register = () => {
           alt="user icon"
           className="registerimg"
         />
-        <h5 className="create-account">CREATE AN ACCOUNT</h5>
+        <h5 className="create-account" onSubmit={handleSubmit}>
+          CREATE AN ACCOUNT
+        </h5>
         <Form className="register-form">
           <div className="emailconreg">
             <HiMail className="emailicon" />
@@ -32,6 +32,8 @@ export const Register = () => {
               type="email"
               placeholder="Email address"
               className="emailreg"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
           <br />
@@ -41,6 +43,8 @@ export const Register = () => {
               type="password"
               placeholder="Password"
               className="passwordreg"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </div>{" "}
           <br />
@@ -50,6 +54,8 @@ export const Register = () => {
               type="password"
               placeholder="Confirm password"
               className="passwordconfirmreg"
+              onChange={(e) => setConfirmpassword(e.target.value)}
+              value={confirmpassword}
             />
           </div>
           <br />
