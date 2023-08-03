@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRegister } from "../hooks/useRegister";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
@@ -8,11 +9,12 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
+  const { signup, error, isLoading } = useRegister();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    await signup(email, password);
   };
   return (
     <div className="register-container">
@@ -22,10 +24,8 @@ export const Register = () => {
           alt="user icon"
           className="registerimg"
         />
-        <h5 className="create-account" onSubmit={handleSubmit}>
-          CREATE AN ACCOUNT
-        </h5>
-        <Form className="register-form">
+
+        <Form className="register-form" onSubmit={handleSubmit}>
           <div className="emailconreg">
             <HiMail className="emailicon" />
             <input
@@ -58,9 +58,11 @@ export const Register = () => {
               value={confirmpassword}
             />
           </div>
-          <br />
-          <input type="submit" value="SUBMIT" className="registerbtn" />
-          <br />
+          {/* <input type="submit" value="SUBMIT" className="registerbtn" /> */}
+          <button disabled={isLoading} className="registerbtn">
+            Sign up
+          </button>
+          {error && <div className="error">{error}</div>}
         </Form>
 
         <div className="registerperson">
