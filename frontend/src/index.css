@@ -70,7 +70,7 @@ body {
 }
 
 .starter-navbar {
-  background-color: #0062df !important;
+  background-color: white !important;
 }
 
 /*-----------------------
@@ -78,7 +78,7 @@ body {
   ------------------------- */
 
 .hero {
-  height: 80vh;
+  height: calc(100vh - 73px);
   background-image: url("../public/assets/images/82254436b9.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -124,7 +124,7 @@ body {
   ------------------------- */
 
 .services {
-  height: 80vh;
+  height: calc(100vh - 73px);
   text-align: center;
 }
 
@@ -160,7 +160,7 @@ body {
   ------------------------- */
 
 .about-main-container {
-  height: 80vh;
+  height: calc(100vh - 73px);
 }
 
 .about-card-container {
@@ -471,7 +471,7 @@ body {
 
   /* Hero */
   .hero {
-    height: calc(100vh - 97.31px);
+    height: calc(100vh - 57.11px);
     overflow: hidden;
   }
 }
