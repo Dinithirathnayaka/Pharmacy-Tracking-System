@@ -1,7 +1,14 @@
 import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const StarterNavBar = () => {
+  const { logout } = useLogout();
+
+  const handleClick = () => {
+    logout();
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light shadow starter-navbar">
@@ -43,6 +50,7 @@ const StarterNavBar = () => {
             <Link to="login" className="btn btn-primary shadow-none">
               SIGN IN
             </Link>
+            <div onClick={handleClick}>Log out</div>
           </div>
         </div>
       </nav>
