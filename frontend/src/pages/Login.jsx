@@ -3,16 +3,24 @@ import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
 import "../Styles/Login.css";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
+  const [allFieldsFilled, setAllFieldsFilled] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    if (!email || !password) {
+      setAllFieldsFilled(false);
+      return;
+    }
+
+    await login(email, password);
   };
 
   return (
@@ -49,8 +57,15 @@ export const Login = () => {
             />
           </div>
 
-          <br />
-          <input type="submit" value="SUBMIT" className="submitbtn" />
+          <button className="submitbtn" disabled={isLoading}>
+            {" "}
+            Login
+          </button>
+          {!allFieldsFilled && (
+            <div className="error">All fields must be filled</div>
+          )}
+          {error && <div className="error">{error}</div>}
+          {/* <input type="submit" value="SUBMIT" className="submitbtn" /> */}
         </Form>
         <div className="extra">
           {" "}

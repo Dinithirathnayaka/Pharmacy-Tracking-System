@@ -6,8 +6,12 @@ const {
   deletePost,
   updatePost,
 } = require("../controllers/postController");
+const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router();
+
+//require auth for all post routes
+router.use(requireAuth);
 
 //GET all posts
 router.get("/", getPosts);

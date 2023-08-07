@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const StarterNavBar = () => {
   const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const handleClick = () => {
     logout();
@@ -47,10 +49,29 @@ const StarterNavBar = () => {
                 CONTACT
               </NavLink>
             </div>
-            <Link to="login" className="btn btn-primary shadow-none">
-              SIGN IN
-            </Link>
-            <div onClick={handleClick}>Log out</div>
+            {/* {user && (
+              <div onClick={handleClick}>
+                <span style={{ color: "#000000" }}>{user.email}</span>
+                <button>Log out</button>
+              </div>
+            )}
+
+            {!user && (
+              <div>
+                <Link to="login" className="btn btn-primary shadow-none">
+                  SIGN IN
+                </Link>
+              </div>
+            )} */}
+
+            <div onClick={handleClick}>
+              <button>Log out</button>
+            </div>
+            <div>
+              <Link to="login" className="btn btn-primary shadow-none">
+                SIGN IN
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
