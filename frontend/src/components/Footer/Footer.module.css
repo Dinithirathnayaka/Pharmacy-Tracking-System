@@ -1,0 +1,29 @@
+.footer {
+  background-color: #0062df;
+  height: auto !important;
+  /* position: fixed; */
+  left: 0;
+  bottom: 0 !important;
+  width: 100%;
+  margin-bottom: -20px;
+}
+
+.footer h5 {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.contacticon {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.followicon {
+  margin-right: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
+}

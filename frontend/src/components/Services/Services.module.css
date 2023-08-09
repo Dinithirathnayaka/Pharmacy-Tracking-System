@@ -1,0 +1,34 @@
+.services {
+  height: calc(100vh - 73px);
+  text-align: center;
+}
+
+.card-container {
+  position: relative;
+  top: 15%;
+}
+
+.card-container .card {
+  border-radius: 20px;
+}
+
+.services-heading h1 {
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.service-card img {
+  width: 30%;
+  margin-top: 5px;
+}
+
+.service-card:hover {
+  background-color: #0195e8 !important;
+  color: #fff;
+}
+
+.card-footer button {
+  width: 100%;
+}

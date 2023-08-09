@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //components
 import StarterNavBar from "./components/StarterNavBar";
-import Contact from "./components/Contact";
-import About from "./components/About";
+import Contact from "./components/Contact/Contact";
+import About from "./components/About/About";
 import EditProfile from "./components/EditProfile";
 import Profile from "./components/Profile";
 import AddMedicine from "./components/AddMedicine";
 import Stock from "./components/Stock";
-import Services from "./components/Services";
-import Hero from "./components/Hero";
+import Services from "./components/Services/Services";
+import Hero from "./components/Home/Hero";
 import EditStock from "./components/EditStock";
 
 //pages
