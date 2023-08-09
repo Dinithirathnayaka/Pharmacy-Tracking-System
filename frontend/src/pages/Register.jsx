@@ -3,18 +3,37 @@ import { useRegister } from "../hooks/useRegister";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import "../Styles/Register.css";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmpassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const { signup, error, isLoading } = useRegister();
+  const [allFieldsFilled, setAllFieldsFilled] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(email, password);
+    // alert("handleSubmit is being called!");
+
+    if (!email || !password || !confirmPassword || !username) {
+      setAllFieldsFilled(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      console.log("Passwords do not match");
+      return;
+    }
+    try {
+      const r = await signup(username, email, password);
+      console.log(r);
+    } catch (error) {
+      console.error("Error during signup:", error);
+    }
   };
   return (
     <div className="register-container">
@@ -26,6 +45,17 @@ export const Register = () => {
         />
 
         <Form className="register-form" onSubmit={handleSubmit}>
+          <div className="usernameconreg">
+            <FaUser className="usernammeicon" />
+            <input
+              type="text"
+              placeholder="User Name"
+              className="usernamereg"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+            />
+          </div>
           <div className="emailconreg">
             <HiMail className="emailicon" />
             <input
@@ -34,6 +64,7 @@ export const Register = () => {
               className="emailreg"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              required
             />
           </div>
           <br />
@@ -45,6 +76,7 @@ export const Register = () => {
               className="passwordreg"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              required
             />
           </div>{" "}
           <br />
@@ -54,14 +86,17 @@ export const Register = () => {
               type="password"
               placeholder="Confirm password"
               className="passwordconfirmreg"
-              onChange={(e) => setConfirmpassword(e.target.value)}
-              value={confirmpassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              required
             />
           </div>
-          {/* <input type="submit" value="SUBMIT" className="registerbtn" /> */}
           <button disabled={isLoading} className="registerbtn">
             Sign up
           </button>
+          {!allFieldsFilled && (
+            <div className="error">All fields must be filled</div>
+          )}
           {error && <div className="error">{error}</div>}
         </Form>
 
