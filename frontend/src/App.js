@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //components
 import StarterNavBar from "./components/StarterNavBar";
@@ -25,6 +25,7 @@ import LocateUs from "./pages/LocateUs";
 
 //context
 import { SearchProvider } from "./context/SearchContext";
+import StockDetails from "./components/StockDetails/StockDetails";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -57,7 +58,12 @@ export default function App() {
 
             <Route path="/main" element={<MainNavbar />}>
               <Route index element={<Profile />} />
-              <Route path="stock" element={<Stock />} />
+              <Route path="stock" element={<StockDetails />}>
+                <Route index element={<Navigate to="stock" />} />
+                <Route path="stock" element={<Stock />} />
+                <Route path="addmedicine" element={<AddMedicine />} />
+                <Route path="editstock" element={<EditStock />} />
+              </Route>
               <Route path="locate" element={<LocateUs />} />
               <Route
                 path="viewdoctor"
