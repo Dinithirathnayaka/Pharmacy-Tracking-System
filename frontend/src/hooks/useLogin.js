@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
@@ -19,11 +19,13 @@ export const useLogin = () => {
 
     if (!response.ok) {
       setIsLoading(false);
-      setError(json.error);
+      setError(true);
     }
     if (response.ok) {
       //save the user to local storage
       localStorage.setItem("user", JSON.stringify(json));
+      console.log("-----------------------");
+      console.log(JSON.stringify(json));
 
       //update the auth context
       dispatch({ type: "LOGIN", payload: json });

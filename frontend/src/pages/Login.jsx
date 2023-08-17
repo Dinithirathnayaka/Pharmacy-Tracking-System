@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import "../Styles/Login.css";
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();
@@ -21,6 +22,9 @@ export const Login = () => {
     }
 
     await login(email, password);
+    if (!error) {
+      navigate("/");
+    }
   };
 
   return (
@@ -61,6 +65,7 @@ export const Login = () => {
             {" "}
             Login
           </button>
+
           {!allFieldsFilled && (
             <div className="error">All fields must be filled</div>
           )}
