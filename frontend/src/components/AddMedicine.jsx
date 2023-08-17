@@ -2,6 +2,7 @@ import React from "react";
 import TitleBar from "./TitleBar";
 import addmedicine from "./images/document.png";
 import "../Styles/AddMedicine.css";
+import { Outlet } from "react-router-dom";
 
 function AddMedicine() {
   return (
@@ -110,6 +111,7 @@ function AddMedicine() {
             <button className="savebutton">SAVE</button>
           </form>
         </div>
+        <Outlet />
       </div>
     </>
   );

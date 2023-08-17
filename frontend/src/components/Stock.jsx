@@ -1,7 +1,7 @@
 import TitleBar from "./TitleBar";
 import viewStk from "./images/analysis.png";
 import "../Styles/Stock.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Stock = () => {
   return (
@@ -122,6 +122,7 @@ const Stock = () => {
             </td>
           </tr>
         </table>
+        <Outlet />
       </div>
     </>
   );
