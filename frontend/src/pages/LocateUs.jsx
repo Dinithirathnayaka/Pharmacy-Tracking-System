@@ -1,11 +1,12 @@
 import TitleBar from "../components/TitleBar";
 import contactUs from "../components/images/contact-us.png";
-import Map from "../components/Map";
+import Map from "../components/Map/Map";
 import PharmacyDetails from "../components/PharmacyDetails";
+import LocateCSS from "./LocateUs.module.css";
 
 const LocateUs = () => {
   return (
-    <>
+    <div className={LocateCSS["locateus-container"]}>
       <TitleBar
         titlePic={contactUs}
         title="Locate Us"
@@ -31,7 +32,7 @@ const LocateUs = () => {
         <PharmacyDetails />
         <PharmacyDetails />
       </div>
-    </>
+    </div>
   );
 };
 

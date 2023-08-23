@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import "../Styles/Login.css";
 

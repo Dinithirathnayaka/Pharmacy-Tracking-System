@@ -1,7 +1,7 @@
-import TitleBar from "./TitleBar";
-import viewStk from "./images/analysis.png";
-import "../Styles/Stock.css";
-import { NavLink, Outlet } from "react-router-dom";
+import TitleBar from "../../TitleBar";
+import viewStk from "../../images/analysis.png";
+import StockCSS from "./Stock.module.css";
+import { Link, Outlet } from "react-router-dom";
 
 const Stock = () => {
   return (
@@ -14,8 +14,8 @@ const Stock = () => {
 
       <hr />
       <div className="container">
-        <div className="addbutton text-center ">
-          <a href="addmedicine">Add Medicine</a>
+        <div className={` text-center ${StockCSS["addbutton"]}`}>
+          <Link to="addmedicine">Add Medicine</Link>
         </div>
 
         <table>
@@ -36,19 +36,21 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <a href="editstock">
+              <Link to="editstock">
                 {" "}
                 <img
-                  className="action"
+                  className={StockCSS["action"]}
                   src="/assets/images/edit.png"
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                  alt="..."
                 />
-              </a>
+              </Link>
 
               <img
-                className="action"
+                className={StockCSS["action"]}
                 src="/assets/images/bin.png"
                 style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                alt="..."
               />
             </td>
           </tr>
@@ -60,18 +62,20 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <a href="editstock">
+              <Link to="editstock">
                 {" "}
                 <img
-                  className="action"
+                  className={StockCSS["action"]}
                   src="/assets/images/edit.png"
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                  alt="..."
                 />
-              </a>
+              </Link>
               <img
-                className="action"
+                className={StockCSS["action"]}
                 src="/assets/images/bin.png"
                 style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                alt="..."
               />
             </td>
           </tr>
@@ -83,18 +87,20 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <a href="editstock">
+              <Link to="editstock">
                 {" "}
                 <img
-                  className="action"
+                  className={StockCSS["action"]}
                   src="/assets/images/edit.png"
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                  alt="..."
                 />
-              </a>
+              </Link>
               <img
-                className="action"
+                className={StockCSS["action"]}
                 src="/assets/images/bin.png"
                 style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                alt="..."
               />
             </td>
           </tr>
@@ -106,18 +112,20 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <a href="editstock">
+              <Link to="editstock">
                 {" "}
                 <img
-                  className="action"
+                  className={StockCSS["action"]}
                   src="/assets/images/edit.png"
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                  alt="..."
                 />
-              </a>
+              </Link>
               <img
-                className="action"
+                className={StockCSS["action"]}
                 src="/assets/images/bin.png"
                 style={{ height: "20px", width: "20px", marginRight: "5px" }}
+                alt="..."
               />
             </td>
           </tr>

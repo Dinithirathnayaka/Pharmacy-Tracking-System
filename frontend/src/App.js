@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+import { useAuthContext } from "./hooks/useAuthContext";
+
 //components
-import StarterNavBar from "./components/StarterNavBar";
-import Contact from "./components/Contact/Contact";
-import About from "./components/About/About";
 import EditProfile from "./components/EditProfile";
 import Profile from "./components/Profile";
-import AddMedicine from "./components/AddMedicine";
-import Stock from "./components/Stock";
-import Services from "./components/Services/Services";
-import Hero from "./components/Home/Hero";
-import EditStock from "./components/EditStock";
+import AddMedicine from "./components/StockDetails/AddMedicine/AddMedicine";
+import Stock from "./components/StockDetails/ViewStock/Stock";
+import EditStock from "./components/StockDetails/EditStock/EditStock";
+import Navbar from "./components/Navbar/Navbar";
 
 //pages
 import { Login } from "./pages/Login";
@@ -20,15 +18,18 @@ import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Doctorregister } from "./pages/DoctorRegister";
 import { Reset } from "./pages/ResetPassword";
 import ViewDoctor from "./pages/ViewDoctor";
-import MainNavbar from "./components/MainNavbar";
 import LocateUs from "./pages/LocateUs";
 
 //context
 import { SearchProvider } from "./context/SearchContext";
 import StockDetails from "./components/StockDetails/StockDetails";
+import Home from "./pages/Home/Home";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { user } = useAuthContext();
+
+  console.log(user);
 
   // Function to handle search
   const handleSearch = (query) => {
@@ -39,41 +40,54 @@ export default function App() {
     <div>
       <SearchProvider>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<StarterNavBar />}>
-              <Route index element={<Hero />} />
-              <Route path="services" element={<Services />} />
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-            </Route>
+          <Navbar />
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+          <Routes>
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/register"
+              element={!user ? <Register /> : <Navigate to="/" />}
+            />
             <Route
               path="/pharmacistregister"
-              element={<Pharmacistregister />}
+              element={!user ? <Pharmacistregister /> : <Navigate to="/" />}
             />
-            <Route path="/registerdoctor" element={<Doctorregister />} />
+            <Route
+              path="/registerdoctor"
+              element={!user ? <Doctorregister /> : <Navigate to="/" />}
+            />
             <Route path="/reset" element={<Reset />} />
-
-            <Route path="/main" element={<MainNavbar />}>
-              <Route index element={<Profile />} />
-              <Route path="stock" element={<StockDetails />}>
-                <Route index element={<Navigate to="stock" />} />
-                <Route path="stock" element={<Stock />} />
-                <Route path="addmedicine" element={<AddMedicine />} />
-                <Route path="editstock" element={<EditStock />} />
-              </Route>
-              <Route path="locate" element={<LocateUs />} />
-              <Route
-                path="viewdoctor"
-                element={<ViewDoctor searchQuery={searchQuery} />}
-              />
-              <Route path="editprofile" element={<EditProfile />} />
-              <Route path="addmedicine" element={<AddMedicine />} />
-              <Route path="editstock" element={<EditStock />} />
-            </Route>
           </Routes>
+
+          <>
+            {!user && (
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+            )}
+
+            {user && (
+              <Routes>
+                <Route path="/" element={<Profile />} />
+
+                <Route path="stockdetails" element={<StockDetails />}>
+                  <Route index element={<Navigate to="stock" />} />
+                  <Route path="stock" element={<Stock />} />
+                  <Route path="addmedicine" element={<AddMedicine />} />
+                  <Route path="editstock" element={<EditStock />} />
+                </Route>
+                <Route path="locate" element={<LocateUs />} />
+                <Route
+                  path="viewdoctor"
+                  element={<ViewDoctor searchQuery={searchQuery} />}
+                />
+                <Route path="editprofile" element={<EditProfile />} />
+              </Routes>
+            )}
+          </>
         </BrowserRouter>
       </SearchProvider>
     </div>

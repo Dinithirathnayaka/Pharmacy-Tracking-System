@@ -7,7 +7,7 @@ import ServicesCSS from "./Services.module.css";
 const Services = () => {
   return (
     <>
-      <div className={`container ${ServicesCSS["services"]}`}>
+      <div className={`container ${ServicesCSS["services"]}`} id="services">
         {/* Service heading */}
         <div className={ServicesCSS["services-heading"]}>
           <h1>SERVICES</h1>
@@ -80,7 +80,6 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

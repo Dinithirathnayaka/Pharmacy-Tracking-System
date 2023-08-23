@@ -1,34 +1,23 @@
 import React from "react";
-import TitleBar from "./TitleBar";
-import addmedicine from "./images/document.png";
-import "../Styles/AddMedicine.css";
-import { Outlet } from "react-router-dom";
+import TitleBar from "../../TitleBar";
+import addmedicine from "../../images/document.png";
 
-function AddMedicine() {
+import EditStockCSS from "./EditStock.module.css";
+
+function EditStock() {
   return (
     <>
       <div>
         <TitleBar
           titlePic={addmedicine}
-          title="New Medicine"
-          description="Add new medicine"
+          title="Modify Medicine"
+          description="Modify existing medicine"
         />
       </div>
       <hr />
 
       <div className="container">
-        <div
-          className="addmedicinebutton"
-          style={{
-            marginBottom: "10px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <a href="stock">View Stock</a>
-        </div>
-        <div className="addmedicine_container">
+        <div className={EditStockCSS["addmedicine_container"]}>
           <form>
             <div className="row mt-3">
               <div className="col-md-3 col-xs-12">
@@ -36,10 +25,11 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="batch"
                   name="batchNo"
+                  value="001"
                 />
               </div>
             </div>
@@ -49,10 +39,11 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="medname"
                   name="medName"
+                  value="Name 1"
                 />
               </div>
             </div>
@@ -62,10 +53,11 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="medcompany"
                   name="medCompany"
+                  value="ABC Company"
                 />
               </div>
             </div>
@@ -75,10 +67,11 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="medquantity"
                   name="medQuantity"
+                  value="150"
                 />
               </div>
             </div>
@@ -88,10 +81,11 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="exdate"
                   name="expiryDate"
+                  value="2023/07/30"
                 />
               </div>
             </div>
@@ -101,20 +95,20 @@ function AddMedicine() {
               </div>
               <div className="col-md-6 col-xs-12">
                 <input
-                  className="formInputs"
+                  className={EditStockCSS["formInputs"]}
                   type="text"
                   id="medtype"
                   name="medType"
+                  value="Vitamin"
                 />
               </div>
             </div>
-            <button className="savebutton">SAVE</button>
+            <button className={EditStockCSS["savebutton"]}>SAVE</button>
           </form>
         </div>
-        <Outlet />
       </div>
     </>
   );
 }
 
-export default AddMedicine;
+export default EditStock;

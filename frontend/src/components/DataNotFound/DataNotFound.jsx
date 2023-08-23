@@ -1,4 +1,4 @@
-import notFound from "../components/images/not_found.png";
+import notFound from "../images/not_found.png";
 
 const DataNotFound = () => {
   return (

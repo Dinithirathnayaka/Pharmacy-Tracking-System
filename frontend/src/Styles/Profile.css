@@ -1,5 +1,9 @@
+.profileContainer {
+  display: flex;
+  background-color: white;
+}
 
-  .profileContainer {
-    display: flex;
-    background-color: white;
-  }
+.profileCenter {
+  position: relative;
+  top: 70px;
+}
