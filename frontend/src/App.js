@@ -40,8 +40,6 @@ export default function App() {
     <div>
       <SearchProvider>
         <BrowserRouter>
-          <Navbar />
-
           <Routes>
             <Route
               path="/login"
@@ -62,6 +60,7 @@ export default function App() {
             <Route path="/reset" element={<Reset />} />
           </Routes>
 
+          <Navbar />
           <>
             {!user && (
               <Routes>
