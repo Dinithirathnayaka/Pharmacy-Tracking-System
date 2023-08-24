@@ -22,9 +22,9 @@ const Hero = () => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Similique soluta harum cupiditate
                 </div>
-                <Link to="/register" className="btn btn-primary shadow-none">
+                <a href="/register" className="btn btn-primary shadow-none">
                   SIGN UP
-                </Link>
+                </a>
               </div>
             </div>
 

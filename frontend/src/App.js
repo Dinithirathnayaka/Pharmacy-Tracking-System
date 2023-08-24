@@ -40,6 +40,14 @@ export default function App() {
     <div>
       <SearchProvider>
         <BrowserRouter>
+          {![
+            "/login",
+            "/register",
+            "/pharmacistregister",
+            "/registerdoctor",
+            "/reset",
+          ].includes(window.location.pathname) && <Navbar />}
+
           <Routes>
             <Route
               path="/login"
@@ -58,18 +66,9 @@ export default function App() {
               element={!user ? <Doctorregister /> : <Navigate to="/" />}
             />
             <Route path="/reset" element={<Reset />} />
-          </Routes>
 
-          <Navbar />
-          <>
-            {!user && (
-              <Routes>
-                <Route path="/" element={<Home />} />
-              </Routes>
-            )}
-
-            {user && (
-              <Routes>
+            {user ? (
+              <>
                 <Route path="/" element={<Profile />} />
 
                 <Route path="stockdetails" element={<StockDetails />}>
@@ -78,15 +77,18 @@ export default function App() {
                   <Route path="addmedicine" element={<AddMedicine />} />
                   <Route path="editstock" element={<EditStock />} />
                 </Route>
+
                 <Route path="locate" element={<LocateUs />} />
                 <Route
                   path="viewdoctor"
                   element={<ViewDoctor searchQuery={searchQuery} />}
                 />
                 <Route path="editprofile" element={<EditProfile />} />
-              </Routes>
+              </>
+            ) : (
+              <Route path="/" element={<Home />} />
             )}
-          </>
+          </Routes>
         </BrowserRouter>
       </SearchProvider>
     </div>
