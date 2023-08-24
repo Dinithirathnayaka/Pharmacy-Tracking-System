@@ -3,6 +3,10 @@ import DropdownCSS from "./ProfileDropdown.module.css";
 import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SettingsIcon from "@mui/icons-material/Settings";
+import LogoutIcon from "@mui/icons-material/Logout";
+
 const ProfileDropdown = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const { logout } = useLogout();
@@ -57,15 +61,30 @@ const ProfileDropdown = () => {
             className={DropdownCSS["ProfileDropdown"]}
             onClick={(e) => e.stopPropagation()}
           >
-            <Link to="editprofile" onClick={handleLinkClick}>
-              Profile
-            </Link>
-            <Link to="/" onClick={handleLinkClick}>
-              Settings
-            </Link>
-            <Link to="/" onClick={handleLogoutClick}>
-              Logout
-            </Link>
+            <h3>
+              User Name <br />
+              <span>email</span>
+            </h3>
+            <ul>
+              <li>
+                <AccountCircleIcon className={DropdownCSS["shareIcon"]} />
+                <Link to="editprofile" onClick={handleLinkClick}>
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <SettingsIcon className={"shareIcon"} />
+                <Link to="/" onClick={handleLinkClick}>
+                  Settings
+                </Link>
+              </li>
+              <li>
+                <LogoutIcon className={"shareIcon"} />
+                <Link to="/" onClick={handleLogoutClick}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
           </div>
         )}
       </div>

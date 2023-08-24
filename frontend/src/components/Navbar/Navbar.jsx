@@ -149,9 +149,9 @@ const Navbar = () => {
               </div>
 
               <div>
-                <RouterLink to="login" className="btn btn-primary shadow-none">
+                <a href="/login" className="btn btn-primary shadow-none">
                   SIGN IN
-                </RouterLink>
+                </a>
               </div>
             </div>
           )}

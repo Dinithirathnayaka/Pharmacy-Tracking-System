@@ -17,15 +17,15 @@ export const Pharmacistregister = () => {
         <h5 className="pharmacies-register">REGISTER AS A PHARMACIST</h5>
 
         <Form className="pharmacist-form">
-          <label for="">Full Name</label>
+          <label htmlFor="">Full Name</label>
           <input type="text" className="fullname" />
           <br />
 
-          <label for="">Enter Email</label>
+          <label htmlFor="">Enter Email</label>
           <input type="email" className="email" />
           <br />
 
-          <label for="">Upload Valid Pharmacies Certificate</label>
+          <label htmlFor="">Upload Valid Pharmacies Certificate</label>
           <FileUploader
             handleChange={handleChange}
             name="file"
@@ -34,11 +34,11 @@ export const Pharmacistregister = () => {
           />
           <br />
 
-          <label for="">Enter Password</label>
+          <label htmlFor="">Enter Password</label>
           <input type="password" className="pass" />
           <br />
 
-          <label for="">Confirm Password</label>
+          <label htmlFor="">Confirm Password</label>
           <input type="password" className="cpass" />
           <br />
 

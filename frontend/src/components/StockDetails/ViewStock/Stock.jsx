@@ -1,7 +1,7 @@
 import TitleBar from "../../TitleBar";
 import viewStk from "../../images/analysis.png";
 import StockCSS from "./Stock.module.css";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Stock = () => {
   return (
@@ -15,7 +15,7 @@ const Stock = () => {
       <hr />
       <div className="container">
         <div className={` text-center ${StockCSS["addbutton"]}`}>
-          <Link to="addmedicine">Add Medicine</Link>
+          <a href="addmedicine">Add Medicine</a>
         </div>
 
         <table>
@@ -36,7 +36,7 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <Link to="editstock">
+              <a href="editstock">
                 {" "}
                 <img
                   className={StockCSS["action"]}
@@ -44,7 +44,7 @@ const Stock = () => {
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
                   alt="..."
                 />
-              </Link>
+              </a>
 
               <img
                 className={StockCSS["action"]}
@@ -62,7 +62,7 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <Link to="editstock">
+              <a href="editstock">
                 {" "}
                 <img
                   className={StockCSS["action"]}
@@ -70,7 +70,7 @@ const Stock = () => {
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
                   alt="..."
                 />
-              </Link>
+              </a>
               <img
                 className={StockCSS["action"]}
                 src="/assets/images/bin.png"
@@ -87,7 +87,7 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <Link to="editstock">
+              <a href="editstock">
                 {" "}
                 <img
                   className={StockCSS["action"]}
@@ -95,7 +95,7 @@ const Stock = () => {
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
                   alt="..."
                 />
-              </Link>
+              </a>
               <img
                 className={StockCSS["action"]}
                 src="/assets/images/bin.png"
@@ -112,7 +112,7 @@ const Stock = () => {
             <td>Batch No</td>
             <td>Batch No</td>
             <td>
-              <Link to="editstock">
+              <a href="editstock">
                 {" "}
                 <img
                   className={StockCSS["action"]}
@@ -120,7 +120,7 @@ const Stock = () => {
                   style={{ height: "20px", width: "20px", marginRight: "5px" }}
                   alt="..."
                 />
-              </Link>
+              </a>
               <img
                 className={StockCSS["action"]}
                 src="/assets/images/bin.png"
