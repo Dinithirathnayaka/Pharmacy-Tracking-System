@@ -1,6 +1,8 @@
 .services {
-  height: calc(100vh - 73px);
+  height: 100vh;
   text-align: center;
+  position: relative;
+  top: 73px;
 }
 
 .card-container {

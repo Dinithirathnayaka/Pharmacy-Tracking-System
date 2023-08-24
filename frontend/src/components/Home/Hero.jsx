@@ -7,7 +7,7 @@ import HeroCSS from "./Hero.module.css";
 const Hero = () => {
   return (
     <>
-      <div className={HeroCSS["hero"]}>
+      <div className={HeroCSS["hero"]} id="hero">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -44,7 +44,6 @@ const Hero = () => {
 
         <Outlet />
       </div>
-      <Footer />
     </>
   );
 };

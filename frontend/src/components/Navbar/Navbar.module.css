@@ -1,0 +1,131 @@
+/*-----------------------
+  ------- SETUP-------------
+  ------------------------- */
+:root {
+  /* Color styles */
+  --primary: #0195e8;
+  --primary-light: #4db4ee;
+  --primary-dark: #0062df;
+  --main-black: #000609;
+  --dark-brown: #341413;
+  --orange: #fc8c00;
+  --green: #006924;
+  --green-light: #80b492;
+  --orange-light: #fdba66;
+  --grey: #eeeeee;
+  --white: #ffffff;
+
+  /*Font size desktop*/
+  --header-1: 54px;
+  --header-2: 48px;
+
+  /*Font size mobile*/
+  --header-3: 42px;
+  --header-4: 32px;
+
+  --text-medium: 18px;
+  --text-regular: 16px;
+  --text-light: 13px;
+
+  /*Font weight*/
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+}
+
+.main-navbar {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-link-item {
+  font-size: var(--text-regular) !important;
+  font-weight: var(--font-weight-semi-bold) !important;
+  margin: 0 10px;
+  border-bottom: 2px solid transparent;
+  color: black !important;
+}
+
+.nav-link-item:hover {
+  border-bottom: 2px solid red;
+  color: var(--orange) !important;
+  cursor: pointer;
+}
+
+a.nav-link-item.active {
+  border-bottom: 2px solid red;
+  color: var(--orange);
+}
+
+.NavBarContainer {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.NavBarLeft {
+  flex: 3;
+}
+
+.NavBarLogo {
+  font-size: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: white !important;
+  cursor: pointer;
+}
+
+.NavBarCenter {
+  flex: 3;
+}
+
+.NavBarRight {
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.NavBarLink {
+  margin-right: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.NavBarIcons {
+  display: flex;
+  color: black;
+}
+
+.NavBarIconItem {
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.NavBarIconBadge {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  flood-color: white;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-small;
+  font-weight: bold;
+}
+

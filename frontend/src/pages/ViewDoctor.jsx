@@ -4,10 +4,12 @@ import viewPic from "../components/images/vision.png";
 
 import { useSearchContext } from "../context/SearchContext";
 
+import ViewDoctorCSS from "./ViewDoctor.module.css";
+
 // components
 import DoctorProfile from "../components/DoctorProfile";
 import TitleBar from "../components/TitleBar";
-import DataNotFound from "../components/DataNotFound";
+import DataNotFound from "../components/DataNotFound/DataNotFound";
 
 const ViewDoctor = () => {
   const [profiles, setProfiles] = useState(null);
@@ -45,7 +47,7 @@ const ViewDoctor = () => {
     }) ?? [];
 
   return (
-    <>
+    <div className={ViewDoctorCSS["view-doctor-container"]}>
       <TitleBar
         titlePic={viewPic}
         title="View Doctor"
@@ -65,7 +67,7 @@ const ViewDoctor = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -25,6 +25,9 @@ app.use("/api/doctors", doctorRoutes);
 app.use("/api/comments/", commentRoutes);
 app.use("/api/user/", userRoutes);
 
+// Set the strictQuery option to false to prevent the deprecation warning
+mongoose.set("strictQuery", false);
+
 //connect to db
 mongoose
   .connect(process.env.MONGO_URI)

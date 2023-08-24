@@ -1,6 +1,6 @@
 import { Search } from "@mui/icons-material";
 import React, { useState } from "react";
-import "../Styles/searchbar.css";
+import SearchBarCSS from "./SearchBar.module.css";
 
 const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,9 +21,9 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div>
-      <div className="search-bar-container">
-        <div className="searchbar">
-          <Search className="searchIcon" />
+      <div className={SearchBarCSS["search-bar-container"]}>
+        <div className={SearchBarCSS["searchbar"]}>
+          <Search className={SearchBarCSS["searchIcon"]} />
           <input
             type="text"
             placeholder="Search..."

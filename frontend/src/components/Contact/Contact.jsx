@@ -1,12 +1,11 @@
 import React from "react";
 
 import ContactCSS from "./Contact.module.css";
-import Footer from "../Footer/Footer";
 
 function Contact() {
   return (
     <>
-      <div className="container">
+      <div className={`container ${ContactCSS["contact"]}`} id="contact">
         <section className={ContactCSS["contact-heading"]}>
           <h1>CONTACT US</h1>
 
@@ -96,7 +95,6 @@ function Contact() {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 }

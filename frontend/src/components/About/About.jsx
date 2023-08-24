@@ -2,20 +2,19 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import AboutCSS from "./About.module.css";
-import Footer from "../Footer/Footer";
 
 const About = () => {
   return (
     <>
-      <div className={`container-fluid ${AboutCSS["about-main-container"]}`}>
-        <div className="container about">
-          {/* about heading */}
+      <div
+        className={`container-fluid ${AboutCSS["about-main-container"]}`}
+        id="about"
+      >
+        <div className={`container ${AboutCSS["about"]}`}>
           <div className={AboutCSS["about-heading"]}>
             <h1>ABOUT</h1>
           </div>
-          {/* End of about heading */}
 
-          {/* card container */}
           <div
             className={`card border-light mb-3 ${AboutCSS["about-card-container"]}`}
           >
@@ -63,8 +62,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };
