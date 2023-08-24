@@ -49,15 +49,14 @@ export default function App() {
           ].includes(window.location.pathname) && <Navbar />}
 
           <Routes>
-            <Route path="/" element={<StarterNavBar />}>
-              <Route index element={<Hero />} />
-              <Route path="services" element={<Services />} />
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-            </Route>
-
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/register"
+              element={!user ? <Register /> : <Navigate to="/" />}
+            />
             <Route
               path="/pharmacistregister"
               element={!user ? <Pharmacistregister /> : <Navigate to="/" />}
