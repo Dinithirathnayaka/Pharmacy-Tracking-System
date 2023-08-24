@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import PostDetails from "./Createpost";
+import "../Styles/Post.css";
 import {
   MoreVert,
   Favorite,
@@ -5,10 +9,29 @@ import {
   ThumbUpOffAlt,
   ChatBubbleOutline,
 } from "@mui/icons-material";
-import "../Styles/Post.css";
-import { NavLink } from "react-router-dom";
 
 export default function Post() {
+  const [posts, setPosts] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("/api/posts/");
+        const json = await response.json();
+
+        if (response.ok) {
+          setPosts(json);
+        } else {
+          console.error("Failed to fetch single post");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <div className="post">
       <div className="postWrapper">
@@ -31,6 +54,11 @@ export default function Post() {
           <div className="postTopRight">
             <MoreVert className="morevert" />
           </div>
+        </div>
+
+        <div>
+          {/* {posts &&
+            posts.map((post) => <PostDetails key={post._id} post={post} />)} */}
         </div>
         <div className="postCenter">
           <span className="postText">

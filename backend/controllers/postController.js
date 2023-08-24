@@ -36,29 +36,82 @@ const Storage = multer.diskStorage({
 
 const upload = multer({
   storage: Storage,
-}).single("testimage");
+}).single("image");
 
 //create new post
+
 const createPost = async (req, res) => {
-  upload(req, res, (err) => {
+  upload(req, res, async (err) => {
     if (err) {
-      console.log(err);
-    } else {
-      const newPost = new Post({
+      console.error(err);
+      return res.status(500).json({ error: "File upload error" });
+    }
+
+    try {
+      // Create post with title, description, and image data
+      const post = await Post.create({
         title: req.body.title,
         desc: req.body.desc,
         image: {
-          data: req.file.filename,
-          contentType: "image/png",
+          data: req.file ? req.file.filename : null,
+          contentType: req.file ? req.file.mimetype : null,
         },
       });
-      newPost
-        .save()
-        .then(() => res.send("successfully uploaded"))
-        .catch((err) => console.log(err));
+
+      res.status(200).json(post);
+    } catch (error) {
+      console.error(error);
+      res.status(400).json({ error: error.message });
     }
   });
 };
+
+// const createPost = async (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       const newPost = new Post({
+//         title: req.body.title,
+//         desc: req.body.desc,
+//         image: {
+//           data: req.file.filename,
+//           contentType: "image/png",
+//         },
+//       });
+//       newPost
+//         .save()
+//         .then(() => res.send("successfully uploaded"))
+//         .catch((err) => console.log(err));
+//     }
+//   });
+// };
+
+// const createPost = async (req, res) => {
+//   upload(req, res, async (err) => {
+//     try {
+//       if (err) {
+//         console.error(err);
+//         return res.status(500).json({ error: "File upload error" });
+//       } else {
+//         const newPost = new Post({
+//           title: req.body.title,
+//           desc: req.body.desc,
+//           image: {
+//             data: req.file.filename,
+//             contentType: req.file.mimetype,
+//           },
+//         });
+
+//         await newPost.save();
+//         res.status(200).json(post);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ error: "Internal server error" });
+//     }
+//   });
+// };
 
 //delete a post
 
