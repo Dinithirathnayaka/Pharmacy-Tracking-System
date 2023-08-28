@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { usePostsContext } from "../hooks/usePostsContext";
 import {
   PermMedia,
   LocalOffer,
@@ -8,9 +9,9 @@ import {
 } from "@mui/icons-material";
 import { CloudUpload } from "@mui/icons-material";
 import "../Styles/Createpost.css";
-import PostDetails from "./Createpost";
 
-export default function Createpost({ closeModal }) {
+export default function Createpost({ handleClose }) {
+  const { dispatch } = usePostsContext();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState(null);
@@ -29,25 +30,47 @@ export default function Createpost({ closeModal }) {
     //   },
     // });
 
+    if (!title || !desc || !image) {
+      setError("Please fill in all required fields.");
+      return; // Prevent form submission
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("desc", desc);
     formData.append("image", image);
 
-    const response = await fetch("/api/posts/", {
-      method: "POST",
-      body: formData,
-    });
-    const json = await response.json();
-    if (!response.ok) {
-      setError(json.error);
-    }
-    if (response.ok) {
-      setTitle("");
-      setDesc("");
-      setImage(null);
-      setError(null);
-      console.log("new workout added", json);
+    try {
+      const response = await fetch("/api/posts/", {
+        method: "POST",
+        body: formData,
+      });
+
+      const jsonResponse = await response.json();
+
+      if (!response.ok) {
+        setError(jsonResponse.error);
+      } else {
+        const createdPost = {
+          _id: jsonResponse._id,
+          title: jsonResponse.title,
+          desc: jsonResponse.desc,
+          image: jsonResponse.image,
+        };
+
+        dispatch({ type: "CREATE_POST", payload: createdPost });
+        setTitle("");
+        setDesc("");
+        setImage(null);
+        setError(null);
+
+        // Close the modal
+
+        console.log("Form Values:", createdPost);
+      }
+    } catch (error) {
+      console.log("Error creating post:", error);
+      setError("An error occurred while creating the post.");
     }
   };
 
@@ -57,7 +80,7 @@ export default function Createpost({ closeModal }) {
         <div className="modalContainer">
           <div className="modalTop">
             <span className="modalText">Create Post</span>
-            <button className="closeButton" onClick={() => closeModal(false)}>
+            <button className="closeButton" onClick={handleClose}>
               X
             </button>
           </div>
@@ -78,10 +101,8 @@ export default function Createpost({ closeModal }) {
               value={title ?? ""}
             />
 
-            <input
+            <textarea
               placeholder="Your Description"
-              type="textarea"
-              s
               className="createPostText"
               onChange={(e) => setDesc(e.target.value)}
               value={desc ?? ""}

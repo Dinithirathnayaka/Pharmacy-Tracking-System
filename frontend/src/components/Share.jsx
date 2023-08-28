@@ -1,25 +1,30 @@
+import { useState, useEffect } from "react";
 import {
   PermMedia,
   LocalOffer,
   AddReaction,
   LocationOn,
 } from "@mui/icons-material";
-import { useState } from "react";
+
 import Createpost from "./Createpost";
 import "../Styles/Share.css";
 
 export default function Share() {
   const [openModal, setOpenModal] = useState(false);
 
+  const handleClose = () => {
+    setOpenModal(false);
+  };
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-            <img
-              className="shareProfileImg"
-              src="/assets/images/person/1.jpg"
-              alt="person1"
-            />
+          <img
+            className="shareProfileImg"
+            src="/assets/images/person/1.jpg"
+            alt="person1"
+          />
           <input placeholder="What's in your mind?" className="shareInput" />
         </div>
         <hr className="shareHr" />
@@ -50,7 +55,8 @@ export default function Share() {
           >
             Share
           </button>
-          {openModal && <Createpost closeModal={setOpenModal} />}
+          {/* {console.log("openModal:", openModal)} */}
+          {openModal && <Createpost handleClose={handleClose} />}
         </div>
       </div>
     </div>

@@ -3,33 +3,44 @@ import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
   const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
   const login = async (email, password) => {
     setIsLoading(true);
-    setError(null);
+    setError(false);
 
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const json = await response.json();
+    try {
+      const response = await fetch("/api/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const json = await response.json();
 
-    if (!response.ok) {
-      setIsLoading(false);
+      if (!response.ok) {
+        console.log("----------------------------------1");
+        setIsLoading(false);
+        console.log(error);
+        setError(true);
+        console.log(error);
+      }
+      if (response.ok) {
+        console.log("----------------------------------2");
+        localStorage.setItem("user", JSON.stringify(json));
+
+        console.log(JSON.stringify(json));
+
+        //update the auth context
+        dispatch({ type: "LOGIN", payload: json });
+        setError(false);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log("----------------------------------3");
+      console.log("An error occurred:--------------", error);
       setError(true);
-    }
-    if (response.ok) {
-      //save the user to local storage
-      localStorage.setItem("user", JSON.stringify(json));
-
-      console.log(JSON.stringify(json));
-
-      //update the auth context
-      dispatch({ type: "LOGIN", payload: json });
-
+    } finally {
       setIsLoading(false);
     }
   };

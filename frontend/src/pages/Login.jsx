@@ -22,9 +22,12 @@ export const Login = () => {
     }
 
     await login(email, password);
-    if (!error) {
-      navigate("/");
-    }
+    console.log(error);
+    // if (error == false) {
+    //   navigate("/");
+    // } else {
+    //   navigate("/reset");
+    // }
   };
 
   return (
