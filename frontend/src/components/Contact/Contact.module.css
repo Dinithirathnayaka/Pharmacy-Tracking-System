@@ -1,0 +1,25 @@
+.contact {
+  height: 100vh;
+}
+
+.contact-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.contact-details p {
+  width: auto;
+}

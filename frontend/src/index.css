@@ -1,13 +1,432 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/*-----------------------
+  ------- SETUP-------------
+  ------------------------- */
+:root {
+  /* Color styles */
+  --primary: #0195e8;
+  --primary-light: #4db4ee;
+  --primary-dark: #0062df;
+  --main-black: #000609;
+  --dark-brown: #341413;
+  --orange: #fc8c00;
+  --green: #006924;
+  --green-light: #80b492;
+  --orange-light: #fdba66;
+  --grey: #eeeeee;
+  --white: #ffffff;
+
+  /*Font size desktop*/
+  --header-1: 54px;
+  --header-2: 48px;
+
+  /*Font size mobile*/
+  --header-3: 42px;
+  --header-4: 32px;
+
+  --text-medium: 18px;
+  --text-regular: 16px;
+  --text-light: 13px;
+
+  /*Font weight*/
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+/*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
+.btn {
+  padding: 15px 25px;
+  border-radius: 6px;
+  font-size: var(--text-medium);
+  font-weight: var(--font-weight-medium);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--orange) !important;
+}
+
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: var(--orange-light) !important;
+}
+
+.starter-navbar {
+  background-color: white !important;
+}
+
+
+/*-----------------------
+  ------- SERVICES-------------
+  ------------------------- */
+
+.services {
+  height: calc(100vh - 73px);
+  text-align: center;
+}
+
+.card-container {
+  position: relative;
+  top: 15%;
+}
+
+.card-container .card {
+  border-radius: 20px;
+}
+
+.services-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.service-card img {
+  width: 30%;
+  margin-top: 5px;
+}
+
+.service-card:hover {
+  background-color: #0195e8 !important;
+  color: #fff;
+}
+
+/*-------------------------
+  ------- ABOUT-------------
+  ------------------------- */
+
+.about-main-container {
+  height: calc(100vh - 73px);
+}
+
+.about-card-container {
+  position: relative;
+  margin-top: 10%;
+}
+
+.about-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+/*-------------------------
+  ------- CONTACT US-------------
+  ------------------------- */
+
+.contact-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.contact-details p {
+  width: auto;
+}
+
+/*--------------------------
+  --------VIEW DOCTOR-------
+  ------------------------- */
+
+.title-bar-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+}
+
+.title-bar img {
+  height: 50px;
+  width: auto;
+  padding-right: 10px;
+}
+
+.search-container {
+  background-color: #5fa6f9;
+}
+
+.search-container-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchInput {
+  width: 300px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  background-color: white;
+  font-size: 16px;
+  color: #333;
+  border-radius: 20px;
+  outline: none;
+}
+
+#searchInput::placeholder {
+  color: #999;
+}
+
+.template_Container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.doctor_card {
+  transition: transform 0.5s ease-in;
+}
+
+.doctor_card:hover {
+  transform: scale(1.05);
+}
+.doctor_card:hover .doctor_profile_picture img {
+  border: 7px solid cyan;
+}
+
+.doctor_profile_back img {
+  height: 200px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 100%;
+}
+
+.doctor_profile_picture img {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  margin-top: -80px;
+  background-color: #fff;
+}
+
+.doctor_profile_contacts ul {
+  list-style: none;
+  margin: 1rem auto;
+}
+
+.doctor_profile_contacts i {
+  margin-right: 10px;
+}
+
+.doctor_profile_socials {
+  padding: 10px;
+  text-align: center;
+}
+
+.doctor_profile_socials i {
+  font-size: 40px;
+  color: darkcyan;
+  padding: 10px 10px;
+  transition: transform 0.1s ease-in;
+}
+
+.doctor_profile_socials i:hover {
+  transform: scale(1.2);
+}
+
+/* DESKTOP VERSIONS ONLY */
+@media (min-width: 1399.98px) {
+  .container {
+    width: 84%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  /*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
+  .navbar {
+    padding: 18px 0;
+  }
+
+  /*-----------------------
+  ------- HERO-------------
+  ------------------------- */
+  section.hero {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .btn {
+    display: block;
+    margin: 1rem 0;
+  }
+  .text-label,
+  .text-hero-bold,
+  .text-hero-regular {
+    text-align: center;
+  }
+  .text-hero-bold {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--header-3);
+    line-height: 44px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  /*-----------------------
+  ------- NAVBAR-------------
+  ------------------------- */
+  .navbar {
+    padding: 28px 0;
+  }
+
+  .navbar .nav-link {
+    text-align: left;
+  }
+
+  .btn {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .text-hero-bold {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--header-3);
+    line-height: 44px;
+  }
+
+  .hero {
+    height: calc(100vh - 57.11px);
+    overflow: hidden;
+  }
+
+  /*-----------------------------
+    ----------SERVICES-----------
+    ----------------------------- */
+  .services {
+    height: auto;
+    text-align: center;
+  }
+
+  .card-container {
+    margin-top: auto;
+  }
+
+  .card-footer button {
+    width: 100%;
+  }
+
+  /*-----------------------------
+    ----------ABOUT-----------
+    ----------------------------- */
+  .about {
+    height: auto;
+  }
+
+  .about h5 {
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .about-card-container {
+    margin-top: 20px;
+  }
+
+  .about h5,
+  .about p {
+    text-align: center;
+  }
+
+  .card-container {
+    margin-top: auto;
+  }
+
+  .about-card-container button {
+    width: 100%;
+  }
+}
+
+/*-----------------------
+  ------- FOOTER STATERPAGE-------------
+  ------------------------- */
+
+.footer {
+  background-color: #0062df;
+  height: auto !important;
+  /* position: fixed; */
+  left: 0;
+  bottom: 0 !important;
+  width: 100%;
+  margin-bottom: -20px;
+}
+
+.footer h5 {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.contacticon {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.followicon {
+  margin-right: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
+}
+
+/* After the toggler button appears */
+@media (max-width: 991px) {
+  /* Navbar */
+  a.nav-link,
+  a.nav-link:hover,
+  a.nav-link.active {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero {
+    height: calc(100vh - 57.11px);
+    overflow: hidden;
+  }
 }

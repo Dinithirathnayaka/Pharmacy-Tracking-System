@@ -1,0 +1,52 @@
+.hero {
+  height: calc(100vh - 73px);
+  background-image: url("../../../public/assets/images/82254436b9.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 73px;
+}
+
+.text-label,
+.text-hero-bold,
+.text-hero-regular {
+  margin: 24px 0;
+}
+
+.text-label {
+  color: var(--orange);
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+.text-hero-bold {
+  color: var(--dark-brown);
+  font-size: var(--header-1);
+  font-weight: var(--font-weight-bold);
+  line-height: 74px;
+}
+.text-hero-regular {
+  color: black;
+  font-size: var(--text-regular);
+  font-weight: var(--font-weight-regular);
+  line-height: 31px;
+}
+.hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hero-img img {
+  width: 80%;
+  padding: 0px;
+}
+
+/* After the toggler button appears */
+@media (max-width: 991px) {
+  /* Hero */
+  .hero {
+    height: calc(100vh - 57.11px);
+    overflow: hidden;
+  }
+}

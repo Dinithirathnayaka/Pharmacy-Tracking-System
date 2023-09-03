@@ -1,0 +1,28 @@
+.about-main-container {
+  /* height: calc(100vh - 73px); */
+  height: 100vh;
+}
+
+.about {
+  height: 100vh;
+}
+
+.about-card-container {
+  position: relative;
+  margin-top: 10%;
+}
+
+/* .about-card-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.about-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
