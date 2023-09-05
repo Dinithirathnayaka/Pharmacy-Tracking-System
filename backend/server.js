@@ -24,6 +24,7 @@ app.use("/api/medicines", medicineRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/comments/", commentRoutes);
 app.use("/api/user/", userRoutes);
+app.use("/uploads", express.static("uploads"));
 
 // Set the strictQuery option to false to prevent the deprecation warning
 mongoose.set("strictQuery", false);

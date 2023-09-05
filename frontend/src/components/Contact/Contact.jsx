@@ -1,8 +1,34 @@
-import React from "react";
-
+import React, { useRef } from "react";
 import ContactCSS from "./Contact.module.css";
+import emailjs from "emailjs-com";
 
 function Contact() {
+  const form = useRef();
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_nlrwq1d",
+        "template_qgkmy1m",
+        form.current,
+        "a9qbBsw5rs8O0KvVr"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Error sending message: " + error.text);
+        }
+      );
+
+    e.target.reset();
+  }
+
   return (
     <>
       <div className={`container ${ContactCSS["contact"]}`} id="contact">
@@ -18,10 +44,11 @@ function Contact() {
           <div className="row">
             <div className="col-md-9  mb-5 mx-auto">
               <form
-                className="mt-5"
+                className="form mt-5"
                 id="contact-form"
                 name="contact-form"
-                method="POST"
+                ref={form}
+                onSubmit={sendEmail}
               >
                 <div className="row">
                   <div className="col-md-6">
@@ -88,7 +115,9 @@ function Contact() {
                   </div>
                 </div>
                 <div className="text-md-left mb-2">
-                  <a className="btn btn-primary">Send</a>
+                  <button type="submit" className="btn btn-primary">
+                    Send Message
+                  </button>
                 </div>
               </form>
             </div>
