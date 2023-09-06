@@ -115,10 +115,9 @@ export default function Createpost({ handleClose }) {
               accept="image/*"
               onChange={(e) => setImage(e.target.files[0])}
             />
-            <CloudUpload className="upload-icon" fontSize="large" />
           </div>
 
-          {/* <div className="postOptions">
+          <div className="postOptions">
             <span className="optionsText">Add to your post</span>
             <div className="postOptionIcons">
               <PermMedia className="imageColor" />
@@ -127,7 +126,7 @@ export default function Createpost({ handleClose }) {
               <LocationOn className="locationColor" />
               <MoreHoriz className="optionColor" />
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="modalBottom">
           <button type="submit" className="postButton">

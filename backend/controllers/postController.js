@@ -30,7 +30,13 @@ const getPost = async (req, res) => {
 const Storage = multer.diskStorage({
   destination: "uploads",
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const timestamp = Date.now(); // Get the current timestamp
+    const extension = file.originalname.split(".").pop(); // Get the file extension
+
+    // Construct the unique filename as timestamp + extension
+    const uniqueFilename = `${timestamp}.${extension}`;
+
+    cb(null, uniqueFilename);
   },
 });
 
@@ -49,15 +55,14 @@ const createPost = async (req, res) => {
 
     try {
       // Create post with title, description, and image data
+      const imageUrl = `/uploads/${req.file.filename}`;
+
+      // Create post with title, description, and image URL
       const post = await Post.create({
         title: req.body.title,
         desc: req.body.desc,
-        image: {
-          data: req.file ? req.file.filename : null,
-          contentType: req.file ? req.file.mimetype : null,
-        },
+        image: req.file.filename, // Save the unique filename to the 'img' field
       });
-
       res.status(200).json(post);
     } catch (error) {
       console.error(error);

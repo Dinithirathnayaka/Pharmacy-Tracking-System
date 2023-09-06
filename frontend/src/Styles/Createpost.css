@@ -5,9 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 300px;
-  top: 0;
-  left: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 200px;
+  z-index: 1000;
+  -webkit-box-shadow: 5px 5px 50px 50px rgba(0, 0, 0, 0.52);
+  box-shadow: 5px 5px 50px 50px rgba(0, 0, 0, 0.52);
 }
 
 .modalContainer {

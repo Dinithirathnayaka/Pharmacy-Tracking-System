@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { usePostsContext } from "../hooks/usePostsContext";
-
 import { NavLink } from "react-router-dom";
 import "../Styles/Post.css";
 import {
@@ -58,14 +57,10 @@ export default function Post() {
     //       </div>
     //     </div>
 
-    //     <div>
-    //       {/* {posts &&
-    //         posts.map((post) => <PostDetails key={post._id} post={post} />)} */}
-    //     </div>
     //     <div className="postCenter">
     //       <span className="postText">
     //         The following medicines are available
-    //         {/* post.desc */}
+
     //       </span>
     //       <br />
     //       <img
@@ -73,7 +68,7 @@ export default function Post() {
     //         src="/assets/images/post/Cetrimed.webp"
     //         alt=""
     //       />
-    //       {/* post.image */}
+
     //     </div>
     //     <div className="postBottom">
     //       <div className="likeCommentCount">
@@ -134,7 +129,6 @@ export default function Post() {
     //       </div>
     //     </div>
     //   </div>
-    // </div>
 
     <div className="post-list">
       {posts.map((post) => (
