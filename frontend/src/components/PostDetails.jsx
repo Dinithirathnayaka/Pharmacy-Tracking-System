@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
 import { format } from "date-fns";
@@ -11,40 +11,14 @@ import {
 } from "@mui/icons-material";
 
 export default function PostDetails({ post }) {
-  // let formattedDate = '';
+  // const [like, setLike] = useState(post.like);
+  // const [isLiked, setIsLiked] = useState(false);
 
-  // try {
-  //   if (post.timestamps) {
-  //     const date = new Date(post.timestamps);
-  //     if (!isNaN(date)) {
-  //       formattedDate = format(date, 'MMMM dd, yyyy HH:mm:ss');
-  //     } else {
-  //       console.error('Invalid date format:', post.timestamps);
-  //     }
-  //   }
-  // } catch (error) {
-  //   console.error('Error parsing date:', error);
-  // }
-
+  // const likeHandler = () => {
+  //   setLike(isLiked ? like - 1 : like + 1);
+  //   setIsLiked(!isLiked);
+  // };
   return (
-    // <div className="post">
-    //   <div className="postWrapper">
-    //     <div className="postTop"></div>
-    //     <div className="postCenter">
-    //       <span className="postText">{post.title}</span>
-    //       <br />
-    //       <span className="postText">{post.desc}</span>
-    //       <br />
-    //       <img
-    //         className="postImg"
-    //         src={`/uploads/${post.image}`}
-    //         alt="post Image"
-    //       />
-    //     </div>
-    //     <div className="postBottom"></div>
-    //   </div>
-    // </div>
-
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
@@ -61,7 +35,7 @@ export default function PostDetails({ post }) {
               Nuwan Pradeep
             </span>
 
-            <span className="postDate">5min</span>
+            <span className="postDate">5 min ago</span>
           </div>
           <div className="postTopRight">
             <MoreVert className="morevert" />
@@ -81,9 +55,17 @@ export default function PostDetails({ post }) {
         <div className="postBottom">
           <div className="likeCommentCount">
             <div className="postBottomLeft">
-              <Favorite htmlColor="rgb(255,67,111)" className="likeIcon" />
-              <ThumbUp htmlColor="rgb(53,70,255)" className="likeIcon" />
-              <span className="postLikeCounter">32 people like this</span>
+              <Favorite
+                htmlColor="rgb(255,67,111)"
+                className="likeIcon"
+                // onClick={likeHandler}
+              />
+              <ThumbUp
+                htmlColor="rgb(53,70,255)"
+                className="likeIcon"
+                // onClick={likeHandler}
+              />
+              <span className="postLikeCounter">4 people like this</span>
             </div>
             <div className="postBottomRight">
               <span className="postCommentText">9 comments</span>

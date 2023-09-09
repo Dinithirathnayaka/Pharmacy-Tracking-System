@@ -1,5 +1,7 @@
 .leftbar {
   position: relative;
+  height: calc(100vh -70px);
+  background-color: #fff;
   top: 70px;
   flex: 25%;
 }

@@ -5,8 +5,10 @@ import "../Styles/Feed.css";
 export default function Feed() {
   return (
     <div className="feed">
-      <Share />
-      <Post />
+      <div className="feedinner">
+        <Share />
+        <Post />
+      </div>
     </div>
   );
 }

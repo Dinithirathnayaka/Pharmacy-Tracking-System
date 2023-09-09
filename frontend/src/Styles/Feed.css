@@ -2,8 +2,24 @@
   position: relative;
   top: 70px;
   flex: 50%;
+  height: calc(100vh - 70px);
+  background-color: #fff;
 }
 
+.feedinner {
+  height: 88vh !important;
+  overflow: scroll;
+  margin-bottom: 20px;
+}
+
+.feedinner::-webkit-scrollbar {
+  display: none;
+}
+
+.feedinner {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .feedWrapper {
   padding: 20px;
 }

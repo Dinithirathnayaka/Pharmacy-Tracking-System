@@ -1,5 +1,7 @@
 .rightbar {
   position: relative;
+  height: calc(100vh -70px);
+  background-color: #fff;
   top: 70px;
   flex: 25%;
 }
@@ -75,4 +77,8 @@ birthdayText {
 .rightbarUserName {
   font-weight: normal;
   cursor: pointer;
+}
+
+.adimg {
+  width: 100%;
 }
