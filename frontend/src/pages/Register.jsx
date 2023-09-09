@@ -17,8 +17,6 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // alert("handleSubmit is being called!");
-
     if (!email || !password || !confirmPassword || !username) {
       setAllFieldsFilled(false);
       return;
