@@ -1,8 +1,8 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 
-const createToken = (_id) => {
-  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+const createToken = (_id, role) => {
+  return jwt.sign({ _id, role }, process.env.SECRET, { expiresIn: "3d" });
 };
 
 //LOGIN user
@@ -13,7 +13,7 @@ const loginUser = async (req, res) => {
     const user = await User.login(email, password);
 
     //create token
-    const token = createToken(user._id);
+    const token = createToken(user._id, user.role);
 
     res.status(200).json({ email, token });
   } catch (error) {
@@ -23,20 +23,51 @@ const loginUser = async (req, res) => {
 
 //SIGNUP user
 const signupUser = async (req, res) => {
-  const { username, email, password } = req.body;
-  console.log("hit");
+  const { username, email, password, role } = req.body; // Include the 'role' field in the request body
+
   try {
-    const user = await User.signup(username, email, password);
+    // Check if the provided role is valid
+    if (!["doctor", "patient", "pharmacist"].includes(role)) {
+      return res.status(400).json({ error: "Invalid role provided" });
+    }
 
-    //create token
+    // Check if the provided role-specific data is valid
+    let roleData = {};
+    if (role === "doctor") {
+      const { regi_no, specific_area } = req.body.doctor;
+      roleData = { regi_no, specific_area };
+    } else if (role === "pharmacist") {
+      const { register_no } = req.body.pharmacist;
+      roleData = { register_no };
+    }
 
-    const token = createToken(user._id);
+    const user = await User.signup(username, email, password, role, roleData);
+
+    // Create a token
+    const token = createToken(user._id, role);
 
     res.status(200).json({ email, username, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
-    console.log(error);
+    console.error(error);
   }
 };
+
+// const signupUser = async (req, res) => {
+//   const { username, email, password } = req.body;
+//   console.log("hit");
+//   try {
+//     const user = await User.signup(username, email, password);
+
+//     //create token
+
+//     const token = createToken(user._id);
+
+//     res.status(200).json({ email, username, token });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//     console.log(error);
+//   }
+// };
 
 module.exports = { signupUser, loginUser };

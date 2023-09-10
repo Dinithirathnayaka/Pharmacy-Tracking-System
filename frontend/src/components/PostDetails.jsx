@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { usePostsContext } from "../hooks/usePostsContext";
 import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
@@ -12,9 +13,19 @@ import {
 import Post from "./Post";
 
 export default function PostDetails({ post }) {
-  const timeAgo = formatDistanceToNow(new Date(post.createdAt), {
-    addSuffix: true,
-  });
+  const { dispatch } = usePostsContext();
+
+  let timeAgo = "Invalid Date"; // Default value for timeAgo
+
+  if (post.createdAt) {
+    const createdAt = new Date(post.createdAt);
+    if (!isNaN(createdAt.getTime())) {
+      timeAgo = formatDistanceToNow(createdAt, {
+        addSuffix: true,
+      });
+    }
+  }
+
   // const [like, setLike] = useState(post.like);
   // const [isLiked, setIsLiked] = useState(false);
 
@@ -22,6 +33,18 @@ export default function PostDetails({ post }) {
   //   setLike(isLiked ? like - 1 : like + 1);
   //   setIsLiked(!isLiked);
   // };
+
+  const handleClick = async () => {
+    const response = await fetch("/api/posts/" + post._id, {
+      method: "DELETE",
+    });
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "DELETE_POST", payload: json });
+    }
+  };
+
   return (
     <div className="post">
       <div className="postWrapper">
