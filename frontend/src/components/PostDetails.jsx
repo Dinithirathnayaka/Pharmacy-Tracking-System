@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
-import { format } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 import {
   MoreVert,
   Favorite,
@@ -9,8 +9,12 @@ import {
   ThumbUpOffAlt,
   ChatBubbleOutline,
 } from "@mui/icons-material";
+import Post from "./Post";
 
 export default function PostDetails({ post }) {
+  const timeAgo = formatDistanceToNow(new Date(post.createdAt), {
+    addSuffix: true,
+  });
   // const [like, setLike] = useState(post.like);
   // const [isLiked, setIsLiked] = useState(false);
 
@@ -35,10 +39,10 @@ export default function PostDetails({ post }) {
               Nuwan Pradeep
             </span>
 
-            <span className="postDate">5 min ago</span>
+            <span className="postDate">{timeAgo}</span>
           </div>
           <div className="postTopRight">
-            <MoreVert className="morevert" />
+            <MoreVert className="morevert" onClick={handleClick} />
           </div>
         </div>
 
