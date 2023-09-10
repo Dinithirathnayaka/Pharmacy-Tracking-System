@@ -34,7 +34,7 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["doctor", "patient", "pharmacist"], // Define the allowed roles
+    enum: ["doctor", "patient", "pharmacist"],
     required: true,
   },
   doctor: {

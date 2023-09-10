@@ -34,7 +34,7 @@ export default function PostDetails({ post }) {
   //   setIsLiked(!isLiked);
   // };
 
-  const handleClick = async () => {
+  const handleDelete = async () => {
     const response = await fetch("/api/posts/" + post._id, {
       method: "DELETE",
     });
@@ -64,8 +64,33 @@ export default function PostDetails({ post }) {
 
             <span className="postDate">{timeAgo}</span>
           </div>
+          <div></div>
+
           <div className="postTopRight">
-            <MoreVert className="morevert" onClick={handleClick} />
+            <button
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{
+                background: "transparent",
+                outline: "none",
+                border: "none",
+              }}
+            >
+              <MoreVert className="morevert" />
+            </button>
+
+            <ul class="dropdown-menu" style={{ marginLeft: "-40px" }}>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Update
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onClick={handleDelete}>
+                  Delete
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
