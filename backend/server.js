@@ -4,7 +4,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/posts");
 const medicineRoutes = require("./routes/medicines");
-const doctorRoutes = require("./routes/doctors");
 const commentRoutes = require("./routes/comments");
 const userRoutes = require("./routes/users");
 
@@ -21,7 +20,6 @@ app.use((req, res, next) => {
 //routes
 app.use("/api/posts", postRoutes);
 app.use("/api/medicines", medicineRoutes);
-app.use("/api/doctors", doctorRoutes);
 app.use("/api/comments/", commentRoutes);
 app.use("/api/user/", userRoutes);
 app.use("/uploads", express.static("uploads"));
