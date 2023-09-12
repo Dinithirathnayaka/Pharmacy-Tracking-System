@@ -31,7 +31,6 @@ export const useLogin = () => {
 
         console.log(JSON.stringify(json));
 
-        //update the auth context
         dispatch({ type: "LOGIN", payload: json });
         setError(false);
         setIsLoading(false);

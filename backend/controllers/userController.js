@@ -34,10 +34,10 @@ const signupUser = async (req, res) => {
     // Check if the provided role-specific data is valid
     let roleData = {};
     if (role === "doctor") {
-      const { regi_no, specific_area } = req.body.doctor;
+      const { regi_no, specific_area } = req.body.roleData;
       roleData = { regi_no, specific_area };
     } else if (role === "pharmacist") {
-      const { register_no } = req.body.pharmacist;
+      const { register_no } = req.body.roleData;
       roleData = { register_no };
     }
 

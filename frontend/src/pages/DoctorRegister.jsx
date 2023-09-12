@@ -1,13 +1,49 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { FileUploader } from "react-drag-drop-files";
+import { useRegister } from "../hooks/useRegister";
 import "../Styles/Pharmacies.css";
 
-const fileTypes = ["JPG", "PNG", "GIF"];
 export const Doctorregister = () => {
-  const [file, setFile] = useState(null);
-  const handleChange = (file) => {
-    setFile(file);
+  const [email, setEmail] = useState("");
+  const [regiNo, setRegiNo] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [specificArea, setSpecificArea] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [allFieldsFilled, setAllFieldsFilled] = useState(true);
+  const { signup, error, isLoading } = useRegister();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    if (
+      !email ||
+      !password ||
+      !confirmPassword ||
+      !username ||
+      !regiNo ||
+      !specificArea
+    ) {
+      setAllFieldsFilled(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      console.log("Passwords do not match");
+      return;
+    }
+    try {
+      const r = await signup(
+        username,
+        email,
+        password,
+        "doctor",
+
+        { regi_no: regiNo, specific_area: specificArea }
+      );
+    } catch (error) {
+      console.error("Error during signup:", error);
+    }
   };
 
   return (
@@ -16,21 +52,44 @@ export const Doctorregister = () => {
         <img src="assets/images/doctor.png" className="pharmaciesimg" />
         <h5 className="pharmacies-register">REGISTER AS A DOCTOR</h5>
 
-        <Form className="pharmacist-form">
-          <label for="">Registration Number</label>
-          <input type="text" className="fullname" />
+        <Form className="pharmacist-form" onClick={handleRegister}>
+          <label>Registration Number</label>
+          <input
+            type="text"
+            className="regnum"
+            onChange={(e) => setRegiNo(e.target.value)}
+            value={regiNo}
+            required
+          />
           <br />
 
-          <label for="">Full Name</label>
-          <input type="text" className="fullname" />
+          <label>Full Name</label>
+          <input
+            type="text"
+            className="fullname"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            required
+          />
           <br />
 
-          <label for="">Enter Email</label>
-          <input type="email" className="email" />
+          <label>Enter Email</label>
+          <input
+            type="email"
+            className="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
           <br />
 
-          <label for="feild">Choose a feild:</label>
-          <select id="feild" name="carlist" form="feildform">
+          <label>Choose a feild:</label>
+          <select
+            id="feild"
+            form="feildform"
+            value={specificArea}
+            onChange={(e) => setSpecificArea(e.target.value)}
+          >
             <option value="feild1">Feild1</option>
             <option value="feild2">Feild2</option>
             <option value="feild3">Feild3</option>
@@ -38,15 +97,30 @@ export const Doctorregister = () => {
           </select>
           <br />
 
-          <label for="">Enter Password</label>
-          <input type="password" className="pass" />
+          <label>Enter Password</label>
+          <input
+            type="password"
+            className="pass"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
           <br />
 
-          <label for="">Confirm Password</label>
-          <input type="password" className="cpass" />
-          <br />
+          <label>Reenter Password</label>
+          <input
+            type="password"
+            className="passwordconfirmreg"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+            required
+          />
 
-          <input type="submit" value="SUBMIT" className="submitbtnpharmacy" />
+          <button className="submitbtnpharmacy">Register</button>
+          {!allFieldsFilled && (
+            <div className="error">All fields must be filled</div>
+          )}
+          {error && <div className="error">{error}</div>}
         </Form>
       </div>
     </div>
