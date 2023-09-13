@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useRegister } from "../hooks/useRegister";
 import { postRequest } from "../hooks/useEmailService";
-import { Circularprogress, Alert } from "@mui/material";
+import { Alert } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function VerifyEmail() {
   const { user, updateUser } = useContext(useRegister);
@@ -17,7 +18,7 @@ function VerifyEmail() {
   console.log("emailToken", emailToken);
 
   useEffect(() => {
-    async () => {
+    async function fetchData() {
       if (user?.isVerified) {
         setTimeout(() => {
           return navigate("/login");
@@ -26,27 +27,32 @@ function VerifyEmail() {
         if (emailToken) {
           setIsLoading(true);
 
-          const response = await postRequest("/api/user/verify-email");
-          JSON.stringify({ emailToken });
+          try {
+            const response = await postRequest("/api/user/verify-email", {
+              emailToken,
+            }); // Pass emailToken as a parameter
+            setIsLoading(false);
+            console.log("res", response);
+
+            if (response.error) {
+              setError(response);
+            } else {
+              updateUser(response);
+            }
+          } catch (error) {
+            setError(error);
+          }
         }
-
-        setIsLoading(false);
-        console.log("res", response);
-
-        if (response.error) {
-          return setError(response);
-        }
-
-        updateUser(response);
       }
-    };
-  }, [emailToken, user]);
+    }
 
+    fetchData();
+  }, [emailToken, user]);
   return (
     <div>
       {isLoading ? (
         <div>
-          <Circularprogress />
+          <CircularProgress />
         </div>
       ) : (
         <div>
