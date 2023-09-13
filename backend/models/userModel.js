@@ -44,6 +44,13 @@ const userSchema = new Schema({
       sparse: true,
     },
     specific_area: String,
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    emailToken: {
+      type: String,
+    },
   },
   pharmacist: {
     register_no: {

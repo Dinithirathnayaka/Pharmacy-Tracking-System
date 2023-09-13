@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useRegister = () => {
+  const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
@@ -33,5 +34,10 @@ export const useRegister = () => {
     }
   };
 
-  return { signup, isLoading, error };
+  const updateUser = useCallback((response) => {
+    localStorage.setItem("User", JSON.stringify(response));
+    setUser(response);
+  }, []);
+
+  return { signup, isLoading, error, updateUser };
 };
