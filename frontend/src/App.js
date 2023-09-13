@@ -24,6 +24,7 @@ import LocateUs from "./pages/LocateUs";
 import { SearchProvider } from "./context/SearchContext";
 import StockDetails from "./components/StockDetails/StockDetails";
 import Home from "./pages/Home/Home";
+import VerifyEmail from "./pages/VerifyEmail";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -66,6 +67,7 @@ export default function App() {
               element={!user ? <Doctorregister /> : <Navigate to="/" />}
             />
             <Route path="/reset" element={<Reset />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
 
             {user ? (
               <>
