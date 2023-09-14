@@ -1,0 +1,63 @@
+.dataResult {
+  width: 100%;
+}
+
+.dropdown-row {
+  padding: 5px;
+}
+
+.dropdown-row:hover {
+  background-color: aliceblue;
+}
+
+.dropdown-row:hover {
+  cursor: pointer;
+}
+
+/* SearchBox.module.css */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff; /* Background color for the container */
+  border-radius: 5px;
+}
+
+.search-input-container {
+  flex-grow: 1; /* Allow the input to grow and take available space */
+  margin-right: 5px; /* Margin between the input and icon */
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Style for the search icon */
+.search-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+}
+
+.search-icon-container:hover {
+  background-color: azure;
+}
+
+.search-icon {
+  color: black; /* Color of the icon */
+  font-size: 25px; /* Adjust the icon size */
+}
+
+.search-icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}

@@ -42,6 +42,12 @@
   z-index: 1;
 }
 
+.fixed-navbar {
+  background-color: #fff;
+  width: 100%;
+  z-index: 1;
+}
+
 .nav-link-item {
   font-size: var(--text-regular) !important;
   font-weight: var(--font-weight-semi-bold) !important;
@@ -128,4 +134,3 @@ a.nav-link-item.active {
   font-size: x-small;
   font-weight: bold;
 }
-

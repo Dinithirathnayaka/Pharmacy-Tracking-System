@@ -1,15 +1,8 @@
-import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { FileUploader } from "react-drag-drop-files";
 import "../Styles/Pharmacies.css";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 export const Pharmacistregister = () => {
-  const [file, setFile] = useState(null);
-  const handleChange = (file) => {
-    setFile(file);
-  };
-
   return (
     <div className="phamacies-container">
       <div className="pharmacis">

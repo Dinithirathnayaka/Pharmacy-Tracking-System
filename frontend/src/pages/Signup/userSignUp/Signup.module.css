@@ -1,0 +1,35 @@
+.main-form-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+}
+
+form.signup {
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.form-div {
+  margin: 15px 10px;
+}
+
+.form-div button {
+  width: 100%;
+}
+
+.form-div a {
+  text-decoration: none;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid red;
+  color: red;
+  border-radius: 4px;
+}

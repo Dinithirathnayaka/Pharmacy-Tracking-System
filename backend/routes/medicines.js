@@ -6,9 +6,13 @@ const {
   getMedicine,
   deleteMedicine,
   updateMedicine,
+  getMedicineSuggestions
 } = require("../controllers/medicineController");
 
 const router = express.Router();
+
+// Medicine suggestions
+router.get("/medicine-suggestions", getMedicineSuggestions);
 
 //GET all medicines
 router.get("/", getMedicines);

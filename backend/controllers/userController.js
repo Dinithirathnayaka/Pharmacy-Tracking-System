@@ -24,6 +24,7 @@ const loginUser = async (req, res) => {
 
 //SIGNUP user
 const signupUser = async (req, res) => {
+
   const { username, email, password, role } = req.body;
 
   try {
@@ -33,6 +34,10 @@ const signupUser = async (req, res) => {
     }
 
     let roleData = {};
+    if (role === "pharmacist") {
+      const { register_no, pharmacyName, location } = req.body.roleData;
+      roleData = { register_no, pharmacyName, location };
+    }
     if (role === "doctor") {
       const { regi_no, specific_area } = req.body.roleData;
       roleData = {

@@ -79,14 +79,14 @@ export default function PostDetails({ post }) {
               <MoreVert className="morevert" />
             </button>
 
-            <ul class="dropdown-menu" style={{ marginLeft: "-40px" }}>
+            <ul className="dropdown-menu" style={{ marginLeft: "-40px" }}>
               <li>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Update
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onClick={handleDelete}>
+                <a className="dropdown-item" href="#" onClick={handleDelete}>
                   Delete
                 </a>
               </li>

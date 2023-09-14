@@ -1,6 +1,5 @@
 .feed {
   position: relative;
-  top: 70px;
   flex: 50%;
   height: calc(100vh - 70px);
   background-color: #fff;

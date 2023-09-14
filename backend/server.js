@@ -6,6 +6,7 @@ const postRoutes = require("./routes/posts");
 const medicineRoutes = require("./routes/medicines");
 const commentRoutes = require("./routes/comments");
 const userRoutes = require("./routes/users");
+const searchRoutes = require("./routes/searchRoutes");
 
 //express app
 const app = express();
@@ -23,6 +24,7 @@ app.use("/api/medicines", medicineRoutes);
 app.use("/api/comments/", commentRoutes);
 app.use("/api/user/", userRoutes);
 app.use("/uploads", express.static("uploads"));
+app.use("/api/search", searchRoutes);
 
 mongoose.set("strictQuery", false);
 

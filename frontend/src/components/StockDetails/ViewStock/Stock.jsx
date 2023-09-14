@@ -14,7 +14,7 @@ const Stock = () => {
 
       <hr />
       <div className="container">
-        <div className={` text-center ${StockCSS["addbutton"]}`}>
+        <div className={`text-center ${StockCSS["addbutton"]}`}>
           <a href="addmedicine">Add Medicine</a>
         </div>
 
