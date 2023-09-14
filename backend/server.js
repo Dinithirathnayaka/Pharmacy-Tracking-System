@@ -26,7 +26,6 @@ app.use("/api/user/", userRoutes);
 app.use("/uploads", express.static("uploads"));
 app.use("/api/search", searchRoutes);
 
-// Set the strictQuery option to false to prevent the deprecation warning
 mongoose.set("strictQuery", false);
 
 //connect to db

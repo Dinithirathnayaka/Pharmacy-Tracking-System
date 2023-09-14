@@ -23,6 +23,7 @@ import ViewDoctor from "./pages/ViewDoctor";
 import { SearchProvider } from "./context/SearchContext";
 import StockDetails from "./components/StockDetails/StockDetails";
 import Home from "./pages/Home/Home";
+import VerifyEmail from "./pages/VerifyEmail";
 import PharmacistSignup from "./pages/Signup/pharmacistSignUp/PharmacistSignup";
 import LocateUs from "./pages/LocateUs/LocateUs";
 
@@ -67,6 +68,7 @@ export default function App() {
               element={!user ? <Doctorregister /> : <Navigate to="/" />}
             />
             <Route path="/reset" element={<Reset />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
 
             {user ? (
               <>

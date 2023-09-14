@@ -11,7 +11,25 @@ export const Doctorregister = () => {
   const [specificArea, setSpecificArea] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [allFieldsFilled, setAllFieldsFilled] = useState(true);
+  const [registrationNumberError, setRegistrationNumberError] = useState("");
   const { signup, error, isLoading } = useRegister();
+
+  const handleInputChange = (e) => {
+    const inputVal = e.target.value;
+    // Remove any non-numeric characters
+    const numericValue = inputVal.replace(/\D/g, "");
+
+    // Ensure it has exactly 5 digits
+    if (/^\d{5}$/.test(numericValue)) {
+      setRegiNo(numericValue);
+      setRegistrationNumberError("");
+    } else {
+      setRegiNo(numericValue);
+      setRegistrationNumberError(
+        "Registration number should be a 5-digit number."
+      );
+    }
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -57,10 +75,15 @@ export const Doctorregister = () => {
           <input
             type="text"
             className="regnum"
-            onChange={(e) => setRegiNo(e.target.value)}
+            // onChange={(e) => setRegiNo(e.target.value)}
+            onChange={handleInputChange}
             value={regiNo}
             required
           />
+          {registrationNumberError && (
+            <p className="error-message">{registrationNumberError}</p>
+          )}
+
           <br />
 
           <label>Full Name</label>
