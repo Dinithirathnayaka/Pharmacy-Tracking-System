@@ -18,7 +18,6 @@ import { Doctorregister } from "./pages/DoctorRegister";
 import { Reset } from "./pages/ResetPassword";
 import ViewDoctor from "./pages/ViewDoctor";
 
-
 //context
 import { SearchProvider } from "./context/SearchContext";
 import StockDetails from "./components/StockDetails/StockDetails";
