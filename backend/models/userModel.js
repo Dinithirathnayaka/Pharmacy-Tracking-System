@@ -14,23 +14,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      validator: validator.isEmail,
-      message: "Email is not valid",
-    },
   },
   password: {
     type: String,
     required: true,
     minlength: 6,
-    validate: {
-      validator: (value) => {
-        return validator.isStrongPassword(value, {
-          minLength: 6, // Adjust this to your password strength requirements
-        });
-      },
-      message: "Password not strong enough",
-    },
   },
   role: {
     type: String,
@@ -50,6 +38,21 @@ const userSchema = new Schema({
       type: String,
       unique: true,
       sparse: true,
+    },
+    pharmacyName: {
+      type: String,
+      required: false,
+    },
+    location: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        required: false,
+      },
+      coordinates: {
+        type: [Number],
+        required: false,
+      },
     },
   },
 });
@@ -73,10 +76,16 @@ userSchema.statics.signup = async function (
     throw Error("Password not strong enough");
   }
 
-  const exists = await this.findOne({ email });
+  const existsEmail = await this.findOne({ email });
 
-  if (exists) {
+  if (existsEmail) {
     throw Error("Email already in use");
+  }
+
+  const existsUsername = await this.findOne({ username });
+
+  if (existsUsername) {
+    throw Error("Username already in use");
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -84,10 +93,12 @@ userSchema.statics.signup = async function (
 
   const userData = { email, username, password: hash, role };
 
+  if (role === "pharmacist") {
+    userData.pharmacist = roleData;
+  }
+
   if (role === "doctor") {
     userData.doctor = roleData;
-  } else if (role === "pharmacist") {
-    userData.pharmacist = roleData;
   }
 
   const user = await this.create(userData);

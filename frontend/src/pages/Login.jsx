@@ -23,11 +23,11 @@ export const Login = () => {
 
     await login(email, password);
     console.log(error);
-    // if (error == false) {
-    //   navigate("/");
-    // } else {
-    //   navigate("/reset");
-    // }
+    if (error === false) {
+      navigate("/");
+    } else {
+      navigate("/reset");
+    }
   };
 
   return (

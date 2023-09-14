@@ -1,13 +1,13 @@
-import TitleBar from "../components/TitleBar";
-import contactUs from "../components/images/contact-us.png";
-import PharmacyDetails from "../components/PharmacyDetails";
+import React, { useState } from "react";
+import Map from "../../components/Map/Map";
 import LocateCSS from "./LocateUs.module.css";
-import Map from "../components/Map/Map";
-import SearchBox from "../components/SearchBox/SearchBox";
-import { useState } from "react";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import TitleBar from "../../components/TitleBar";
+import contactUs from "../../components/images/contact-us.png";
 
 const LocateUs = () => {
-  // const [markers, setMarkers] = useState([]);
+  const [markers, setMarkers] = useState([]); 
+
 
   // Function to set markers based on search results
   const handleSearch = async (searchValue) => {
@@ -33,6 +33,8 @@ const LocateUs = () => {
       console.error(error);
     }
   };
+
+
   return (
     <div className={LocateCSS["locateus-container"]}>
       <TitleBar
@@ -40,28 +42,20 @@ const LocateUs = () => {
         title="Locate Us"
         description="Find where we are"
       />
-
       <div
         className="container-fluid"
         style={{
           width: "100%",
-          height: "calc(100vh - 117px)",
           overflow: "hidden",
           margin: 0,
           padding: 0,
+          position: "relative",
         }}
       >
         <div className={LocateCSS["search-bar"]}>
           <SearchBox onSearch={handleSearch} />
         </div>
-        <Map />
-      </div>
-
-      <div>
-        <PharmacyDetails />
-        <PharmacyDetails />
-        <PharmacyDetails />
-        <PharmacyDetails />
+        <Map markers={markers} />
       </div>
     </div>
   );

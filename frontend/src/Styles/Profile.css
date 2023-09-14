@@ -3,8 +3,3 @@
   background-color: white;
   height: calc(100vh - 70px);
 }
-
-.profileCenter {
-  position: relative;
-  top: 70px;
-}

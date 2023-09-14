@@ -23,7 +23,7 @@ const loginUser = async (req, res) => {
 
 //SIGNUP user
 const signupUser = async (req, res) => {
-  const { username, email, password, role } = req.body; // Include the 'role' field in the request body
+  const { username, email, password, role } = req.body;
 
   try {
     // Check if the provided role is valid
@@ -33,12 +33,13 @@ const signupUser = async (req, res) => {
 
     // Check if the provided role-specific data is valid
     let roleData = {};
+    if (role === "pharmacist") {
+      const { register_no, pharmacyName, location } = req.body.roleData;
+      roleData = { register_no, pharmacyName, location };
+    }
     if (role === "doctor") {
       const { regi_no, specific_area } = req.body.roleData;
       roleData = { regi_no, specific_area };
-    } else if (role === "pharmacist") {
-      const { register_no } = req.body.roleData;
-      roleData = { register_no };
     }
 
     const user = await User.signup(username, email, password, role, roleData);

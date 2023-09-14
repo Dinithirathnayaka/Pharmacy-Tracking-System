@@ -14,16 +14,17 @@ import Navbar from "./components/Navbar/Navbar";
 //pages
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { Pharmacistregister } from "./pages/PharmacistRegister";
 import { Doctorregister } from "./pages/DoctorRegister";
 import { Reset } from "./pages/ResetPassword";
 import ViewDoctor from "./pages/ViewDoctor";
-import LocateUs from "./pages/LocateUs";
+
 
 //context
 import { SearchProvider } from "./context/SearchContext";
 import StockDetails from "./components/StockDetails/StockDetails";
 import Home from "./pages/Home/Home";
+import PharmacistSignup from "./pages/Signup/pharmacistSignUp/PharmacistSignup";
+import LocateUs from "./pages/LocateUs/LocateUs";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,7 +60,7 @@ export default function App() {
             />
             <Route
               path="/pharmacistregister"
-              element={!user ? <Pharmacistregister /> : <Navigate to="/" />}
+              element={!user ? <PharmacistSignup /> : <Navigate to="/" />}
             />
             <Route
               path="/registerdoctor"

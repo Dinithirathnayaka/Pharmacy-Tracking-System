@@ -15,6 +15,10 @@ const Navbar = () => {
 
   const { user } = useAuthContext();
 
+  const navbarClassName = user
+    ? NavbarCSS["fixed-navbar"]
+    : ` ${NavbarCSS["main-navbar"]}`;
+
   // Function to handle search
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -22,9 +26,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav
-        className={`navbar shadow navbar-expand-lg  ${NavbarCSS["main-navbar"]}`}
-      >
+      <nav className={`navbar shadow navbar-expand-lg  ${navbarClassName}`}>
         <div className="container-fluid">
           <a className="navbar-brand">
             <img
