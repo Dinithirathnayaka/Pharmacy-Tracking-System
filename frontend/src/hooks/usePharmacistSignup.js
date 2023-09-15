@@ -15,6 +15,7 @@ export const usePharmacistSignup = () => {
     confirmPassword,
     location
   ) => {
+
     setIsLoading(true);
     setError(null);
 

@@ -108,6 +108,8 @@ userSchema.statics.signup = async function (
     userData.doctor = roleData;
   }
 
+  console.log(userData);
+
   const user = await this.create(userData);
 
   return user;

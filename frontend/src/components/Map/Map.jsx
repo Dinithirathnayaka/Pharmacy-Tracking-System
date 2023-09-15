@@ -5,7 +5,12 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-import { Circle, GoogleMap, MarkerF } from "@react-google-maps/api";
+import {
+  Circle,
+  DirectionsRenderer,
+  GoogleMap,
+  MarkerF,
+} from "@react-google-maps/api";
 import MapCSS from "./Map.module.css";
 import homeLocatorImage from "../images/home_locator.png";
 
@@ -16,13 +21,14 @@ const Map = ({ zoom, markers }) => {
     return storedLocation ? JSON.parse(storedLocation) : null;
   });
 
-  console.log(markers);
+  const [directions, setDirections] = useState(null);
+  console.log(directions);
 
   const mapRef = useRef();
 
   const options = useMemo(
     () => ({
-      mapId: "f50eb586eb2b2813",
+      // mapId: "f50eb586eb2b2813",
       disableDefaultUI: true,
       clickableIcons: false,
     }),
@@ -67,6 +73,27 @@ const Map = ({ zoom, markers }) => {
     }
   };
 
+  const fetchDirections = (marker) => {
+    if (!currentLocation) return;
+
+    // Clear previous directions before fetching new directions
+    setDirections(null);
+
+    const service = new window.google.maps.DirectionsService();
+    service.route(
+      {
+        origin: marker,
+        destination: currentLocation,
+        travelMode: window.google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (status === "OK" && result) {
+          setDirections(result);
+        }
+      }
+    );
+  };
+
   return (
     <div className={MapCSS["map"]}>
       <GoogleMap
@@ -79,6 +106,18 @@ const Map = ({ zoom, markers }) => {
         onLoad={onLoad}
         options={options}
       >
+        {directions && (
+          <DirectionsRenderer
+            directions={directions}
+            options={{
+              polylineOptions: {
+                zIndex: 50,
+                strokeColor: "#1976D2",
+                strokeWeight: 5,
+              },
+            }}
+          />
+        )}
         <MarkerF
           position={{
             lat: center.lat,
@@ -94,7 +133,13 @@ const Map = ({ zoom, markers }) => {
         {markers &&
           markers.map((marker, index) => (
             <React.Fragment key={index}>
-              <MarkerF position={marker} title={marker.pharmacyName} />
+              <MarkerF
+                position={marker}
+                title={marker.pharmacyName}
+                onClick={() => {
+                  fetchDirections(marker);
+                }}
+              />
               <Circle center={center} radius={15000} options={closeOptions} />
               <Circle center={center} radius={30000} options={middleOptions} />
               <Circle center={center} radius={45000} options={farOptions} />

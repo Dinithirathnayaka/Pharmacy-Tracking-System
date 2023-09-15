@@ -6,8 +6,7 @@ import TitleBar from "../../components/TitleBar";
 import contactUs from "../../components/images/contact-us.png";
 
 const LocateUs = () => {
-  const [markers, setMarkers] = useState([]); 
-
+  const [markers, setMarkers] = useState([]);
 
   // Function to set markers based on search results
   const handleSearch = async (searchValue) => {
@@ -33,7 +32,6 @@ const LocateUs = () => {
       console.error(error);
     }
   };
-
 
   return (
     <div className={LocateCSS["locateus-container"]}>
