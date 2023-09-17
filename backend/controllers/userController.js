@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
+const { sendVerificationMail } = require("../utils/sendVerificationMail");
 
 const createToken = (_id, role) => {
   return jwt.sign({ _id, role }, process.env.SECRET, { expiresIn: "3d" });
@@ -24,7 +25,6 @@ const loginUser = async (req, res) => {
 
 //SIGNUP user
 const signupUser = async (req, res) => {
-
   const { username, email, password, role } = req.body;
 
   try {
@@ -51,6 +51,8 @@ const signupUser = async (req, res) => {
     }
 
     const user = await User.signup(username, email, password, role, roleData);
+
+    sendVerificationMail(user);
 
     // Create a token
     const token = createToken(user._id, role);
