@@ -83,7 +83,9 @@ const SignUp = () => {
             </button>
           </div>
           {error && (
-            <div className={`text-center ${SignupCSS["error"]} ${SignupCSS["form-div"]}`}>
+            <div
+              className={`text-center ${SignupCSS["error"]} ${SignupCSS["form-div"]}`}
+            >
               {error}
             </div>
           )}

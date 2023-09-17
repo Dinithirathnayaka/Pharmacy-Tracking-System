@@ -64,7 +64,7 @@ export const Login = () => {
             />
           </div>
 
-          <button className="submitbtn" disabled={isLoading}>
+          <button type="submit" className="submitbtn" disabled={isLoading}>
             {" "}
             Login
           </button>

@@ -5,50 +5,51 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-import { Circle, GoogleMap, MarkerF } from "@react-google-maps/api";
+import {
+  Circle,
+  DirectionsRenderer,
+  GoogleMap,
+  MarkerF,
+} from "@react-google-maps/api";
 import MapCSS from "./Map.module.css";
 import homeLocatorImage from "../images/home_locator.png";
-import NearMeIcon from "@mui/icons-material/NearMe";
 
 const Map = ({ zoom, markers }) => {
+  // const [map, setMap] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(() => {
     const storedLocation = localStorage.getItem("currentLocation");
     return storedLocation ? JSON.parse(storedLocation) : null;
   });
 
-  const [map, setMap] = useState(null);
+  const [directions, setDirections] = useState(null);
+  console.log(directions);
 
   const mapRef = useRef();
 
   const options = useMemo(
     () => ({
+      // mapId: "f50eb586eb2b2813",
       disableDefaultUI: true,
       clickableIcons: false,
     }),
     []
   );
 
-  const center = useMemo(
-    () => currentLocation || { lat: 8.3114, lng: 80.4037 },
-    [currentLocation]
-  );
-
-  const directionsRenderers = useRef([]); // Ref to hold the directions renderers
-  const directionsRendererRef = useRef(null);
-
   const onLoad = useCallback((map) => {
     mapRef.current = map;
-    setMap(map);
+    // setMap(map);
   }, []);
 
   useEffect(() => {
     getUserLocation();
   }, []);
 
-  useEffect(() => {
-    // Clear directions when markers change
-    clearDirections();
-  }, [markers]);
+  const center = useMemo(
+    () => currentLocation || { lat: 8.3114, lng: 80.4037 },
+    [currentLocation]
+  );
+
+  // const center = currentLocation || { lat: 8.3114, lng: 80.4037 };
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -58,9 +59,9 @@ const Map = ({ zoom, markers }) => {
 
           const newLocation = { lat: latitude, lng: longitude };
 
+          // Save the newLocation to localStorage
           localStorage.setItem("currentLocation", JSON.stringify(newLocation));
 
-          // setCurrentLocation(newLocation);
           setCurrentLocation({ lat: 6.7184, lng: 80.7741 });
         },
         (error) => {
@@ -72,80 +73,31 @@ const Map = ({ zoom, markers }) => {
     }
   };
 
-  const clearDirections = () => {
-    // Clear previous directions renderer
-    if (directionsRendererRef.current) {
-      directionsRendererRef.current.setMap(null);
-    }
-  };
+  const fetchDirections = (marker) => {
+    if (!currentLocation) return;
 
-  const handleMarkerClick = (marker) => {
-    if (!center) return;
+    // Clear previous directions before fetching new directions
+    setDirections(null);
 
-    // Remove any old renderers from the map
-    for (let i = 0; i < directionsRenderers.current.length; i++) {
-      directionsRenderers.current[i].setMap(null);
-    }
-    // Clear out the directionsRenderers array
-    directionsRenderers.current = [];
-
-    const directionsService = new window.google.maps.DirectionsService();
-
-    const request = {
-      origin: marker,
-      destination: center,
-      travelMode: window.google.maps.TravelMode.DRIVING,
-    };
-
-    directionsService.route(request, (result, status) => {
-      if (status === window.google.maps.DirectionsStatus.OK) {
-        const rendererOptions = getRendererOptions();
-        renderDirections(result, rendererOptions);
-      }
-    });
-  };
-
-  const getRendererOptions = () => {
-    return {
-      draggable: false,
-      suppressMarkers: false,
-      polylineOptions: {
-        zIndex: 50,
-        strokeColor: "#1976D2",
-        strokeWeight: 5,
+    const service = new window.google.maps.DirectionsService();
+    service.route(
+      {
+        origin: marker,
+        destination: currentLocation,
+        travelMode: window.google.maps.TravelMode.DRIVING,
       },
-    };
-  };
-
-  const renderDirections = (result) => {
-    clearDirections(); // Clear previous directions before rendering new directions
-
-    const rendererOptions = getRendererOptions();
-
-    // Create a new directions renderer
-    const directionsRenderer = new window.google.maps.DirectionsRenderer(
-      rendererOptions
+      (result, status) => {
+        if (status === "OK" && result) {
+          setDirections(result);
+        }
+      }
     );
-
-    directionsRenderer.setMap(mapRef.current);
-    directionsRenderer.setDirections(result);
-
-    // Update the directionsRendererRef with the new renderer
-    directionsRendererRef.current = directionsRenderer;
   };
 
   return (
     <div className={MapCSS["map"]}>
-      <div
-        className={`${MapCSS["re-center"]} ${MapCSS["wave-icon-container"]}`}
-      >
-        <NearMeIcon
-          className={`${MapCSS["wave-icon"]}`}
-          onClick={() => map.panTo(center)}
-        />
-      </div>
       <GoogleMap
-        center={currentLocation ? currentLocation : center}
+        center={center}
         zoom={zoom}
         mapContainerStyle={{
           width: "100%",
@@ -154,6 +106,18 @@ const Map = ({ zoom, markers }) => {
         onLoad={onLoad}
         options={options}
       >
+        {directions && (
+          <DirectionsRenderer
+            directions={directions}
+            options={{
+              polylineOptions: {
+                zIndex: 50,
+                strokeColor: "#1976D2",
+                strokeWeight: 5,
+              },
+            }}
+          />
+        )}
         <MarkerF
           position={{
             lat: center.lat,
@@ -173,7 +137,7 @@ const Map = ({ zoom, markers }) => {
                 position={marker}
                 title={marker.pharmacyName}
                 onClick={() => {
-                  handleMarkerClick(marker);
+                  fetchDirections(marker);
                 }}
               />
               <Circle center={center} radius={15000} options={closeOptions} />
@@ -192,8 +156,6 @@ Map.defaultProps = {
 };
 
 export default Map;
-
-// Define 'closeOptions', 'middleOptions', and 'farOptions' as needed.
 
 const defaultOptions = {
   strokeOpacity: 0.5,

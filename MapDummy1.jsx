@@ -8,15 +8,12 @@ import React, {
 import { Circle, GoogleMap, MarkerF } from "@react-google-maps/api";
 import MapCSS from "./Map.module.css";
 import homeLocatorImage from "../images/home_locator.png";
-import NearMeIcon from "@mui/icons-material/NearMe";
 
 const Map = ({ zoom, markers }) => {
   const [currentLocation, setCurrentLocation] = useState(() => {
     const storedLocation = localStorage.getItem("currentLocation");
     return storedLocation ? JSON.parse(storedLocation) : null;
   });
-
-  const [map, setMap] = useState(null);
 
   const mapRef = useRef();
 
@@ -28,27 +25,20 @@ const Map = ({ zoom, markers }) => {
     []
   );
 
-  const center = useMemo(
-    () => currentLocation || { lat: 8.3114, lng: 80.4037 },
-    [currentLocation]
-  );
-
   const directionsRenderers = useRef([]); // Ref to hold the directions renderers
-  const directionsRendererRef = useRef(null);
 
   const onLoad = useCallback((map) => {
     mapRef.current = map;
-    setMap(map);
   }, []);
 
   useEffect(() => {
     getUserLocation();
   }, []);
 
-  useEffect(() => {
-    // Clear directions when markers change
-    clearDirections();
-  }, [markers]);
+  const center = useMemo(
+    () => currentLocation || { lat: 8.3114, lng: 80.4037 },
+    [currentLocation]
+  );
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -60,7 +50,6 @@ const Map = ({ zoom, markers }) => {
 
           localStorage.setItem("currentLocation", JSON.stringify(newLocation));
 
-          // setCurrentLocation(newLocation);
           setCurrentLocation({ lat: 6.7184, lng: 80.7741 });
         },
         (error) => {
@@ -69,13 +58,6 @@ const Map = ({ zoom, markers }) => {
       );
     } else {
       console.error("Geolocation is not supported in this browser.");
-    }
-  };
-
-  const clearDirections = () => {
-    // Clear previous directions renderer
-    if (directionsRendererRef.current) {
-      directionsRendererRef.current.setMap(null);
     }
   };
 
@@ -110,19 +92,15 @@ const Map = ({ zoom, markers }) => {
       draggable: false,
       suppressMarkers: false,
       polylineOptions: {
-        zIndex: 50,
-        strokeColor: "#1976D2",
-        strokeWeight: 5,
+        strokeColor: "#00458E", // Change color as needed
+        strokeWeight: 4,
+        strokeOpacity: 1.0,
       },
     };
   };
 
-  const renderDirections = (result) => {
-    clearDirections(); // Clear previous directions before rendering new directions
-
-    const rendererOptions = getRendererOptions();
-
-    // Create a new directions renderer
+  const renderDirections = (result, rendererOptions) => {
+    // Create a new renderer object
     const directionsRenderer = new window.google.maps.DirectionsRenderer(
       rendererOptions
     );
@@ -130,22 +108,14 @@ const Map = ({ zoom, markers }) => {
     directionsRenderer.setMap(mapRef.current);
     directionsRenderer.setDirections(result);
 
-    // Update the directionsRendererRef with the new renderer
-    directionsRendererRef.current = directionsRenderer;
+    // Push the new renderer onto directionsRenderers array
+    directionsRenderers.current.push(directionsRenderer);
   };
 
   return (
     <div className={MapCSS["map"]}>
-      <div
-        className={`${MapCSS["re-center"]} ${MapCSS["wave-icon-container"]}`}
-      >
-        <NearMeIcon
-          className={`${MapCSS["wave-icon"]}`}
-          onClick={() => map.panTo(center)}
-        />
-      </div>
       <GoogleMap
-        center={currentLocation ? currentLocation : center}
+        center={center}
         zoom={zoom}
         mapContainerStyle={{
           width: "100%",

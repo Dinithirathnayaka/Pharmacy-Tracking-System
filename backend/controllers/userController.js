@@ -36,16 +36,16 @@ const signupUser = async (req, res) => {
     let roleData = {};
     if (role === "pharmacist") {
       const { register_no, pharmacyName, location } = req.body.roleData;
+
       roleData = { register_no, pharmacyName, location };
-    }
-    if (role === "doctor") {
+    } else if (role === "doctor") {
       const { regi_no, specific_area } = req.body.roleData;
       roleData = {
         regi_no,
         specific_area,
         emailToken: crypto.randomBytes(64).toString("hex"),
       };
-    } else if (role === "pharmacist") {
+    } else {
       const { register_no } = req.body.roleData;
       roleData = { register_no };
     }
