@@ -1,13 +1,45 @@
 .services {
+  position: relative;
   height: 100vh;
   text-align: center;
   position: relative;
   top: 73px;
+  overflow: hidden;
 }
 
-.card-container {
+.services-heading h1 {
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.carousel-container {
   position: relative;
-  top: 15%;
+  top: 10%;
+}
+
+.carousel-card{
+  padding: 10px;
+}
+
+.img-container {
+  height: 300px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%; /* or any custom size */
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-body {
+  overflow: hidden;
+}
+
+/* .card-container {
+  position: relative;
 }
 
 .card-container .card {
@@ -33,4 +65,4 @@
 
 .card-footer button {
   width: 100%;
-}
+} */
