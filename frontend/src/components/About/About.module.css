@@ -1,5 +1,5 @@
 .about-main-container {
-  /* height: calc(100vh - 73px); */
+  position: relative;
   height: 100vh;
 }
 
@@ -12,12 +12,12 @@
   margin-top: 10%;
 }
 
-/* .about-card-container {
+.about-card-container {
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-} */
+}
 
 .about-heading h1 {
   font-family: "Noto Sans", sans-serif;

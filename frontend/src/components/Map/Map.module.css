@@ -27,10 +27,6 @@
   align-items: center;
 }
 
-.wave-icon{
-
-}
-
 @keyframes animate {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 206, 209, 0.7);
