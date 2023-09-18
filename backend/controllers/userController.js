@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
-const { sendVerificationMail } = require("../utils/sendVerificationMail");
+const { sendMail } = require("../utils/sendMail");
 
 const createToken = (_id, role) => {
   return jwt.sign({ _id, role }, process.env.SECRET, { expiresIn: "3d" });
@@ -52,7 +52,15 @@ const signupUser = async (req, res) => {
 
     const user = await User.signup(username, email, password, role, roleData);
 
-    sendVerificationMail(user);
+    if (role == "doctor") {
+      sendMail(
+        "Doctor Verification",
+        "pharmacytracking11@gmail.com",
+        user.username +
+          " is trying to log into the system.Please Verify the doctor " +
+          user.email
+      );
+    }
 
     // Create a token
     const token = createToken(user._id, role);

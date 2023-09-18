@@ -46,9 +46,9 @@ import { useCallback, useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useRegister = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Initialize isLoading with false
+  const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
   const signup = async (username, email, password, role, roleData) => {
@@ -91,10 +91,10 @@ export const useRegister = () => {
     }
   };
 
-  const updateUser = useCallback((response) => {
-    localStorage.setItem("User", JSON.stringify(response));
-    setUser(response);
-  }, []);
+  // const updateUser = useCallback((response) => {
+  //   localStorage.setItem("User", JSON.stringify(response));
+  //   setUser(response);
+  // }, []);
 
-  return { signup, isLoading, error, updateUser };
+  return { signup, isLoading, error };
 };

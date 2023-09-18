@@ -27,7 +27,7 @@ export const Register = () => {
       return;
     }
     try {
-      const r = await signup(username, email, password);
+      const r = await signup(username, email, password, "patient", {});
       console.log(r);
     } catch (error) {
       console.error("Error during signup:", error);
