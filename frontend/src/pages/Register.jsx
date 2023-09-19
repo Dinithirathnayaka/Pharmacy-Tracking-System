@@ -43,8 +43,19 @@ export const Register = () => {
         />
 
         <Form className="register-form" onSubmit={handleSubmit}>
+          {/* <div className="usernameconreg">
+            <FaUser className="usernameicon" />
+            <input
+              type="text"
+              placeholder="User Name"
+              className="usernamereg"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+            />
+          </div> */}
           <div className="usernameconreg">
-            <FaUser className="usernammeicon" />
+            <FaUser className="usernameicon" />
             <input
               type="text"
               placeholder="User Name"
@@ -65,7 +76,6 @@ export const Register = () => {
               required
             />
           </div>
-          <br />
           <div className="passconreg">
             <FaLock className="lockiconreg" />
             <input
@@ -77,7 +87,6 @@ export const Register = () => {
               required
             />
           </div>{" "}
-          <br />
           <div className="passconreg">
             <FaLock className="lockiconreg" />
             <input

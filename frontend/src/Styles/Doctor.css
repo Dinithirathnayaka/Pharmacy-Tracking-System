@@ -88,13 +88,14 @@
 }
 
 .submitbtndoctor {
-  padding: 5px 10px;
-  width: 150px;
+  height: 40px;
+  width: 399px;
   background-color: #0195e8;
   color: #ffffff;
-  outline: none;
-  border: none !important;
-  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 select {

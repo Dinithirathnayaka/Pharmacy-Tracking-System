@@ -11,7 +11,7 @@
 }
 
 .register {
-  height: 450px;
+  height: 500px;
   width: 450px;
   padding: 25px;
   border-radius: 10px;
@@ -23,7 +23,7 @@
 }
 
 .registerimg {
-  width: 70px !important;
+  width: 90px !important;
   margin-left: auto;
   margin-right: auto;
   text-align: center !important;
@@ -46,8 +46,8 @@
   margin-right: auto;
   border-radius: 8px;
   margin-top: 5px;
-  margin-bottom: 5px;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 .usernamereg {
@@ -70,6 +70,7 @@
   border-radius: 8px;
   margin-top: 5px;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 .emailreg {
@@ -90,6 +91,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .lockiconreg {
@@ -131,4 +133,14 @@
 .registerperson {
   display: flex;
   justify-content: space-between;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+}
+
+.usernameicon {
+  margin: 5px 10px 0 0;
 }
