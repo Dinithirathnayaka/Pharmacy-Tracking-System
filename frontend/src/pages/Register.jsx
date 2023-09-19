@@ -29,6 +29,11 @@ export const Register = () => {
     try {
       const r = await signup(username, email, password, "patient", {});
       console.log(r);
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+      setAllFieldsFilled(true);
     } catch (error) {
       console.error("Error during signup:", error);
     }
@@ -43,17 +48,6 @@ export const Register = () => {
         />
 
         <Form className="register-form" onSubmit={handleSubmit}>
-          {/* <div className="usernameconreg">
-            <FaUser className="usernameicon" />
-            <input
-              type="text"
-              placeholder="User Name"
-              className="usernamereg"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-            />
-          </div> */}
           <div className="usernameconreg">
             <FaUser className="usernameicon" />
             <input

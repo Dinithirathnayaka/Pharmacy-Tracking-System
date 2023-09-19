@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useRegister } from "../hooks/useRegister";
 import "../Styles/Doctor.css";
 
@@ -12,6 +12,7 @@ export const Doctorregister = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [allFieldsFilled, setAllFieldsFilled] = useState(true);
   const [registrationNumberError, setRegistrationNumberError] = useState("");
+  // const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const { signup, error, isLoading } = useRegister();
 
   const handleInputChange = (e) => {
@@ -59,6 +60,16 @@ export const Doctorregister = () => {
 
         { regi_no: regiNo, specific_area: specificArea }
       );
+
+      setEmail("");
+      setRegiNo("");
+      setUsername("");
+      setPassword("");
+      setSpecificArea("");
+      setConfirmPassword("");
+      setAllFieldsFilled(true);
+
+      // setShowSuccessAlert(true);
     } catch (error) {
       console.error("Error during signup:", error);
     }
@@ -106,7 +117,7 @@ export const Doctorregister = () => {
           />
           <br />
 
-          <label>Choose a feild:</label>
+          <label>Choose your feild:</label>
           <select
             id="feild"
             form="feildform"
@@ -144,6 +155,12 @@ export const Doctorregister = () => {
           {!allFieldsFilled && (
             <div className="error">All fields must be filled</div>
           )}
+          {/* {showSuccessAlert && (
+            <Alert variant="success">
+              Please wait for approval by admin and be alert with your Email
+              address.
+            </Alert>
+          )} */}
           {error && <div className="error">{error}</div>}
         </Form>
       </div>
