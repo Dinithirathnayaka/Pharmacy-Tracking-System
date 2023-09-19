@@ -112,6 +112,7 @@ export const Doctorregister = () => {
             form="feildform"
             value={specificArea}
             onChange={(e) => setSpecificArea(e.target.value)}
+            style={{ padding: "3px", marginLeft: "15px" }}
           >
             <option value="dermatologist">Dermatologist</option>
             <option value="cardiologists">Cardiologists</option>
@@ -139,7 +140,7 @@ export const Doctorregister = () => {
             required
           />
 
-          <button className="mx-auto d-block submitbtndoctor">Register</button>
+          <button className="mx-auto d-block submitbtndoctor">Sign Up</button>
           {!allFieldsFilled && (
             <div className="error">All fields must be filled</div>
           )}
