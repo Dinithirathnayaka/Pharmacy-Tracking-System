@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useRegister } from "../hooks/useRegister";
-import "../Styles/Pharmacies.css";
+import "../Styles/Doctor.css";
 
 export const Doctorregister = () => {
   const [email, setEmail] = useState("");
@@ -113,10 +113,10 @@ export const Doctorregister = () => {
             value={specificArea}
             onChange={(e) => setSpecificArea(e.target.value)}
           >
-            <option value="feild1">Feild1</option>
-            <option value="feild2">Feild2</option>
-            <option value="feild3">Feild3</option>
-            <option value="feild4">Feild4</option>
+            <option value="dermatologist">Dermatologist</option>
+            <option value="cardiologists">Cardiologists</option>
+            <option value="entspecialists">ENT Specialists</option>
+            <option value="psychologists">Psychologists</option>
           </select>
           <br />
 
@@ -130,7 +130,7 @@ export const Doctorregister = () => {
           />
           <br />
 
-          <label>Reenter Password</label>
+          <label>Re Enter Password</label>
           <input
             type="password"
             className="passwordconfirmreg"
@@ -139,7 +139,7 @@ export const Doctorregister = () => {
             required
           />
 
-          <button className="submitbtnpharmacy">Register</button>
+          <button className="mx-auto d-block submitbtndoctor">Register</button>
           {!allFieldsFilled && (
             <div className="error">All fields must be filled</div>
           )}
