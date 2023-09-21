@@ -5,11 +5,27 @@
 
 .about {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-heading h1 {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+  color: #0195e8;
+  margin-top: 20px;
+  font-weight: var(--font-weight-bold);
 }
 
 .about-card-container {
   position: relative;
-  margin-top: 10%;
+  background: rgba(250, 218, 218, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .about-card-container {
@@ -19,10 +35,5 @@
   justify-content: center;
 }
 
-.about-heading h1 {
-  font-family: "Noto Sans", sans-serif;
-  text-align: center;
-  color: #0195e8;
-  margin-top: 20px;
-  font-weight: var(--font-weight-bold);
+@media only screen and (max-width: 768px) {
 }

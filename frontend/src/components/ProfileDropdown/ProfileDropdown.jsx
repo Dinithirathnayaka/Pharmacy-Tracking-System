@@ -58,7 +58,7 @@ const ProfileDropdown = () => {
         />
         {isProfileDropdownOpen && (
           <div
-            className={DropdownCSS["ProfileDropdown"]}
+            className={`shadow-lg ${DropdownCSS["ProfileDropdown"]}`}
             onClick={(e) => e.stopPropagation()}
           >
             <h3>
@@ -73,13 +73,13 @@ const ProfileDropdown = () => {
                 </Link>
               </li>
               <li>
-                <SettingsIcon className={"shareIcon"} />
+                <SettingsIcon className={DropdownCSS["shareIcon"]} />
                 <Link to="/" onClick={handleLinkClick}>
                   Settings
                 </Link>
               </li>
               <li>
-                <LogoutIcon className={"shareIcon"} />
+                <LogoutIcon className={DropdownCSS["shareIcon"]} />
                 <Link to="/" onClick={handleLogoutClick}>
                   Logout
                 </Link>

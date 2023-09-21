@@ -73,7 +73,6 @@ body {
   background-color: white !important;
 }
 
-
 /*-----------------------
   ------- SERVICES-------------
   ------------------------- */
@@ -312,9 +311,9 @@ body {
   /*-----------------------
   ------- NAVBAR-------------
   ------------------------- */
-  .navbar {
+  /* .navbar {
     padding: 28px 0;
-  }
+  } */
 
   .navbar .nav-link {
     text-align: left;

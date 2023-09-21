@@ -41,6 +41,8 @@ const Services = () => {
             autoPlay={true}
             autoPlaySpeed={4000}
             itemClass="carousel-card"
+            className={ServicesCSS["carousel"]}
+            containerClass="carousel-container-j"
           >
             <div
               className={`card h-100 ms-1 me-1  ${ServicesCSS["carousel-card"]}`}

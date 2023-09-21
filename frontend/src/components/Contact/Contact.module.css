@@ -1,5 +1,29 @@
+.contact-main-container {
+  position: relative;
+  height: 100vh;
+}
+
 .contact {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-card-container {
+  padding: 15px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.53);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-card-container p {
+  position: relative;
+  top: 10%;
 }
 
 .contact-heading h1 {
@@ -22,4 +46,35 @@
 
 .contact-details p {
   width: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-card-container p {
+    position: relative;
+    top: 0;
+    margin-bottom: 0 !important;
+  }
+
+  .form-container {
+    margin-bottom: 0 !important;
+  }
+
+  .form-content {
+    margin-top: 1rem !important;
+    font-size: var(--text-light);
+  }
+
+  .form-content input[type="text"],
+  .form-content textarea {
+    font-size: var(--text-light);
+  }
+
+  .btn-contact {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: var(--text-light);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+    width: 100%;
+  }
 }

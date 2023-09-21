@@ -122,7 +122,7 @@ const Navbar = () => {
                   to="services"
                   spy={true}
                   smooth={true}
-                  offset={-90}
+                  offset={-60}
                   duration={500}
                   className={`nav-link ${NavbarCSS["nav-link-item"]}`}
                 >
@@ -132,7 +132,7 @@ const Navbar = () => {
                   to="about"
                   spy={true}
                   smooth={true}
-                  offset={-90}
+                  offset={-60}
                   duration={500}
                   className={`nav-link ${NavbarCSS["nav-link-item"]}`}
                 >
@@ -142,7 +142,7 @@ const Navbar = () => {
                   to="contact"
                   spy={true}
                   smooth={true}
-                  offset={-90}
+                  offset={-70}
                   duration={500}
                   className={`nav-link ${NavbarCSS["nav-link-item"]}`}
                 >

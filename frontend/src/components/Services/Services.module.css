@@ -19,7 +19,15 @@
   top: 10%;
 }
 
-.carousel-card{
+.carousel-container-j .react-multiple-carousel__arrow {
+  z-index: 0;
+}
+
+.react-multiple-carousel__arrow {
+  z-index: 0 !important;
+}
+
+.carousel-card {
   padding: 10px;
 }
 
@@ -66,3 +74,9 @@
 .card-footer button {
   width: 100%;
 } */
+
+@media only screen and (max-width: 768px) {
+  .carousel-container {
+    top: 0%;
+  }
+}
