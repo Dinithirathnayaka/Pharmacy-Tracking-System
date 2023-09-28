@@ -40,10 +40,10 @@ const About = () => {
                   }}
                   className="card-body"
                 >
-                  <h4 className="card-title">
+                  <h4 className={`card-title ${AboutCSS["card-content-title"]}`}>
                     We are the leading Pharmacy Tracking Company in Sri Lanka
                   </h4>
-                  <p className="card-text">
+                  <p className={`card-text ${AboutCSS["card-content-text"]}`}>
                     We have been involving in the GPS Tracking industry since
                     2015. During this period, we have gained an immeasurable
                     amount of hands on experience.
@@ -51,7 +51,7 @@ const About = () => {
                   <div>
                     <NavLink to="/main">
                       {" "}
-                      <button className="btn btn-primary">
+                      <button className={`btn btn-primary ${AboutCSS["btn-visit"]}`}>
                         Visit our main page
                       </button>
                     </NavLink>

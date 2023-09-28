@@ -78,3 +78,16 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .contact-main-container {
+    position: relative;
+    height: auto;
+    top: 60px;
+  }
+
+  .contact {
+    height: auto;
+    top: 0;
+  }
+}

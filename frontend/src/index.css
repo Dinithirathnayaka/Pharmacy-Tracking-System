@@ -42,7 +42,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -71,6 +71,10 @@ body {
 
 .starter-navbar {
   background-color: white !important;
+}
+
+.nav-link.active {
+  color: var(--orange-light);
 }
 
 /*-----------------------
@@ -291,7 +295,6 @@ body {
     text-align: center;
   }
   .btn {
-    display: block;
     margin: 1rem 0;
   }
   .text-label,
@@ -311,16 +314,16 @@ body {
   /*-----------------------
   ------- NAVBAR-------------
   ------------------------- */
-  /* .navbar {
-    padding: 28px 0;
-  } */
 
   .navbar .nav-link {
     text-align: left;
   }
 
   .btn {
-    display: block;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: var(--text-regular);
+    font-weight: var(--font-weight-medium);
     margin: 1rem 0;
   }
 

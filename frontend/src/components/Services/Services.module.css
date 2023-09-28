@@ -1,5 +1,9 @@
-.services {
+.service-main-container {
   position: relative;
+  height: 100vh;
+}
+
+.services {
   height: 100vh;
   text-align: center;
   position: relative;
@@ -46,6 +50,26 @@
   overflow: hidden;
 }
 
+@media only screen and (max-width: 768px) {
+  .carousel-container {
+    top: 0%;
+    bottom: 0%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .service-main-container {
+    position: relative;
+    top: 60px;
+    height: auto;
+  }
+
+  .services {
+    height: auto;
+    top: 0px;
+  }
+}
+
 /* .card-container {
   position: relative;
 }
@@ -74,9 +98,3 @@
 .card-footer button {
   width: 100%;
 } */
-
-@media only screen and (max-width: 768px) {
-  .carousel-container {
-    top: 0%;
-  }
-}
