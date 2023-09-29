@@ -64,6 +64,18 @@ const userSchema = new Schema({
   },
 });
 
+userSchema.pre("save", async function (next) {
+  if (this.role === "patient") {
+    this.doctor = undefined;
+    this.pharmacist = undefined;
+  } else if (this.role === "doctor") {
+    this.pharmacist = undefined;
+  } else if (this.role === "pharmacist") {
+    this.doctor = undefined;
+  }
+  next();
+});
+
 userSchema.statics.signup = async function (
   username,
   email,
@@ -107,8 +119,6 @@ userSchema.statics.signup = async function (
   if (role === "doctor") {
     userData.doctor = roleData;
   }
-
-  console.log(userData);
 
   const user = await this.create(userData);
 

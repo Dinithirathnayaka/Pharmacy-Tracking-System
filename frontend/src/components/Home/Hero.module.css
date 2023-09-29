@@ -42,11 +42,43 @@
   padding: 0px;
 }
 
-/* After the toggler button appears */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
+  .text-label {
+    text-align: center;
+  }
+  .text-hero-bold {
+    text-align: center;
+  }
+  .text-hero-regular {
+    text-align: center;
+  }
+  .btn-signup {
+    display: block;
+  }
+}
+
+@media (max-width: 992px) {
   /* Hero */
   .hero {
-    height: calc(100vh - 57.11px);
+    top: 57.11px;
+    height: 100%;
     overflow: hidden;
+  }
+
+  .hero-container {
+    padding-bottom: 20px;
+  }
+
+  .text-label {
+    font-size: var(--text-regular);
+    line-height: 15px;
+  }
+  .text-hero-bold {
+    font-size: var(--header-2);
+    line-height: 50px;
+  }
+  .text-hero-regular {
+    font-size: var(--text-regular);
+    line-height: 20px;
   }
 }

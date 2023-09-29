@@ -27,3 +27,13 @@
   padding: 7px;
   border-radius: 50%;
 }
+
+@media only screen and (max-width: 992px) {
+  .footer {
+    height: auto !important;
+    position: relative;
+    top: 60px;
+    left: 0;
+    bottom: 0 !important;
+  }
+}

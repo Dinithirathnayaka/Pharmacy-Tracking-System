@@ -72,6 +72,24 @@ const signupUser = async (req, res) => {
   }
 };
 
+//get all doctors
+const getDoctor = async (req, res) => {
+  try {
+    const doctors = await User.find({ role: "doctor" }).sort({ createdAt: -1 });
+
+    if (doctors.length === 0) {
+      return res
+        .status(404)
+        .json({ message: 'No doctors found with role "doctor".' });
+    }
+
+    res.status(200).json(doctors);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
 // const signupUser = async (req, res) => {
 //   const { username, email, password } = req.body;
 //   console.log("hit");
@@ -121,4 +139,4 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-module.exports = { signupUser, loginUser, verifyEmail };
+module.exports = { signupUser, loginUser, verifyEmail, getDoctor };

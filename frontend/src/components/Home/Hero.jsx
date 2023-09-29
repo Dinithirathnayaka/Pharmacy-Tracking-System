@@ -6,12 +6,12 @@ const Hero = () => {
   return (
     <>
       <div className={HeroCSS["hero"]} id="hero">
-        <div className="container">
+        <div className={`container ${HeroCSS["hero-container"]}`}>
           <div className="row">
             <div className="col-md-6">
               <div className={HeroCSS["copy"]}>
                 <div className={HeroCSS["text-label"]}>
-                  Lorem ipsum dolor sit amet
+                  Tracking pharmacy near you
                 </div>
                 <div className={HeroCSS["text-hero-bold"]}>
                   The best way to keep track of your health.
@@ -20,7 +20,7 @@ const Hero = () => {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Similique soluta harum cupiditate
                 </div>
-                <a href="/register" className="btn btn-primary shadow-none">
+                <a href="/register" className={`btn btn-primary shadow-none ${HeroCSS["btn-signup"]}`}>
                   SIGN UP
                 </a>
               </div>

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export const usePharmacistSignup = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
   const pharmacistsignup = async (
     username,
@@ -15,7 +18,6 @@ export const usePharmacistSignup = () => {
     confirmPassword,
     location
   ) => {
-
     setIsLoading(true);
     setError(null);
 
@@ -39,11 +41,9 @@ export const usePharmacistSignup = () => {
       const json = await response.json();
 
       if (!response.ok) {
-        console.log("----------------------------------1");
         setIsLoading(false);
-        console.log(error);
+        setErrorMessage(json.error);
         setError(true);
-        console.log(error);
       }
 
       if (response.ok) {
@@ -55,11 +55,14 @@ export const usePharmacistSignup = () => {
 
         setIsLoading(false);
         setError(false);
+
+        // Navigate to "/"
+        navigate("/");
       }
     } else {
       setError("Password mismatch");
     }
   };
 
-  return { pharmacistsignup, isLoading, error };
+  return { pharmacistsignup, isLoading, error, errorMessage };
 };
