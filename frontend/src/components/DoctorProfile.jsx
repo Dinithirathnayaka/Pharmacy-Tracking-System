@@ -22,15 +22,15 @@ const DoctorProfile = ({ profile }) => {
         </div>
 
         <div className="doctor_profile_contacts">
-          <h3 className="text-center">{profile.name}</h3>
+          <h3 className="text-center">{profile.username}</h3>
           <ul>
             <li>
               <i className="bx bx-envelope"></i>
-              <span>email</span>
+              <span>{profile.email}</span>
             </li>
             <li>
               <i className="bx bx-phone-call"></i>
-              <span>{profile.tel}</span>
+              <span>{profile.doctor.regi_no}</span>
             </li>
             <li>
               <i className="bx bx-current-location"></i>

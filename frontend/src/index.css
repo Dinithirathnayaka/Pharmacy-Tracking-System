@@ -73,9 +73,9 @@ body {
   background-color: white !important;
 }
 
-.nav-link.active {
-  color: var(--orange-light);
-}
+/* .nav-link-item.active {
+  color: var(--orange-light) !important;
+} */
 
 /*-----------------------
   ------- SERVICES-------------

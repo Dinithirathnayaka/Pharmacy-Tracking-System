@@ -17,7 +17,7 @@ const ViewDoctor = () => {
 
   useEffect(() => {
     const fetchProfiles = async () => {
-      const response = await fetch("/api/doctors");
+      const response = await fetch("/api/user/doctors");
       const json = await response.json();
 
       if (response.ok) {
@@ -32,13 +32,13 @@ const ViewDoctor = () => {
 
   const filteredData =
     profiles?.filter((item) => {
-      const nameMatch = item.name
+      const nameMatch = item.username
         ?.toLowerCase()
         .includes(searchQuery.toLowerCase());
-      const descMatch = item.desc
+      const descMatch = item.email
         ?.toLowerCase()
         .includes(searchQuery.toLowerCase());
-      const telMatch = item.tel
+      const telMatch = item.regi_no
         ?.toLowerCase()
         .includes(searchQuery.toLowerCase());
 

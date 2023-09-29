@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import { Link as RouterLink, NavLink, Outlet } from "react-router-dom";
 import pts_logo from "../images/pts_logo.png";
 import { Person, Chat, Notifications } from "@mui/icons-material";
@@ -59,26 +58,26 @@ const Navbar = () => {
               >
                 <NavLink
                   to="/"
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                   aria-current="page"
                 >
                   HOME
                 </NavLink>
                 <NavLink
                   to="stockdetails"
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   STOCK DETAILS
                 </NavLink>
                 <NavLink
                   to="locate"
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   LOCATE US
                 </NavLink>
                 <NavLink
                   to="viewdoctor"
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   VIEW DOCTOR
                 </NavLink>
@@ -114,7 +113,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-80}
                   duration={500} // Animation duration in milliseconds
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   HOME
                 </ScrollLink>
@@ -124,7 +123,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-60}
                   duration={500}
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   SERVICES
                 </ScrollLink>
@@ -134,7 +133,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-60}
                   duration={500}
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   ABOUT
                 </ScrollLink>
@@ -144,7 +143,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className={`nav-link ${NavbarCSS["nav-link-item"]}`}
+                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
                 >
                   CONTACT
                 </ScrollLink>

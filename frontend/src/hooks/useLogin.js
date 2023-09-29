@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
   const login = async (email, password) => {
     setIsLoading(true);
-    setError(false);
 
     try {
       const response = await fetch("/api/user/login", {
@@ -16,17 +18,16 @@ export const useLogin = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
+
       const json = await response.json();
 
       if (!response.ok) {
-        console.log("----------------------------------1");
         setIsLoading(false);
-        console.log(error);
         setError(true);
-        console.log(error);
+        setErrorMessage(json.error);
       }
+
       if (response.ok) {
-        console.log("----------------------------------2");
         localStorage.setItem("user", JSON.stringify(json));
 
         console.log(JSON.stringify(json));
@@ -34,15 +35,14 @@ export const useLogin = () => {
         dispatch({ type: "LOGIN", payload: json });
         setError(false);
         setIsLoading(false);
+
+        navigate("/");
       }
     } catch (error) {
-      console.log("----------------------------------3");
-      console.log("An error occurred:--------------", error);
       setError(true);
-    } finally {
-      setIsLoading(false);
+      setErrorMessage("Something went wrong");
     }
   };
 
-  return { login, isLoading, error };
+  return { login, isLoading, error, errorMessage };
 };

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import PharmacistSignupCSS from "./PharmacistSignup.module.css";
 
@@ -14,7 +14,8 @@ const PharmacistSignup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [Location, setLocation] = useState(null);
-  const { pharmacistsignup, isLoading, error } = usePharmacistSignup();
+  const { pharmacistsignup, isLoading, error, errorMessage } =
+    usePharmacistSignup();
 
   const center = useMemo(() => ({ lat: 6.9271, lng: 79.8612 }), []);
 
@@ -31,13 +32,10 @@ const PharmacistSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !password || !confirmPassword || !username) {
-      console.log("All fields should fill");
-      return;
-    }
-
     if (password !== confirmPassword) {
       console.log("Passwords do not match");
+      setPassword("");
+      setConfirmPassword("");
       return;
     }
 
@@ -64,11 +62,27 @@ const PharmacistSignup = () => {
     []
   );
 
+  useEffect(() => {
+    if (error) {
+      setUserName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setRegNum("");
+      setSelectedLocation(null);
+      setPName("");
+    }
+  }, [error]);
+
   return (
     <div className={` ${PharmacistSignupCSS["main-form-container"]} `}>
       <div className={`shadow ${PharmacistSignupCSS["top-form-container"]}`}>
-        <div className="text-center">
-          <h1>Register Pharmacist</h1>
+        <div className="text-center mt-1">
+          <img
+            src="assets/images/register.jpeg"
+            alt="user icon"
+            className="registerimg"
+          />
         </div>
         <div className={`${PharmacistSignupCSS["form-container"]} `}>
           <div className={` ${PharmacistSignupCSS["form-container-tags"]} `}>
@@ -79,7 +93,6 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Username:</label>
                 <input
                   type="text"
                   className="form-control"
@@ -93,14 +106,13 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   aria-describedby="emailHelp"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
-                  placeholder="Email"
+                  placeholder="Email Address"
                   required
                 />
               </div>
@@ -108,7 +120,6 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Pharmacy name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -122,7 +133,6 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Pharmacy register number</label>
                 <input
                   type="text"
                   className="form-control"
@@ -136,11 +146,10 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Location:</label>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Select Coordination"
+                  placeholder="Select Location"
                   readOnly
                   value={
                     selectedLocation
@@ -154,7 +163,6 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Password:</label>
                 <input
                   type="password"
                   className="form-control"
@@ -168,7 +176,6 @@ const PharmacistSignup = () => {
               <div
                 className={`form-group ${PharmacistSignupCSS["form-element"]}`}
               >
-                <label>Confirm Password:</label>
                 <input
                   type="password"
                   className="form-control"
@@ -185,7 +192,7 @@ const PharmacistSignup = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`btn btn-primary`}
+                  className={`btn btn-success`}
                 >
                   SignUp
                 </button>
@@ -194,20 +201,22 @@ const PharmacistSignup = () => {
                 <div
                   className={`text-center ${PharmacistSignupCSS["error"]} ${PharmacistSignupCSS["form-element"]}`}
                 >
-                  {error}
+                  {errorMessage}
                 </div>
               )}
             </form>
           </div>
 
-          <div className={`${PharmacistSignupCSS["map-container"]}`}>
+          <div
+            className={`border border-dark ${PharmacistSignupCSS["map-container"]}`}
+          >
             {typeof window !== "undefined" && window.google ? (
               <GoogleMap
                 center={center}
                 zoom={12}
                 onClick={handleMapClick}
                 mapContainerStyle={{
-                  height: "75vh",
+                  height: "60vh",
                   width: "100%",
                 }}
                 options={options}

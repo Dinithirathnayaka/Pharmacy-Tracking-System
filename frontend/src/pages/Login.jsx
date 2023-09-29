@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
@@ -6,28 +6,43 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import "../Styles/Login.css";
 
+//toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const Login = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error, isLoading } = useLogin();
-  const [allFieldsFilled, setAllFieldsFilled] = useState(true);
+  const { login, error, isLoading, errorMessage } = useLogin();
+  const navigate = useNavigate();
+  const [toastKey, setToastKey] = useState(0);
+
+  useEffect(() => {
+    if (error) {
+      setEmail("");
+      setPassword("");
+      navigate("/login");
+
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }, [error, errorMessage, navigate, toastKey]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      setAllFieldsFilled(false);
-      return;
-    }
-
     await login(email, password);
-    console.log(error);
-    if (error === false) {
-      navigate("/");
-    } else {
-      navigate("/reset");
-    }
+
+    // Generate a new toast key to trigger the useEffect
+    setToastKey((prevKey) => prevKey + 1);
   };
 
   return (
@@ -49,6 +64,7 @@ export const Login = () => {
               className="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              required
             />
           </div>
 
@@ -61,6 +77,7 @@ export const Login = () => {
               className="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              required
             />
           </div>
 
@@ -68,12 +85,6 @@ export const Login = () => {
             {" "}
             Login
           </button>
-
-          {!allFieldsFilled && (
-            <div className="error">All fields must be filled</div>
-          )}
-          {error && <div className="error">{error}</div>}
-          {/* <input type="submit" value="SUBMIT" className="submitbtn" /> */}
         </Form>
         <div className="extra">
           {" "}
@@ -93,6 +104,7 @@ export const Login = () => {
           </Link>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
