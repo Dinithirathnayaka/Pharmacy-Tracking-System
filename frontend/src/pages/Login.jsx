@@ -40,18 +40,9 @@ export const Login = () => {
     e.preventDefault();
 
     await login(email, password);
-<<<<<<< HEAD
-    console.log(error);
-    if (!error) {
-      navigate("/");
-    } else {
-      navigate("/reset");
-    }
-=======
 
     // Generate a new toast key to trigger the useEffect
     setToastKey((prevKey) => prevKey + 1);
->>>>>>> 8a689f4ecfbbb445708c093683f769dd76b917be
   };
 
   return (
