@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRegister } from "../hooks/useRegister";
+import { useSignup } from "../hooks/useSignup";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
@@ -11,7 +11,7 @@ export const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { signup, error, isLoading } = useRegister();
+  const { signup, error, isLoading } = useSignup();
   const [allFieldsFilled, setAllFieldsFilled] = useState(true);
 
   const handleSubmit = async (e) => {

@@ -23,7 +23,7 @@ export const Login = () => {
 
     await login(email, password);
     console.log(error);
-    if (error === false) {
+    if (!error) {
       navigate("/");
     } else {
       navigate("/reset");

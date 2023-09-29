@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
-import { useRegister } from "../hooks/useRegister";
+import { useSignup } from "../hooks/useSignup";
 import "../Styles/Doctor.css";
 
 export const Doctorregister = () => {
@@ -13,7 +13,7 @@ export const Doctorregister = () => {
   const [allFieldsFilled, setAllFieldsFilled] = useState(true);
   const [registrationNumberError, setRegistrationNumberError] = useState("");
   // const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const { signup, error, isLoading } = useRegister();
+  const { signup, error, isLoading } = useSignup();
 
   const handleInputChange = (e) => {
     const inputVal = e.target.value;
@@ -150,8 +150,13 @@ export const Doctorregister = () => {
             value={confirmPassword}
             required
           />
+          <button
+            disabled={isLoading}
+            className="mx-auto d-block submitbtndoctor"
+          >
+            Sign up
+          </button>
 
-          <button className="mx-auto d-block submitbtndoctor">Sign Up</button>
           {!allFieldsFilled && (
             <div className="error">All fields must be filled</div>
           )}

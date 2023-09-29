@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
   const login = async (email, password) => {
     setIsLoading(true);
-    setError(false);
+    setError(null);
 
     try {
       const response = await fetch("/api/user/login", {
@@ -18,27 +18,21 @@ export const useLogin = () => {
       });
       const json = await response.json();
 
-      if (!response.ok) {
-        console.log("----------------------------------1");
-        setIsLoading(false);
-        console.log(error);
-        setError(true);
-        console.log(error);
-      }
       if (response.ok) {
+        // Handle success
         console.log("----------------------------------2");
         localStorage.setItem("user", JSON.stringify(json));
-
         console.log(JSON.stringify(json));
 
         dispatch({ type: "LOGIN", payload: json });
-        setError(false);
-        setIsLoading(false);
+      } else {
+        // Handle error
+        console.log("----------------------------------1");
+        setError(json.error);
       }
-    } catch (error) {
-      console.log("----------------------------------3");
-      console.log("An error occurred:--------------", error);
-      setError(true);
+    } catch (err) {
+      console.error(err);
+      setError("An error occurred. Please try again later.");
     } finally {
       setIsLoading(false);
     }
