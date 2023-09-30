@@ -96,7 +96,7 @@ export const Login = () => {
             Don't have an account?{" "}
           </Link>
           <Link
-            to="/reset"
+            to="/forgotpassword"
             className="nopassword"
             style={{ textDecoration: "none", color: "#000000" }}
           >

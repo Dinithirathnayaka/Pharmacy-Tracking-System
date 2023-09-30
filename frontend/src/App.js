@@ -15,7 +15,8 @@ import Navbar from "./components/Navbar/Navbar";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Doctorregister } from "./pages/DoctorRegister";
-import { Reset } from "./pages/ResetPassword";
+import { ForgotPassword } from "./pages/ForgotPassword";
+import { ResetPassword } from "./pages/ResetPassword";
 import ViewDoctor from "./pages/ViewDoctor";
 
 //context
@@ -46,7 +47,8 @@ export default function App() {
             "/register",
             "/pharmacistregister",
             "/registerdoctor",
-            "/reset",
+            "/forgotpassword",
+            "/resetpassword",
           ].includes(window.location.pathname) && <Navbar />}
 
           <Routes>
@@ -66,7 +68,8 @@ export default function App() {
               path="/registerdoctor"
               element={!user ? <Doctorregister /> : <Navigate to="/" />}
             />
-            <Route path="/reset" element={<Reset />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
 
             {user ? (

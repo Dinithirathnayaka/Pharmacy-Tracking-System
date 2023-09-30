@@ -1,34 +1,33 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { FaLock } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
+import { HiMail } from "react-icons/hi";
+import { GrFormPrevious } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import "../Styles/ForgotPassword.css";
 
-export const ResetPassword = () => {
-  const { resetToken } = useParams();
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+export const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/user/reset-password", {
+      // Send a request to the /forgot-password endpoint with the email
+      const response = await fetch("/api/user/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ resetToken, newPassword }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        // Email sent successfully
         setMessage(data.message);
-        navigate("/login");
       } else {
         // Error occurred
         setError(data.error);
@@ -38,7 +37,6 @@ export const ResetPassword = () => {
       setError("An error occurred. Please try again later.");
     }
   };
-
   return (
     <div className="reset-container">
       <div className="reset">
@@ -48,34 +46,30 @@ export const ResetPassword = () => {
           alt="Reset icon"
           className="resetimg"
         />
-        <h5 className="user-reset">RESET PASSWORD</h5>
+        <h5 className="user-reset">FORGOT PASSWORD</h5>
         {message && <Alert variant="success">{message}</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
         <Form className="reset-form" onSubmit={handleSubmit}>
           <div className="emailcon">
-            <FaLock className="emailicon" />
+            <HiMail className="emailicon" />
             <input
-              type="password"
-              placeholder="Enter your new password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="emailcon">
-            <FaLock className="emailicon" />
-            <input
-              type="password"
-              placeholder="Confirm your new password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              type="email"
+              placeholder="Email address"
+              className="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               required
             />
           </div>
 
-          <Button type="submit">Reset Password</Button>
+          <Button type="submit">Submit</Button>
         </Form>
-        <div className="back"></div>
+        <div className="back">
+          <GrFormPrevious className="backicon" />
+          <Link to="/login" className="noaccount">
+            Back to Login
+          </Link>
+        </div>
       </div>
     </div>
   );

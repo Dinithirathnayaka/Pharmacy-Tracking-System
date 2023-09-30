@@ -2,6 +2,7 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { sendMail } = require("../utils/sendMail");
+const bcrypt = require("bcrypt");
 
 const createToken = (_id, role) => {
   return jwt.sign({ _id, role }, process.env.SECRET, { expiresIn: "3d" });
@@ -90,23 +91,6 @@ const getDoctor = async (req, res) => {
   }
 };
 
-// const signupUser = async (req, res) => {
-//   const { username, email, password } = req.body;
-//   console.log("hit");
-//   try {
-//     const user = await User.signup(username, email, password);
-
-//     //create token
-
-//     const token = createToken(user._id);
-
-//     res.status(200).json({ email, username, token });
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//     console.log(error);
-//   }
-// };
-
 const verifyEmail = async (req, res) => {
   try {
     const emailToken = req.body.emailToken;
@@ -139,4 +123,81 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-module.exports = { signupUser, loginUser, verifyEmail, getDoctor };
+//FORGET PASSWORD
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    // Generate a unique token for the reset link
+    const resetToken = crypto.randomBytes(64).toString("hex");
+
+    // Find the user by email and update the resetToken and resetTokenExpiry
+    const user = await User.findOneAndUpdate(
+      { email },
+      {
+        resetToken,
+        resetTokenExpiry: Date.now() + 3600000, // Token expires in 1 hour
+      },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Send a reset password email with a link to your frontend reset password page
+    const frontendURL = process.env.FRONTEND_URL;
+    const resetLink = `${frontendURL}/${resetToken}`;
+    sendMail(
+      "Password Reset",
+      email,
+      `Click the link to reset your password: ${resetLink}`
+    );
+
+    res.status(200).json({ message: "Password reset email sent" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// RESET PASSWORD
+const resetPassword = async (req, res) => {
+  const { resetToken, newPassword } = req.body;
+
+  try {
+    // Find the user by resetToken and check if the token is not expired
+    const user = await User.findOne({
+      resetToken,
+      resetTokenExpiry: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res.status(400).json({ error: "Invalid or expired token" });
+    }
+
+    // Hash the new password and update the user's password
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(newPassword, salt);
+
+    user.password = hash;
+    user.resetToken = null;
+    user.resetTokenExpiry = null;
+
+    await user.save();
+
+    res.status(200).json({ message: "Password reset successful" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = {
+  signupUser,
+  loginUser,
+  verifyEmail,
+  getDoctor,
+  forgotPassword,
+  resetPassword,
+};

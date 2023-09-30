@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-
 import viewPic from "../components/images/vision.png";
-
 import { useSearchContext } from "../context/SearchContext";
-
 import ViewDoctorCSS from "./ViewDoctor.module.css";
 
 // components
