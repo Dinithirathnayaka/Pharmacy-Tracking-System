@@ -1,9 +1,21 @@
 .dataResult {
   width: 100%;
+  max-height: 300px;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: none; /* Hide standard scrollbar (Firefox) */
+  -ms-overflow-style: none; /* Hide standard scrollbar (Internet Explorer/Edge) */
+}
+
+.dataResult::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar (Chrome/Safari/Opera) */
+}
+
+.dataResult::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Hide scrollbar thumb (Chrome/Safari/Opera) */
 }
 
 .dropdown-row {
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .dropdown-row:hover {

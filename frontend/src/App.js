@@ -26,11 +26,13 @@ import Home from "./pages/Home/Home";
 import VerifyEmail from "./pages/VerifyEmail";
 import PharmacistSignup from "./pages/Signup/pharmacistSignUp/PharmacistSignup";
 import LocateUs from "./pages/LocateUs/LocateUs";
+import Navbar2 from "./components/Navbar/Navbar2";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const { user } = useAuthContext();
 
+  console.log("App.js line 35 ");
   console.log(user);
 
   // Function to handle search
@@ -76,7 +78,16 @@ export default function App() {
               <>
                 <Route path="/" element={<Profile />} />
 
-                <Route path="stockdetails" element={<StockDetails />}>
+                <Route
+                  path="stockdetails"
+                  element={
+                    user.role === "pharmacist" ? (
+                      <StockDetails />
+                    ) : (
+                      <Navigate to="/" />
+                    )
+                  }
+                >
                   <Route index element={<Navigate to="stock" />} />
                   <Route path="stock" element={<Stock />} />
                   <Route path="addmedicine" element={<AddMedicine />} />

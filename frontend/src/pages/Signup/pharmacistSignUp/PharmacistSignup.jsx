@@ -79,7 +79,7 @@ const PharmacistSignup = () => {
       <div className={`shadow ${PharmacistSignupCSS["top-form-container"]}`}>
         <div className="text-center mt-1">
           <img
-            src="assets/images/register.jpeg"
+            src="assets/images/add_user.png"
             alt="user icon"
             className="registerimg"
           />

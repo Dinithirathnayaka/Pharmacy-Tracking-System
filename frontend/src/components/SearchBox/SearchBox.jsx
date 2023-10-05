@@ -1,33 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import SearchBoxCSS from "./SearchBox.module.css";
 
 const SearchBox = ({ onSearch }) => {
   const [searchValue, setSearchValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [debouncedSearchValue, setDebouncedSearchValue] = useState(searchValue);
 
-  const handleInputChange = async (e) => {
-    const value = e.target.value;
-    setSearchValue(value);
+  useEffect(() => {
+    // Create a timer to debounce the search input
+    const timer = setTimeout(() => {
+      setDebouncedSearchValue(searchValue);
+    }, 500); // Adjust the delay time as needed (e.g., 500 milliseconds)
 
-    try {
-      // Construct the URL for your API endpoint
-      const apiUrl = `/api/medicines/medicine-suggestions?searchValue=${value}`;
+    // Clear the previous timer on each input change
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchValue]);
 
-      // Make a GET request using the fetch API
-      const response = await fetch(apiUrl);
+  useEffect(() => {
+    // Perform the API request when the debounced search value changes
+    const fetchSuggestions = async () => {
+      try {
+        // Construct the URL for your API endpoint using debouncedSearchValue
+        const apiUrl = `/api/medicines/medicine-suggestions?searchValue=${debouncedSearchValue}`;
 
-      if (response.ok) {
-        // Parse the response as JSON
-        const data = await response.json();
-        setSuggestions(data);
-      } else {
-        console.error("Error:", response.statusText);
+        // Make a GET request using the fetch API
+        const response = await fetch(apiUrl);
+
+        if (response.ok) {
+          // Parse the response as JSON
+          const data = await response.json();
+          setSuggestions(data);
+        } else {
+          console.error("Error:", response.statusText);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    };
+
+    // Call fetchSuggestions when debouncedSearchValue changes
+    if (debouncedSearchValue) {
+      fetchSuggestions();
+    } else {
+      // Clear suggestions when search input is empty
+      setSuggestions([]);
     }
-  };
+  }, [debouncedSearchValue]);
 
   const handleSuggestionClick = (suggestionName) => {
     // Set the search value to the clicked suggestion
@@ -55,7 +76,7 @@ const SearchBox = ({ onSearch }) => {
             type="text"
             placeholder="Search for medicine..."
             value={searchValue}
-            onChange={handleInputChange}
+            onChange={(e) => setSearchValue(e.target.value)}
             className={SearchBoxCSS["search-input"]}
           />
         </div>

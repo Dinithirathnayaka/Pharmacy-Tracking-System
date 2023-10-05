@@ -61,7 +61,7 @@ const Map = ({ zoom, markers }) => {
           localStorage.setItem("currentLocation", JSON.stringify(newLocation));
 
           // setCurrentLocation(newLocation);
-          setCurrentLocation({ lat: 6.7184, lng: 80.7741 });
+          setCurrentLocation(newLocation);
         },
         (error) => {
           console.error("Error getting location:", error);

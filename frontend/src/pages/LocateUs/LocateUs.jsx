@@ -5,13 +5,28 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import TitleBar from "../../components/TitleBar";
 import contactUs from "../../components/images/contact-us.png";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LocateUs = () => {
   const [markers, setMarkers] = useState([]);
 
-
-  // Function to set markers based on search results
   const handleSearch = async (searchValue) => {
+    // Check if searchValue is empty
+    if (!searchValue) {
+      toast.error("Search field cannot be empty", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return; // Exit the function early if searchValue is empty
+    }
+
     try {
       // Make an API request to fetch pharmacy locations
       const response = await fetch(
@@ -27,11 +42,41 @@ const LocateUs = () => {
           pharmacyName: result.pharmacyName,
         }));
         setMarkers(newMarkers); // Update the markers state
+        if (newMarkers.length === 0) {
+          toast.warn("Locations are not found", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       } else {
-        console.error("Error:", response.statusText);
+        toast.error("Error fetching data", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     } catch (error) {
-      console.error(error);
+      toast.error(error.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -52,12 +97,12 @@ const LocateUs = () => {
           position: "relative",
         }}
       >
-        
         <div className={LocateCSS["search-bar"]}>
           <SearchBox onSearch={handleSearch} />
         </div>
         <Map markers={markers} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

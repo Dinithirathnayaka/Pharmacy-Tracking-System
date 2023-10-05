@@ -63,12 +63,16 @@ const Navbar = () => {
                 >
                   HOME
                 </NavLink>
-                <NavLink
-                  to="stockdetails"
-                  className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
-                >
-                  STOCK DETAILS
-                </NavLink>
+
+                {user.role === "pharmacist" && (
+                  <NavLink
+                    to="stockdetails"
+                    className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
+                  >
+                    STOCK DETAILS
+                  </NavLink>
+                )}
+
                 <NavLink
                   to="locate"
                   className={`nav-link nav-link-item ${NavbarCSS["nav-link-item"]}`}
@@ -84,7 +88,7 @@ const Navbar = () => {
               </div>
 
               <div className={NavbarCSS["NavBarIcons"]}>
-                <div className={NavbarCSS["NavBarIconItem"]}>
+                {/* <div className={NavbarCSS["NavBarIconItem"]}>
                   <Person />
                   <span className={NavbarCSS["NavBarIconBadge"]}>1</span>
                 </div>
@@ -95,7 +99,7 @@ const Navbar = () => {
                 <div className={NavbarCSS["NavBarIconItem"]}>
                   <Notifications />
                   <span className={NavbarCSS["NavBarIconBadge"]}>1</span>
-                </div>
+                </div> */}
               </div>
               <ProfileDropdown />
             </div>

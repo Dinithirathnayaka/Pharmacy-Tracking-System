@@ -42,7 +42,7 @@ export const Register = () => {
     <div className="register-container">
       <div className="register">
         <img
-          src="assets/images/register.jpeg"
+          src="assets/images/add_user.png"
           alt="user icon"
           className="registerimg"
         />
