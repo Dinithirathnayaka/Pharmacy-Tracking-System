@@ -1,5 +1,4 @@
-import React from "react";
-import TitleBar from "../../TitleBar";
+import TitleBar from "../../TitleBar/TitleBar";
 import addmedicine from "../../images/document.png";
 
 import EditStockCSS from "./EditStock.module.css";

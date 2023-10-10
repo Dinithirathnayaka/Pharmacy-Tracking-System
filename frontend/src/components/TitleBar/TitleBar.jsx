@@ -1,8 +1,10 @@
+import TitleBarCSS from "./TitleBar.module.css";
+
 const TitleBar = (props) => {
   return (
     <>
-      <div className="title-bar mt-1">
-        <div className="container title-bar-container">
+      <div className={`${TitleBarCSS["title-bar"]} mt-1`}>
+        <div className={`container ${TitleBarCSS["title-bar-container"]}`}>
           <div>
             <img
               src={props.titlePic}

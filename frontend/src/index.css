@@ -55,7 +55,7 @@ body {
 .btn {
   padding: 15px 25px;
   border-radius: 6px;
-  font-size: var(--text-medium);
+  font-size: var(--text-light);
   font-weight: var(--font-weight-medium);
   border: none;
 }
@@ -68,14 +68,6 @@ body {
 .btn-primary:hover {
   background-color: var(--orange-light) !important;
 }
-
-.starter-navbar {
-  background-color: white !important;
-}
-
-/* .nav-link-item.active {
-  color: var(--orange-light) !important;
-} */
 
 /*-----------------------
   ------- SERVICES-------------
@@ -164,18 +156,6 @@ body {
   --------VIEW DOCTOR-------
   ------------------------- */
 
-.title-bar-container {
-  display: flex;
-  flex-direction: row;
-  padding: 5px 0;
-}
-
-.title-bar img {
-  height: 50px;
-  width: auto;
-  padding-right: 10px;
-}
-
 .search-container {
   background-color: #5fa6f9;
 }
@@ -209,67 +189,6 @@ body {
   color: #999;
 }
 
-.template_Container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.doctor_card {
-  transition: transform 0.5s ease-in;
-}
-
-.doctor_card:hover {
-  transform: scale(1.05);
-}
-.doctor_card:hover .doctor_profile_picture img {
-  border: 7px solid cyan;
-}
-
-.doctor_profile_back img {
-  height: 200px;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  width: 100%;
-}
-
-.doctor_profile_picture img {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 1;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 7px solid #fff;
-  margin-top: -80px;
-  background-color: #fff;
-}
-
-.doctor_profile_contacts ul {
-  list-style: none;
-  margin: 1rem auto;
-}
-
-.doctor_profile_contacts i {
-  margin-right: 10px;
-}
-
-.doctor_profile_socials {
-  padding: 10px;
-  text-align: center;
-}
-
-.doctor_profile_socials i {
-  font-size: 40px;
-  color: darkcyan;
-  padding: 10px 10px;
-  transition: transform 0.1s ease-in;
-}
-
-.doctor_profile_socials i:hover {
-  transform: scale(1.2);
-}
 
 /* DESKTOP VERSIONS ONLY */
 @media (min-width: 1399.98px) {

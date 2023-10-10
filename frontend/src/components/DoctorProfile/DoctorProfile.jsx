@@ -1,11 +1,13 @@
-import profilePic from "./images/profile.jpg";
-import backImg from "./images/back.jpg";
+import DoctorProfileCSS from "./DoctorProfile.module.css";
+
+import profilePic from "../images/profile.jpg";
+import backImg from "../images/back.jpg";
 
 const DoctorProfile = ({ profile }) => {
   return (
     <>
-      <div className="card h-100 shadow doctor_card">
-        <div className="doctor_profile_back">
+      <div className={`card h-100 shadow ${DoctorProfileCSS["doctor_card"]}`}>
+        <div className={DoctorProfileCSS["doctor_profile_back"]}>
           <img
             src={backImg}
             className="card-img-top mx-auto d-block"
@@ -13,7 +15,7 @@ const DoctorProfile = ({ profile }) => {
           />
         </div>
 
-        <div className="doctor_profile_picture">
+        <div className={DoctorProfileCSS["doctor_profile_picture"]}>
           <img
             src={profilePic}
             className="card-img-top mx-auto d-block"
@@ -21,7 +23,7 @@ const DoctorProfile = ({ profile }) => {
           />
         </div>
 
-        <div className="doctor_profile_contacts">
+        <div className={DoctorProfileCSS["doctor_profile_contacts"]}>
           <h3 className="text-center">{profile.username}</h3>
           <ul>
             <li>
@@ -39,7 +41,9 @@ const DoctorProfile = ({ profile }) => {
           </ul>
         </div>
 
-        <div className="doctor_profile_socials text-center">
+        <div
+          className={`${DoctorProfileCSS["doctor_profile_socials"]} text-center`}
+        >
           <a href="#">
             <i className="bx bxl-facebook"></i>
           </a>

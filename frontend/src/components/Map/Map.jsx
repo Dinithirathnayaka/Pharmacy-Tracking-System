@@ -149,7 +149,7 @@ const Map = ({ zoom, markers }) => {
         zoom={zoom}
         mapContainerStyle={{
           width: "100%",
-          height: "100%",
+          height: "calc(100vh - 104.92px)",
         }}
         onLoad={onLoad}
         options={options}

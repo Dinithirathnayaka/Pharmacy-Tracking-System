@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  top: 73px;
+  top: 65.5px;
 }
 
 .text-label,
@@ -60,7 +60,7 @@
 @media (max-width: 992px) {
   /* Hero */
   .hero {
-    top: 57.11px;
+    top: 47.2px;
     height: 100%;
     overflow: hidden;
   }
@@ -80,5 +80,14 @@
   .text-hero-regular {
     font-size: var(--text-regular);
     line-height: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Hero */
+  .hero {
+    top: 40.92px;
+    height: 100%;
+    overflow: hidden;
   }
 }

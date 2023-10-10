@@ -1,4 +1,4 @@
-import TitleBar from "../../TitleBar";
+import TitleBar from "../../TitleBar/TitleBar";
 import viewStk from "../../images/analysis.png";
 import StockCSS from "./Stock.module.css";
 import { Outlet } from "react-router-dom";

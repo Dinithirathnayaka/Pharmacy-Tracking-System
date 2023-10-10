@@ -9,13 +9,13 @@
 /* Example styles for the dropdown */
 .ProfileDropdown {
   position: absolute;
-  top: 65px;
-  right: 0px;
-  padding: 5px 10px;
-  background: #f1eeee;
+  top: 50px;
+  right: 5px;
+  padding: 5px 0px;
+  background: white;
   width: 200px;
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  border-radius: 5px;
   z-index: 5;
 }
 
@@ -26,7 +26,7 @@
   right: 15px;
   width: 20px;
   height: 20px;
-  background: #f1eeee;
+  background: white;
   transform: rotate(45deg);
 }
 
@@ -47,12 +47,26 @@
   font-weight: 400;
 }
 
+.ProfileDropdown ul {
+  margin: 0;
+  padding: 0;
+}
+
 .ProfileDropdown ul li {
   list-style: none;
-  padding: 10px 0;
+  font-size: small;
+  padding: 10px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
+}
+
+.ProfileDropdown ul li:hover {
+  background-color: rgb(217, 223, 223);
+}
+
+.ProfileDropdown ul li a {
+  width: 100%;
 }
 
 .ProfileDropdown ul li.shareIcon {
@@ -60,6 +74,10 @@
   margin-right: 10px;
   opacity: 0.5;
   transition: 0.5s;
+}
+
+.shareIcon {
+  font-size: medium !important;
 }
 
 .ProfileDropdown ul li:hover.shareIcon {
@@ -75,6 +93,14 @@
   margin-left: 5px;
 }
 
-.ProfileDropdown ul li:hover a {
-  color: #ff5d94;
+@media (max-width: 576px) {
+  .ProfileDropdown {
+    top: 40.92px;
+  }
+}
+
+@media (min-width: 992px) {
+  .ProfileDropdown {
+    top: 72px;
+  }
 }

@@ -49,7 +49,7 @@
 }
 
 .nav-link-item {
-  font-size: var(--text-regular) !important;
+  font-size: var(--text-light) !important;
   font-weight: var(--font-weight-semi-bold) !important;
   margin: 0 10px;
   border-bottom: 2px solid transparent;
@@ -133,4 +133,38 @@ a.nav-link-item.active {
   justify-content: center;
   font-size: x-small;
   font-weight: bold;
+}
+
+.toggle-button:focus,
+.toggle-button:active,
+.toggle-button i {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (max-width: 575.98px) {
+  .offcanvasNavbar {
+    width: 70% !important;
+  }
+
+  .main-navbar,
+  .fixed-navbar {
+    padding: 0 !important;
+  }
+}
+
+@media (min-width: 993px) {
+  .profileDropdownContainer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  /* .navbar-img {
+    display: none !important;
+  } */
+
+  .toggle-button {
+    left: 0;
+  }
 }

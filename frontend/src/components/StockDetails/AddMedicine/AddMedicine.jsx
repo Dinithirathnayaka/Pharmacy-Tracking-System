@@ -1,5 +1,4 @@
-import React from "react";
-import TitleBar from "../../TitleBar";
+import TitleBar from "../../TitleBar/TitleBar";
 import addmedicine from "../../images/document.png";
 import AddMedicineCSS from "./AddMedicine.module.css";
 import { Outlet } from "react-router-dom";

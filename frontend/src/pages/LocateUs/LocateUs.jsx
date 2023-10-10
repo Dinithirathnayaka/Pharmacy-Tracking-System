@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Map from "../../components/Map/Map";
 import LocateCSS from "./LocateUs.module.css";
 import SearchBox from "../../components/SearchBox/SearchBox";
-import TitleBar from "../../components/TitleBar";
 import contactUs from "../../components/images/contact-us.png";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TitleBar from "../../components/TitleBar/TitleBar";
 
 const LocateUs = () => {
   const [markers, setMarkers] = useState([]);
@@ -87,16 +87,7 @@ const LocateUs = () => {
         title="Locate Us"
         description="Find where we are"
       />
-      <div
-        className="container-fluid"
-        style={{
-          width: "100%",
-          overflow: "hidden",
-          margin: 0,
-          padding: 0,
-          position: "relative",
-        }}
-      >
+      <div className={`container-fluid ${LocateCSS["map-container"]}`}>
         <div className={LocateCSS["search-bar"]}>
           <SearchBox onSearch={handleSearch} />
         </div>
