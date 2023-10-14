@@ -21,6 +21,13 @@
   position: relative;
 }
 
+.loaderContainerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
 @media (max-width: 575.98px) {
   .search-bar {
     width: calc(100vw - 20px);

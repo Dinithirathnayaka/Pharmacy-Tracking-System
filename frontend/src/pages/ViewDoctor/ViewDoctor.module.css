@@ -2,3 +2,16 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+.loaderContainerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+@media (max-width: 768px) {
+  .template_Container {
+    margin-top: 0 !important;
+  }
+}
