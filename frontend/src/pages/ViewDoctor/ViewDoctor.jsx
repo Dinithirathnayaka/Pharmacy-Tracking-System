@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import viewPic from "../../components/images/vision.png";
 import ViewDoctorCSS from "./ViewDoctor.module.css";
 import ReactPaginate from "react-paginate";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 // components
 import DoctorProfile from "../../components/DoctorProfile/DoctorProfile";
@@ -83,15 +84,23 @@ const ViewDoctor = () => {
 
       <div className={`container ${ViewDoctorCSS["template_Container"]}`}>
         {loading ? (
-          // Render a loading spinner or message while data is being fetched
-          <div className="loading-spinner">Loading spinner...</div>
+          <div class={ViewDoctorCSS["loaderContainerStyle"]}>
+            <ScaleLoader
+              color="#36d7b7"
+              loading={loading}
+              size={150}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
         ) : (
           // Render the fetched data if loading is false
           <>
+            {profiles.length == 0 && <DataNotFound />}
             {profiles.length !== 0 && (
               <>
                 <div
-                  className={`row row-cols-1 row-cols-md-${postsPerPage} g-5 card-container`}
+                  className={`row row-cols-1 row-cols-md-${postsPerPage} g-5 card-container ${ViewDoctorCSS["main-card-container"]}`}
                 >
                   {currentProfiles.map((profile) => (
                     <div className="col" key={profile._id}>
@@ -107,12 +116,12 @@ const ViewDoctor = () => {
                   }}
                 >
                   <ReactPaginate
-                    previousLabel={"previous"}
-                    nextLabel={"next"}
+                    previousLabel={"<<"}
+                    nextLabel={">>"}
                     breakLabel={"..."}
                     pageCount={Math.ceil(profiles.length / postsPerPage)}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={1}
                     onPageChange={handlePageClick}
                     containerClassName={"pagination justify-content-center"}
                     pageClassName={"page-item"}
