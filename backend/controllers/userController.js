@@ -147,7 +147,9 @@ const forgotPassword = async (req, res) => {
 
     // Send a reset password email with a link to your frontend reset password page
     const frontendURL = process.env.FRONTEND_URL;
-    const resetLink = `${frontendURL}/${resetToken}`;
+    const resetLink = `${frontendURL}/resetpassword?token=${encodeURIComponent(
+      resetToken
+    )}`;
     sendMail(
       "Password Reset",
       email,
