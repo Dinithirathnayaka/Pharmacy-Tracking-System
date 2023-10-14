@@ -95,8 +95,8 @@ export default function PostDetails({ post }) {
         </div>
 
         <div className="postCenter">
-          <span className="postText">{post.title}</span>
-          <br />
+          {/* <span className="postText">{post.title}</span>
+          <br /> */}
           <span className="postText">{post.desc}</span>
           <img
             className="postImg"

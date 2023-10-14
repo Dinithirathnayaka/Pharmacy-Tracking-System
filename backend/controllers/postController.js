@@ -54,12 +54,12 @@ const createPost = async (req, res) => {
     }
 
     try {
-      // Create post with title, description, and image data
+      // Create post with  description, and image data
       const imageUrl = `/uploads/${req.file.filename}`;
 
-      // Create post with title, description, and image URL
+      // Create post with description, and image URL
       const post = await Post.create({
-        title: req.body.title,
+        // title: req.body.title,
         desc: req.body.desc,
         image: req.file.filename, // Save the unique filename to the 'img' field
       });

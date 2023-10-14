@@ -12,10 +12,11 @@ import "../Styles/Createpost.css";
 
 export default function Createpost({ handleClose }) {
   const { dispatch } = usePostsContext();
-  const [title, setTitle] = useState("");
+  // const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,13 +31,13 @@ export default function Createpost({ handleClose }) {
     //   },
     // });
 
-    if (!title || !desc || !image) {
+    if (!desc || !image) {
       setError("Please fill in all required fields.");
       return; // Prevent form submission
     }
 
     const formData = new FormData();
-    formData.append("title", title);
+    // formData.append("title", title);
     formData.append("desc", desc);
     formData.append("image", image);
 
@@ -53,13 +54,13 @@ export default function Createpost({ handleClose }) {
       } else {
         const createdPost = {
           _id: jsonResponse._id,
-          title: jsonResponse.title,
+          // title: jsonResponse.title,
           desc: jsonResponse.desc,
           image: jsonResponse.image,
         };
 
         dispatch({ type: "CREATE_POST", payload: createdPost });
-        setTitle("");
+        // setTitle("");
         setDesc("");
         setImage(null);
         setError(null);
@@ -71,6 +72,14 @@ export default function Createpost({ handleClose }) {
     } catch (error) {
       console.log("Error creating post:", error);
       setError("An error occurred while creating the post.");
+    }
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files.length > 0) {
+      const file = e.target.files[0];
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
     }
   };
 
@@ -94,12 +103,12 @@ export default function Createpost({ handleClose }) {
               />
               <span className="createPostProfileName">Amila Aponsu</span>
             </div>
-            <input
+            {/* <input
               type="text"
               placeholder="Your Topic"
               onChange={(e) => setTitle(e.target.value)}
               value={title ?? ""}
-            />
+            /> */}
 
             <textarea
               placeholder="Your Description"
@@ -108,12 +117,21 @@ export default function Createpost({ handleClose }) {
               value={desc ?? ""}
             />
 
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Selected Image"
+                className="selected-image"
+              />
+            )}
+
             <input
               type="file"
               id="image"
+              className="createimg"
               name="image"
               accept="image/*"
-              onChange={(e) => setImage(e.target.files[0])}
+              onChange={handleImageChange} // Call the function to handle file change
             />
           </div>
 
@@ -127,12 +145,12 @@ export default function Createpost({ handleClose }) {
               <MoreHoriz className="optionColor" />
             </div>
           </div>
-        </div>
-        <div className="modalBottom">
-          <button type="submit" className="postButton">
-            Post
-          </button>
-          {error && <div className="error">{error}</div>}
+          <div className="modalBottom">
+            <button type="submit" className="postButton">
+              Post
+            </button>
+            {error && <div className="error">{error}</div>}
+          </div>
         </div>
       </form>
     </div>
