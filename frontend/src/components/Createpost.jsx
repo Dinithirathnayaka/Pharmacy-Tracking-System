@@ -32,7 +32,13 @@ export default function Createpost({ handleClose }) {
     // });
 
     if (!desc || !image) {
-      setError("Please fill in all required fields.");
+      setError("Please fill in both the description and image fields.");
+      return; // Prevent form submission
+    } else if (!desc) {
+      setError("Please provide a description.");
+      return; // Prevent form submission
+    } else if (!image) {
+      setError("Please select an image.");
       return; // Prevent form submission
     }
 
@@ -80,6 +86,7 @@ export default function Createpost({ handleClose }) {
       const file = e.target.files[0];
       const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
+      setImage(file);
     }
   };
 
@@ -135,7 +142,7 @@ export default function Createpost({ handleClose }) {
             />
           </div>
 
-          <div className="postOptions">
+          {/* <div className="postOptions">
             <span className="optionsText">Add to your post</span>
             <div className="postOptionIcons">
               <PermMedia className="imageColor" />
@@ -144,11 +151,12 @@ export default function Createpost({ handleClose }) {
               <LocationOn className="locationColor" />
               <MoreHoriz className="optionColor" />
             </div>
-          </div>
+          </div> */}
           <div className="modalBottom">
             <button type="submit" className="postButton">
               Post
             </button>
+            <br />
             {error && <div className="error">{error}</div>}
           </div>
         </div>
