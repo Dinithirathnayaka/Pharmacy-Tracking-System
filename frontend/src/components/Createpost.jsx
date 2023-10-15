@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { usePostsContext } from "../hooks/usePostsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 import {
   PermMedia,
   LocalOffer,
@@ -17,6 +18,7 @@ export default function Createpost({ handleClose }) {
   const [image, setImage] = useState(null);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const { user } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,14 +110,10 @@ export default function Createpost({ handleClose }) {
                 alt=""
                 className="createPostProfileImg"
               />
-              <span className="createPostProfileName">Amila Aponsu</span>
+              <span className="createPostProfileName">
+                <p>{user.username}</p>
+              </span>
             </div>
-            {/* <input
-              type="text"
-              placeholder="Your Topic"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title ?? ""}
-            /> */}
 
             <textarea
               placeholder="Your Description"

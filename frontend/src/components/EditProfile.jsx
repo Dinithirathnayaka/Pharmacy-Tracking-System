@@ -29,7 +29,6 @@ export default function UserProfile() {
   const [post, setPost] = useState(null);
   const specificPostId = "640053bd7e1ef01c61ad0d33";
   const { user } = useAuthContext();
-
   const { posts, dispatch } = usePostsContext();
 
   useEffect(() => {
@@ -69,10 +68,13 @@ export default function UserProfile() {
                 </div>
                 <div className="userNameType">
                   <div className="userNameCheckCircle">
-                    <div className="userName">Nuwan Pradeep</div>
+                    <div className="userName">
+                      {" "}
+                      <p>{user.username}</p>
+                    </div>
                     <CheckCircle className="checkCircle" fontSize="xx-small" />
                   </div>
-                  <div className="userType">Pharmacist</div>
+                  <div className="userType">set role </div>
                 </div>
               </div>
 

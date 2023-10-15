@@ -3,6 +3,8 @@ import { usePostsContext } from "../hooks/usePostsContext";
 import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 import {
   MoreVert,
   Favorite,
@@ -14,6 +16,7 @@ import Post from "./Post";
 
 export default function PostDetails({ post }) {
   const { dispatch } = usePostsContext();
+  const { user } = useAuthContext();
 
   let timeAgo = "Invalid Date"; // Default value for timeAgo
 
@@ -58,9 +61,9 @@ export default function PostDetails({ post }) {
               />
             </NavLink>
 
-            <span className="postUserName" id="abc">
-              Nuwan Pradeep
-            </span>
+            <p className="postUserName" id="abc">
+              {user.username}
+            </p>
 
             <span className="postDate">{timeAgo}</span>
           </div>

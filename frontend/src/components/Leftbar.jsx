@@ -7,22 +7,24 @@ import {
   Call,
   Email,
 } from "@mui/icons-material";
+import { useAuthContext } from "../hooks/useAuthContext";
 import "../Styles/Leftbar.css";
 
-
 export default function Leftbar() {
+  const { user } = useAuthContext();
+
   return (
     <div className="leftbar">
       <div className="leftbarWrapper">
         <ul className="leftbarProfile">
           <li className="leftbarProfileDetails">
-              <img
-                className="leftbarImg"
-                src="/assets/images/person/1.jpg"
-                alt="person1"
-              />
+            <img
+              className="leftbarImg"
+              src="/assets/images/person/1.jpg"
+              alt="person1"
+            />
 
-            <span className="leftbarProfileName">Amila Aponsu</span>
+            <p className="leftbarProfileName">{user.username}</p>
           </li>
         </ul>
         <ul className="leftbarList">

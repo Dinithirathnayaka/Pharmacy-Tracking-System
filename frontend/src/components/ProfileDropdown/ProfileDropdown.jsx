@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import DropdownCSS from "./ProfileDropdown.module.css";
 import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
-
+import { useAuthContext } from "../../hooks/useAuthContext";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -10,7 +10,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const ProfileDropdown = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const { logout } = useLogout();
-
+  const { user } = useAuthContext();
   const dropdownRef = useRef(null);
 
   const toggleProfileDropdown = () => {
@@ -61,10 +61,13 @@ const ProfileDropdown = () => {
             className={`shadow-lg ${DropdownCSS["ProfileDropdown"]}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <h3>
-              User Name <br />
-              <span>email</span>
-            </h3>
+            <p style={{ fontSize: "15px" }} className="name">
+              {user.username}
+            </p>
+            <p style={{ fontSize: "15px" }} className="email">
+              {user.email}
+            </p>
+
             <ul>
               <li>
                 <AccountCircleIcon className={DropdownCSS["shareIcon"]} />
