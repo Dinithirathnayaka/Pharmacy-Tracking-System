@@ -25,6 +25,14 @@
   flex-shrink: 1;
 }
 
+.registerimg {
+  width: 90px !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+  margin-bottom: 10px;
+}
+
 .map-container {
   flex-shrink: 1;
   margin: 15px;

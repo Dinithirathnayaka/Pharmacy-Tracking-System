@@ -81,7 +81,7 @@ const PharmacistSignup = () => {
           <img
             src="assets/images/add_user.png"
             alt="user icon"
-            className="registerimg"
+            className={PharmacistSignupCSS["registerimg"]}
           />
         </div>
         <div className={`${PharmacistSignupCSS["form-container"]} `}>

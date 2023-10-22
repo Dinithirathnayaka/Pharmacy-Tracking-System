@@ -1,0 +1,114 @@
+.doctorRegister-container {
+  width: auto;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-image: url("../../../../public/assets/images/background_img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.editpaharmacisimg {
+  width: 110px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+.doctor {
+  height: 90vh;
+  width: 450px;
+  padding: 15px !important;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.doctorImg {
+  width: 60px !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+  position: relative;
+}
+
+/* .camera {
+    color: #000;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: -33px;
+    font-size: 20px;
+  } */
+
+.pharmacycertificate {
+  border: 1pzx solid #0195e8;
+  height: 50px;
+}
+
+.doctor-register {
+  text-align: center;
+  color: #0195e8;
+  font-weight: 600;
+  padding: none;
+}
+
+.doctor-form {
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 80vh;
+  margin-top: 25px;
+}
+
+.doctor-form input {
+  width: 100%;
+  height: 4.5vh;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.doctor-form input:active {
+  background-color: #ffffff;
+}
+
+.doctor-form input:focus {
+  background-color: #ffffff;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+}
+
+.submitbtndoctor {
+  height: 40px;
+  width: 399px;
+  background-color: #0195e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+select {
+  margin-bottom: 30px;
+}
+
+select option {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+}
