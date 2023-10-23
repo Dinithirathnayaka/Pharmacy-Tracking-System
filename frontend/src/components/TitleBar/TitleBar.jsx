@@ -19,7 +19,9 @@ const TitleBar = (props) => {
               </span>
             </div>
             <div>
-              <span>{props.description}</span>
+              <span style={{ 
+                whiteSpace: "nowrap",
+               }}>{props.description}</span>
             </div>
           </div>
         </div>

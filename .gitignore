@@ -38,3 +38,4 @@ MapDummy1.jsx
 frontend/src/components/Pagination.js
 frontend/src/components/Navbar/NavbarDummy.jsx
 frontend/src/pages/ViewDoctor/ViewDoctor2.jsx
+frontend/src/components/StockDetails/ViewStock/Stock1.jsx

@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import EditProfile from "./components/EditProfile";
 import Profile from "./components/Profile";
 import AddMedicine from "./components/StockDetails/AddMedicine/AddMedicine";
-import Stock from "./components/StockDetails/ViewStock/Stock";
 import EditStock from "./components/StockDetails/EditStock/EditStock";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -26,6 +25,7 @@ import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { Doctorregister } from "./pages/Signup/doctorSignUp/DoctorRegister";
 import { Register } from "./pages/Signup/userSignUp/Register";
+import Stock from "./components/StockDetails/ViewStock/Stock";
 
 export default function App() {
   const { user } = useAuthContext();

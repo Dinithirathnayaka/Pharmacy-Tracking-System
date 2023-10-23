@@ -8,6 +8,30 @@ const getMedicines = async (req, res) => {
   res.status(200).json(medicines);
 };
 
+//get all medicines by Id
+const getMedicinesById = async (req, res) => {
+  try {
+    const pharmacyId = req.params.userId;
+
+    // Query the Medicine model to find medicines for the specified user
+    const medicines = await Medicine.find({ pharmacyId }).sort({
+      createdAt: -1,
+    });
+
+    // Check if any medicines were found
+    if (medicines.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No medicines found for the user." });
+    }
+
+    res.status(200).json(medicines);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 //get single medicine
 
 const getMedicine = async (req, res) => {
@@ -162,4 +186,5 @@ module.exports = {
   updateMedicine,
   getPharmacyLocations,
   getMedicineSuggestions,
+  getMedicinesById,
 };
