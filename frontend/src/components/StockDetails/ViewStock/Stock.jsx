@@ -35,7 +35,7 @@ import { visuallyHidden } from "@mui/utils";
 import { useState, useMemo, useEffect } from "react";
 import TableActions from "../TableActions/TableActions";
 import InputBase from "@mui/material/InputBase";
-import PopupForm from "../PopupForm/PopupForm";
+import PopupForm from "../Popup/PopupForm";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -185,6 +185,10 @@ function EnhancedTableToolbar(props) {
     }
   };
 
+  const handleDelete = () => {
+    console.log("Handle delete");
+  };
+
   const openDialogHandle = () => {
     setDialogOpen(true);
   };
@@ -233,7 +237,7 @@ function EnhancedTableToolbar(props) {
       {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
-            <DeleteIcon />
+            <DeleteIcon onClick={handleDelete} />
           </IconButton>
         </Tooltip>
       ) : (
@@ -284,6 +288,8 @@ const Stock = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const { user } = useAuthContext();
 
+  console.log(selected);
+
   const userId = user.id;
 
   useEffect(() => {
@@ -323,22 +329,24 @@ const Stock = () => {
   };
 
   const handleClick = (event, _id) => {
-    const selectedIndex = selected.indexOf(_id);
-    let newSelected = [];
+    if (event.target.tagName === "INPUT" && event.target.type === "checkbox") {
+      const selectedIndex = selected.indexOf(_id);
+      let newSelected = [];
 
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, _id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
+      if (selectedIndex === -1) {
+        newSelected = newSelected.concat(selected, _id);
+      } else if (selectedIndex === 0) {
+        newSelected = newSelected.concat(selected.slice(1));
+      } else if (selectedIndex === selected.length - 1) {
+        newSelected = newSelected.concat(selected.slice(0, -1));
+      } else if (selectedIndex > 0) {
+        newSelected = newSelected.concat(
+          selected.slice(0, selectedIndex),
+          selected.slice(selectedIndex + 1)
+        );
+      }
+      setSelected(newSelected);
     }
-    setSelected(newSelected);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -373,7 +381,7 @@ const Stock = () => {
     );
 
     setFilteredRows(filteredData);
-    setPage(0); // Reset the page to the first page when searching
+    setPage(0); 
   };
 
   return (
@@ -394,126 +402,127 @@ const Stock = () => {
                 onSearchChange={handleSearchChange}
                 setDialogOpen={setDialogOpen}
               />
-              {rows.length === 0 ? (
-                <TableContainer>
-                  <Table>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>
-                          <Stack sx={{ width: "100%" }} spacing={2}>
-                            <Alert severity="info">No Data Found!</Alert>
-                          </Stack>
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              ) : (
-                <TableContainer>
-                  <Table
-                    sx={{ minWidth: 750 }}
-                    aria-labelledby="tableTitle"
-                    size="medium"
-                  >
-                    <EnhancedTableHead
-                      numSelected={selected.length}
-                      order={order}
-                      orderBy={orderBy}
-                      onSelectAllClick={handleSelectAllClick}
-                      onRequestSort={handleRequestSort}
-                      rowCount={rows.length}
-                    />
-                    {loading ? (
-                      <>
-                        <Box sx={{ width: "100%" }}>
-                          <LinearProgress />
-                        </Box>
-                      </>
-                    ) : (
-                      <TableBody>
-                        {visibleRows
-                          .filter((row) => {
-                            return search.toLowerCase() === ""
-                              ? row
-                              : row.name.toLowerCase().includes(search);
-                          })
-                          .map((row, index) => {
-                            const isItemSelected = isSelected(row._id);
-                            const labelId = `enhanced-table-checkbox-${index}`;
 
-                            return (
-                              <TableRow
-                                hover
-                                onClick={(event) => handleClick(event, row._id)}
-                                role="checkbox"
-                                aria-checked={isItemSelected}
-                                tabIndex={-1}
-                                key={row._id}
-                                selected={isItemSelected}
-                                sx={{ cursor: "pointer" }}
-                              >
-                                <TableCell align="left" padding="checkbox">
-                                  <Checkbox
-                                    color="primary"
-                                    checked={isItemSelected}
-                                    inputProps={{
-                                      "aria-labelledby": labelId,
-                                    }}
-                                  />
-                                </TableCell>
-                                <TableCell
-                                  align="left"
-                                  component="th"
-                                  id={labelId}
-                                  scope="row"
-                                  padding="none"
+              {loading ? (
+                <Box sx={{ width: "100%" }}>
+                  <LinearProgress />
+                </Box>
+              ) : (
+                <>
+                  {rows.length === 0 && (
+                    <TableContainer>
+                      <Table>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell>
+                              <Stack sx={{ width: "100%" }} spacing={2}>
+                                <Alert severity="info">No Data Found!</Alert>
+                              </Stack>
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  )}
+                  {rows.length !== 0 && (
+                    <TableContainer>
+                      <Table
+                        sx={{ minWidth: 750 }}
+                        aria-labelledby="tableTitle"
+                        size="medium"
+                      >
+                        <EnhancedTableHead
+                          numSelected={selected.length}
+                          order={order}
+                          orderBy={orderBy}
+                          onSelectAllClick={handleSelectAllClick}
+                          onRequestSort={handleRequestSort}
+                          rowCount={rows.length}
+                        />
+
+                        <TableBody>
+                          {visibleRows
+                            .filter((row) => {
+                              return search.toLowerCase() === ""
+                                ? row
+                                : row.name.toLowerCase().includes(search);
+                            })
+                            .map((row, index) => {
+                              const isItemSelected = isSelected(row._id);
+                              const labelId = `enhanced-table-checkbox-${index}`;
+
+                              return (
+                                <TableRow
+                                  hover
+                                  onClick={(event) =>
+                                    handleClick(event, row._id)
+                                  }
+                                  role="checkbox"
+                                  aria-checked={isItemSelected}
+                                  tabIndex={-1}
+                                  key={row._id}
+                                  selected={isItemSelected}
+                                  sx={{ cursor: "pointer" }}
                                 >
-                                  {row.batchNumber}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  {row.name}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  {row.company}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  {row.quantity}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  {new Date(row.expiryDate).toLocaleDateString(
-                                    "en-US",
-                                    {
+                                  <TableCell align="left" padding="checkbox">
+                                    <Checkbox
+                                      color="primary"
+                                      checked={isItemSelected}
+                                      inputProps={{
+                                        "aria-labelledby": labelId,
+                                      }}
+                                    />
+                                  </TableCell>
+                                  <TableCell
+                                    align="left"
+                                    component="th"
+                                    id={labelId}
+                                    scope="row"
+                                    padding="none"
+                                  >
+                                    {row.batchNumber}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    {row.name}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    {row.company}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    {row.quantity}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    {new Date(
+                                      row.expiryDate
+                                    ).toLocaleDateString("en-US", {
                                       year: "numeric",
                                       month: "2-digit",
                                       day: "2-digit",
-                                    }
-                                  )}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  {row.type}
-                                </TableCell>
-                                <TableCell align="left" padding="none">
-                                  <TableActions
-                                  // onEdit={() => handleEdit(row._id)}
-                                  // onDelete={() => handleDelete(row._id)}
-                                  />
-                                </TableCell>
-                              </TableRow>
-                            );
-                          })}
-                        {emptyRows > 0 && (
-                          <TableRow
-                            style={{
-                              height: 53 * emptyRows,
-                            }}
-                          >
-                            <TableCell colSpan={6} />
-                          </TableRow>
-                        )}
-                      </TableBody>
-                    )}
-                  </Table>
-                </TableContainer>
+                                    })}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    {row.type}
+                                  </TableCell>
+                                  <TableCell align="left" padding="none">
+                                    <TableActions rowId={row._id} />
+                                  </TableCell>
+                                </TableRow>
+                              );
+                            })}
+                          {emptyRows > 0 && (
+                            <TableRow
+                              style={{
+                                height: 53 * emptyRows,
+                              }}
+                            >
+                              <TableCell colSpan={6} />
+                            </TableRow>
+                          )}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  )}
+                </>
               )}
 
               <TablePagination

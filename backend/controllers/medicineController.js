@@ -34,19 +34,27 @@ const getMedicinesById = async (req, res) => {
 
 //get single medicine
 
+//get single medicine
+
 const getMedicine = async (req, res) => {
   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such medidcine" });
-  }
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: "Invalid medicine ID" });
+    }
 
-  const medicine = await Medicine.findById(id);
+    const medicine = await Medicine.findById(id);
 
-  if (!medicine) {
-    return res.status(404).json({ error: "No such medicine" });
+    if (!medicine) {
+      return res.status(404).json({ error: "Medicine not found" });
+    }
+
+    res.status(200).json(medicine);
+  } catch (error) {
+    console.error("Error fetching medicine:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-  res.status(200).json(medicine);
 };
 
 //create new medicine

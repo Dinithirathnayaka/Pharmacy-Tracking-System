@@ -1,6 +1,6 @@
 import TitleBar from "../../TitleBar/TitleBar";
 import addmedicine from "../../images/document.png";
-import AddMedicineCSS from "./AddMedicine.module.css";
+import EditMedicineCSS from "./EditMedicine.module.css";
 import { Outlet } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import CircularProgress from "@mui/material/CircularProgress";
 
-function AddMedicine({ setOpenPopup }) {
+function EditMedicine({ setEditOpenPopup, rowId }) {
   const [pharmacyId, setPharmacyId] = useState("");
   const [batchNumber, setBatchNumber] = useState("");
   const [name, setName] = useState("");
@@ -17,20 +17,56 @@ function AddMedicine({ setOpenPopup }) {
   const [expiryDate, setExpiryDate] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [medicine, setMedicine] = useState({});
   const { user } = useAuthContext();
 
   useEffect(() => {
     setPharmacyId(user.id); // Set pharmacyId within the useEffect
   }, [user.id]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/medicines/${rowId}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (!response.ok) {
+          console.log("Failed");
+        }
+
+        if (response.ok) {
+          const data = await response.json();
+          setMedicine(data);
+          setBatchNumber(data.batchNumber);
+          setName(data.name);
+          setCompany(data.company);
+          setQuantity(data.quantity);
+          setExpiryDate(
+            new Date(data.expiryDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            })
+          );
+          setType(data.type);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [rowId]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
-      const response = await fetch("/api/medicines", {
-        method: "POST",
+      const response = await fetch(`/api/medicines/${rowId}`, {
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           pharmacyId,
@@ -45,33 +81,30 @@ function AddMedicine({ setOpenPopup }) {
 
       if (!response.ok) {
         setLoading(false);
-        setError(true);
       }
 
       if (response.ok) {
-        setError(false);
         setLoading(false);
-        setOpenPopup(false);
+        setEditOpenPopup(false);
       }
     } catch (error) {
       setLoading(false);
-      setError(true);
     }
   };
 
   return (
     <div>
-      <div className={AddMedicineCSS["titleBar-container"]}>
+      <div className={EditMedicineCSS["titleBar-container"]}>
         <TitleBar
           titlePic={addmedicine}
-          title="New Medicine"
-          description="Add new medicine"
+          title="Edit Medicine"
+          description="Update the medicine details"
         />
         <IconButton
           edge="end"
           color="inherit"
           onClick={() => {
-            setOpenPopup(false);
+            setEditOpenPopup(false);
           }}
         >
           <CloseIcon />
@@ -80,12 +113,12 @@ function AddMedicine({ setOpenPopup }) {
       <hr />
 
       <div>
-        <div className={AddMedicineCSS["addmedicine_container"]}>
+        <div className={EditMedicineCSS["addmedicine_container"]}>
           <form onSubmit={handleSubmit}>
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="batch"
                   name="batchNo"
@@ -99,7 +132,7 @@ function AddMedicine({ setOpenPopup }) {
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="medname"
                   name="medName"
@@ -113,7 +146,7 @@ function AddMedicine({ setOpenPopup }) {
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="medcompany"
                   name="medCompany"
@@ -127,7 +160,7 @@ function AddMedicine({ setOpenPopup }) {
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="medquantity"
                   name="medQuantity"
@@ -141,7 +174,7 @@ function AddMedicine({ setOpenPopup }) {
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="exdate"
                   name="expiryDate"
@@ -155,7 +188,7 @@ function AddMedicine({ setOpenPopup }) {
             <div className="row mt-3">
               <div>
                 <input
-                  className={AddMedicineCSS["formInputs"]}
+                  className={EditMedicineCSS["formInputs"]}
                   type="text"
                   id="medtype"
                   name="medType"
@@ -166,7 +199,7 @@ function AddMedicine({ setOpenPopup }) {
                 />
               </div>
             </div>
-            <button className={AddMedicineCSS["savebutton"]}>
+            <button className={EditMedicineCSS["savebutton"]}>
               {loading ? (
                 <CircularProgress size={24} color="inherit" />
               ) : (
@@ -181,4 +214,4 @@ function AddMedicine({ setOpenPopup }) {
   );
 }
 
-export default AddMedicine;
+export default EditMedicine;
