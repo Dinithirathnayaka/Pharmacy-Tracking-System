@@ -22,6 +22,7 @@ const loginUser = async (req, res) => {
       email,
       token,
       role: user.role,
+      userid: user._id,
       user: {
         username: user.username,
       },
@@ -205,6 +206,7 @@ const resetPassword = async (req, res) => {
 //GET USER
 const getUser = async (req, res) => {
   const { id } = req.params;
+  console.log(`Request received for user ID: ${id}`);
 
   console.log(id);
   try {
@@ -212,7 +214,14 @@ const getUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    res.status(200).json(user);
+
+    const userData = {
+      userid: user._id,
+      username: user.username,
+      // Add more user-specific data as needed
+    };
+
+    res.status(200).json(userData);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });

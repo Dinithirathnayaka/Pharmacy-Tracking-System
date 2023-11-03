@@ -27,14 +27,16 @@ export const useLogin = () => {
         // setErrorMessage(json.error);
         // setIsLoading(false);
         const json = await response.json();
-        const { email, role, user } = json;
+        const { email, role, user, userid } = json;
         console.log(user);
 
         const userData = {
           email,
           role,
           user,
+          userid,
         };
+        console.log(`User ID stored in local storage: ${userid}`);
         localStorage.setItem("user", JSON.stringify(userData));
         dispatch({ type: "LOGIN", payload: userData });
 

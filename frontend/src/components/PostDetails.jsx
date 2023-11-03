@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { usePostsContext } from "../hooks/usePostsContext";
 import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
@@ -12,11 +12,11 @@ import {
   ThumbUpOffAlt,
   ChatBubbleOutline,
 } from "@mui/icons-material";
-import Post from "./Post";
 
 export default function PostDetails({ post }) {
   const { dispatch } = usePostsContext();
   const { user } = useAuthContext();
+  const [userDetails, setUserDetails] = useState({});
 
   let timeAgo = "Invalid Date"; // Default value for timeAgo
 
@@ -48,6 +48,26 @@ export default function PostDetails({ post }) {
     }
   };
 
+  // useEffect(() => {
+  //   const storedUserData = localStorage.getItem("user");
+  //   if (storedUserData) {
+  //     const userData = JSON.parse(storedUserData);
+  //     const { userid } = userData;
+  //     console.log(storedUserData);
+
+  //     // Make an API request to fetch user-specific data based on userid
+  //     axios
+  //       .get(`/api/user/getuser/${userid}`)
+
+  //       .then((response) => {
+  //         setUserDetails(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching user details:", error);
+  //       });
+  //   }
+  // }, []);
+
   return (
     <div className="post">
       <div className="postWrapper">
@@ -62,7 +82,7 @@ export default function PostDetails({ post }) {
             </NavLink>
 
             <p className="postUserName" id="abc">
-              {user.username}
+              Username:
             </p>
 
             <span className="postDate">{timeAgo}</span>
