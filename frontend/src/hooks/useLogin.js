@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
 
   const login = async (email, password) => {
     setIsLoading(true);
+    setError(false);
+    setErrorMessage("");
 
     try {
       const response = await fetch("/api/user/login", {
@@ -19,27 +21,42 @@ export const useLogin = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const json = await response.json();
-
-      if (!response.ok) {
-        setIsLoading(false);
-        setError(true);
-        setErrorMessage(json.error);
-      }
-
       if (response.ok) {
-        localStorage.setItem("user", JSON.stringify(json));
-        console.log(JSON.stringify(json));
+        // const json = await response.json();
+        // setError(true);
+        // setErrorMessage(json.error);
+        // setIsLoading(false);
+        const json = await response.json();
+        const { email, role, user } = json;
+        console.log(user);
 
-        dispatch({ type: "LOGIN", payload: json });
-        setError(false);
+        const userData = {
+          email,
+          role,
+          user,
+        };
+        localStorage.setItem("user", JSON.stringify(userData));
+        dispatch({ type: "LOGIN", payload: userData });
+
+        // Fetch the user's data using the user ID
+        // const userDataResponse = await fetch(`/api/user/getuser/${json._id}`);
+        // if (userDataResponse.ok) {
+        //   const userData = await userDataResponse.json();
+        //   localStorage.setItem("userData.username", JSON.stringify(userData));
+        //   dispatch({ type: "SET_USER_DATA", payload: userData });
+        // }
+
         setIsLoading(false);
-
         navigate("/");
+      } else {
+        setError(true);
+        setErrorMessage("Login failed. Please check your credentials.");
+        setIsLoading(false);
       }
     } catch (error) {
       setError(true);
       setErrorMessage("Something went wrong");
+      setIsLoading(false);
     }
   };
 

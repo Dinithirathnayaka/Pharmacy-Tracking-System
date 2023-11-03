@@ -21,8 +21,8 @@ export const Login = () => {
     if (error) {
       setEmail("");
       setPassword("");
-      navigate("/login");
 
+      // Show a toast notification with the error message
       toast.error(errorMessage, {
         position: "top-right",
         autoClose: 2000,
@@ -34,7 +34,7 @@ export const Login = () => {
         theme: "light",
       });
     }
-  }, [error, errorMessage, navigate, toastKey]);
+  }, [error, errorMessage]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

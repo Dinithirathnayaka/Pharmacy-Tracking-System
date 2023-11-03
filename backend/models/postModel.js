@@ -17,6 +17,9 @@ const postSchema = new Schema(
     image: {
       type: String,
     },
+    createdBy: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

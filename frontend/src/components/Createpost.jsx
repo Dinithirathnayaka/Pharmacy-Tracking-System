@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { usePostsContext } from "../hooks/usePostsContext";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogin } from "../hooks/useLogin";
 import {
   PermMedia,
   LocalOffer,
@@ -18,7 +18,8 @@ export default function Createpost({ handleClose }) {
   const [image, setImage] = useState(null);
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const { user } = useAuthContext();
+  const [userData, setUserData] = useState(null);
+  const { login, isLoading, errorMessage } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,6 +93,15 @@ export default function Createpost({ handleClose }) {
     }
   };
 
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("user");
+
+    if (storedUserData) {
+      const parsedUserData = JSON.parse(storedUserData);
+      setUserData(parsedUserData);
+    }
+  }, []);
+
   return (
     <div className="modalBackground">
       <form onSubmit={handleSubmit}>
@@ -110,9 +120,7 @@ export default function Createpost({ handleClose }) {
                 alt=""
                 className="createPostProfileImg"
               />
-              <span className="createPostProfileName">
-                <p>{user.username}</p>
-              </span>
+              {userData && userData.user && <p>{userData.user.username}</p>}
             </div>
 
             <textarea

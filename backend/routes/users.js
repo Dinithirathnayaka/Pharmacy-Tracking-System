@@ -7,6 +7,7 @@ const {
   getDoctor,
   forgotPassword,
   resetPassword,
+  getUser,
 } = require("../controllers/userController");
 
 //LOGIN route
@@ -26,5 +27,8 @@ router.post("/forgot-password", forgotPassword);
 
 // RESET PASSWORD
 router.post("/reset-password", resetPassword);
+
+// GET USER
+router.get("/getuser/:id", getUser);
 
 module.exports = router;

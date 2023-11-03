@@ -34,6 +34,7 @@ export const Doctorregister = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    ("");
 
     if (
       !email ||

@@ -4,7 +4,6 @@ import "../Styles/Post.css";
 import { NavLink } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
 import { useAuthContext } from "../hooks/useAuthContext";
-
 import {
   MoreVert,
   Favorite,
@@ -12,9 +11,8 @@ import {
   ThumbUpOffAlt,
   ChatBubbleOutline,
 } from "@mui/icons-material";
-import Post from "./Post";
 
-export default function PostDetails({ post }) {
+export default function UserPostDetails({ post }) {
   const { dispatch } = usePostsContext();
   const { user } = useAuthContext();
 
@@ -99,7 +97,7 @@ export default function PostDetails({ post }) {
 
         <div className="postCenter">
           {/* <span className="postText">{post.title}</span>
-          <br /> */}
+            <br /> */}
           <span className="postText">{post.desc}</span>
           <img
             className="postImg"
@@ -108,7 +106,7 @@ export default function PostDetails({ post }) {
           />
         </div>
         <div className="postBottom">
-          {/* <div className="likeCommentCount">
+          <div className="likeCommentCount">
             <div className="postBottomLeft">
               <Favorite
                 htmlColor="rgb(255,67,111)"
@@ -125,14 +123,14 @@ export default function PostDetails({ post }) {
             <div className="postBottomRight">
               <span className="postCommentText">9 comments</span>
             </div>
-          </div> */}
+          </div>
 
           <hr />
           <div className="likeAndComment">
-            {/* <div className="postBottomLeft">
+            <div className="postBottomLeft">
               <ThumbUpOffAlt className="likeIcon" />
               <span className="postLike">Like</span>
-            </div> */}
+            </div>
             <div className="postBottomLeft">
               <ChatBubbleOutline className="likeIcon" />
               <span className="postLike">Comment</span>

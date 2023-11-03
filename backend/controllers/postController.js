@@ -61,7 +61,7 @@ const createPost = async (req, res) => {
       const post = await Post.create({
         // title: req.body.title,
         desc: req.body.desc,
-        image: req.file.filename, // Save the unique filename to the 'img' field
+        image: req.file.filename,
       });
       res.status(200).json(post);
     } catch (error) {

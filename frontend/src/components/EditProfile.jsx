@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { usePostsContext } from "../hooks/usePostsContext";
 import "../Styles/EditProfile.css";
-import PostDetails from "./PostDetails";
+import UserPostDetails from "./UserPostDetails";
 import {
   Message,
   CheckCircle,
@@ -184,7 +184,7 @@ export default function UserProfile() {
             <div className="profileBottomRight">
               <div className="post">
                 {posts.map((post) => (
-                  <PostDetails key={post._id} post={post} />
+                  <UserPostDetails key={post._id} post={post} />
                 ))}
               </div>
             </div>
