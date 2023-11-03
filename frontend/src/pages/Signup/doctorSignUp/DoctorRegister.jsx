@@ -35,7 +35,6 @@ export const Doctorregister = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    ("");
 
     if (
       !email ||
@@ -97,7 +96,9 @@ export const Doctorregister = () => {
             required
           />
           {registrationNumberError && (
-            <p className={DoctorCSS["error-message"]}>{registrationNumberError}</p>
+            <p className={DoctorCSS["error-message"]}>
+              {registrationNumberError}
+            </p>
           )}
 
           <br />

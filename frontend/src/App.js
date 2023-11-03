@@ -23,7 +23,7 @@ import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 
 //hooks
 import { useAuthContext } from "./hooks/useAuthContext";
-import { Doctorregister } from "./pages/Signup/doctorSignUp/DoctorRegister";
+import { Doctorregister } from "./pages/Signup/DoctorSignup/DoctorRegister";
 import { Register } from "./pages/Signup/userSignUp/Register";
 import Stock from "./components/StockDetails/ViewStock/Stock";
 
