@@ -18,6 +18,7 @@ const loginUser = async (req, res) => {
     //create token
     const token = createToken(user._id, user.role);
 
+<<<<<<< HEAD
     res.status(200).json({
       email,
       token,
@@ -26,6 +27,9 @@ const loginUser = async (req, res) => {
         username: user.username,
       },
     });
+=======
+    res.status(200).json({ email, token, role: user.role, id: user._id });
+>>>>>>> 22b66264ae9581f209963243f6457f41a2c52931
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -73,7 +77,7 @@ const signupUser = async (req, res) => {
     // Create a token
     const token = createToken(user._id, role);
 
-    res.status(200).json({ email, username, token });
+    res.status(200).json({ email, username, token, id: user._id });
   } catch (error) {
     res.status(400).json({ error: error.message });
     console.error(error);

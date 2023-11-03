@@ -4,27 +4,28 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import EditProfile from "./components/EditProfile";
 import Profile from "./components/Profile";
 import AddMedicine from "./components/StockDetails/AddMedicine/AddMedicine";
-import Stock from "./components/StockDetails/ViewStock/Stock";
 import EditStock from "./components/StockDetails/EditStock/EditStock";
 import Navbar from "./components/Navbar/Navbar";
 
 //pages
 import Home from "./pages/Home/Home";
-import VerifyEmail from "./pages/VerifyEmail";
+import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 import PharmacistSignup from "./pages/Signup/pharmacistSignUp/PharmacistSignup";
 import LocateUs from "./pages/LocateUs/LocateUs";
 import StockDetails from "./pages/StockDetails/StockDetails";
 import ViewDoctor from "./pages/ViewDoctor/ViewDoctor";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
-import { Doctorregister } from "./pages/DoctorRegister";
-import { ForgotPassword } from "./pages/ForgotPassword";
-import { ResetPassword } from "./pages/ResetPassword";
+import { Login } from "./pages/Login/Login";
+
+import { ForgotPassword } from "./pages/ForgotPassword/ForgotPassword";
+import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 
 //context
 
 //hooks
 import { useAuthContext } from "./hooks/useAuthContext";
+import { Doctorregister } from "./pages/Signup/doctorSignUp/DoctorRegister";
+import { Register } from "./pages/Signup/userSignUp/Register";
+import Stock from "./components/StockDetails/ViewStock/Stock";
 
 export default function App() {
   const { user } = useAuthContext();
