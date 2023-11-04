@@ -17,7 +17,6 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
   const [expiryDate, setExpiryDate] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
-  const [medicine, setMedicine] = useState({});
   const { user } = useAuthContext();
 
   useEffect(() => {
@@ -38,7 +37,6 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
 
         if (response.ok) {
           const data = await response.json();
-          setMedicine(data);
           setBatchNumber(data.batchNumber);
           setName(data.name);
           setCompany(data.company);
@@ -98,7 +96,7 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
         <TitleBar
           titlePic={addmedicine}
           title="Edit Medicine"
-          description="Update the medicine details"
+          description="Update the medicine"
         />
         <IconButton
           edge="end"

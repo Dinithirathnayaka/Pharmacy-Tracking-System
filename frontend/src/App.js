@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //components
 import EditProfile from "./components/EditProfile";
 import Profile from "./components/Profile";
-import AddMedicine from "./components/StockDetails/AddMedicine/AddMedicine";
-import EditStock from "./components/StockDetails/EditStock/EditStock";
 import Navbar from "./components/Navbar/Navbar";
 
 //pages
@@ -79,8 +77,6 @@ export default function App() {
               >
                 <Route index element={<Navigate to="stock" />} />
                 <Route path="stock" element={<Stock />} />
-                <Route path="addmedicine" element={<AddMedicine />} />
-                <Route path="editstock" element={<EditStock />} />
               </Route>
 
               <Route path="locate" element={<LocateUs />} />
