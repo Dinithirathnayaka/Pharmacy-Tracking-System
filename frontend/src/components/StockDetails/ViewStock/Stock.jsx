@@ -290,7 +290,7 @@ const Stock = () => {
 
   console.log(selected);
 
-  const userId = user.id;
+  const userId = user.userid;
 
   useEffect(() => {
     const fetchMedicines = async () => {
@@ -381,7 +381,7 @@ const Stock = () => {
     );
 
     setFilteredRows(filteredData);
-    setPage(0); 
+    setPage(0);
   };
 
   return (

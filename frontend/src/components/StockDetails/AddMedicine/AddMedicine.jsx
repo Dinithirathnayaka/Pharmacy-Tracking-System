@@ -21,8 +21,8 @@ function AddMedicine({ setOpenPopup }) {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    setPharmacyId(user.id); // Set pharmacyId within the useEffect
-  }, [user.id]);
+    setPharmacyId(user.userid); // Set pharmacyId within the useEffect
+  }, [user.userid]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
