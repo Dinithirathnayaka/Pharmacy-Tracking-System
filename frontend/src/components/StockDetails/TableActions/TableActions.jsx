@@ -13,10 +13,14 @@ import Button from "@mui/material/Button";
 import EditMedicine from "../EditMedicine/EditMedicine";
 import PopupEditForm from "../Popup/PopupEditForm";
 
+import { useStockContext } from "../../../hooks/useStockContext";
+
 const TableActions = ({ rowId }) => {
   const [loading, setLoading] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
+
+  const { dispatch } = useStockContext();
 
   const onDelete = () => {
     setOpenDeleteDialog(true);
@@ -36,10 +40,14 @@ const TableActions = ({ rowId }) => {
         },
       });
 
+      const json = await response.json();
+
       if (!response.ok) {
         console.log("Medicine delete Unsuccessful");
-      } else {
-        console.log("Medicine delete Successful");
+      }
+
+      if (response.ok) {
+        dispatch({ type: "DELETE_STOCK", payload: json });
       }
     } catch (error) {
       console.error("Error deleting medicine:", error);
@@ -56,8 +64,8 @@ const TableActions = ({ rowId }) => {
   return (
     <>
       <Tooltip title="Edit">
-        <IconButton>
-          <EditIcon onClick={onEdit} />
+        <IconButton onClick={onEdit}>
+          <EditIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Delete">
@@ -90,8 +98,8 @@ const TableActions = ({ rowId }) => {
         </DialogActions>
       </Dialog>
 
-      <PopupEditForm  openEditPopup={openEditDialog} >
-        <EditMedicine setEditOpenPopup={setOpenEditDialog} rowId={rowId}/>
+      <PopupEditForm openEditPopup={openEditDialog}>
+        <EditMedicine setEditOpenPopup={setOpenEditDialog} rowId={rowId} />
       </PopupEditForm>
     </>
   );

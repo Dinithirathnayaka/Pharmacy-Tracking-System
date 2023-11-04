@@ -119,7 +119,7 @@ const deleteMedicine = async (req, res) => {
   res.status(200).json(medicine);
 };
 
-//update a post
+//update a medicine
 
 const updateMedicine = async (req, res) => {
   const { id } = req.params;
@@ -132,7 +132,8 @@ const updateMedicine = async (req, res) => {
     { _id: id },
     {
       ...req.body,
-    }
+    },
+    { new: true } // This option makes it return the updated document
   );
 
   if (!medicine) {

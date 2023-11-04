@@ -37,6 +37,8 @@ import TableActions from "../TableActions/TableActions";
 import InputBase from "@mui/material/InputBase";
 import PopupForm from "../Popup/PopupForm";
 
+import { useStockContext } from "../../../hooks/useStockContext";
+
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -236,8 +238,8 @@ function EnhancedTableToolbar(props) {
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon onClick={handleDelete} />
+          <IconButton onClick={handleDelete}>
+            <DeleteIcon />
           </IconButton>
         </Tooltip>
       ) : (
@@ -282,13 +284,12 @@ const Stock = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
-  const [rows, setRows] = useState([]);
   const [search, setSearch] = useState(""); // State for search input
   const [filteredRows, setFilteredRows] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const { user } = useAuthContext();
 
-  console.log(selected);
+  const { rows, dispatch } = useStockContext();
 
   const userId = user.userid;
 
@@ -299,7 +300,7 @@ const Stock = () => {
         const response = await fetch(`/api/medicines/id/${userId}`);
         if (response.ok) {
           const data = await response.json();
-          setRows(data); // Update the rows state with new data
+          dispatch({ type: "SET_STOCKS", payload: data });
         } else {
           console.error("Failed to fetch data");
         }
@@ -311,7 +312,7 @@ const Stock = () => {
     };
 
     fetchMedicines();
-  }, [userId]);
+  }, [userId , dispatch]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";

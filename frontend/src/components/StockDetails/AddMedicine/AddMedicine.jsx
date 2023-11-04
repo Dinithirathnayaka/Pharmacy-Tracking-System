@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import CircularProgress from "@mui/material/CircularProgress";
 
+import { useStockContext } from "../../../hooks/useStockContext";
+
 function AddMedicine({ setOpenPopup }) {
   const [pharmacyId, setPharmacyId] = useState("");
   const [batchNumber, setBatchNumber] = useState("");
@@ -17,8 +19,9 @@ function AddMedicine({ setOpenPopup }) {
   const [expiryDate, setExpiryDate] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const { user } = useAuthContext();
+
+  const { dispatch } = useStockContext();
 
   useEffect(() => {
     setPharmacyId(user.userid); // Set pharmacyId within the useEffect
@@ -43,19 +46,19 @@ function AddMedicine({ setOpenPopup }) {
         }),
       });
 
+      const json = await response.json();
+
       if (!response.ok) {
         setLoading(false);
-        setError(true);
       }
 
       if (response.ok) {
-        setError(false);
         setLoading(false);
         setOpenPopup(false);
+        dispatch({ type: "CREATE_STOCK", payload: json });
       }
     } catch (error) {
       setLoading(false);
-      setError(true);
     }
   };
 
