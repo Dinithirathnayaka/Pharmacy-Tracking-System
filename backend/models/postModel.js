@@ -17,8 +17,9 @@ const postSchema = new Schema(
     image: {
       type: String,
     },
-    created_user: {
+    created_by: {
       type: String,
+      required: true,
     },
   },
   { timestamps: true }

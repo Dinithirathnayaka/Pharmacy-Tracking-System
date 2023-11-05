@@ -49,6 +49,7 @@ export default function Createpost({ handleClose }) {
     // formData.append("title", title);
     formData.append("desc", desc);
     formData.append("image", image);
+    formData.append("created_by", userData.userid);
 
     try {
       const response = await fetch("/api/posts/", {

@@ -1,12 +1,32 @@
 const Post = require("../models/postModel");
+const User = require("../models/userModel");
 const multer = require("multer");
 const mongoose = require("mongoose");
 
 //get all posts
 const getPosts = async (req, res) => {
-  const posts = await Post.find({}).sort({ createdAt: -1 });
+  try {
+    const posts = await Post.find({}).sort({ createdAt: -1 });
+    let postnew = [];
 
-  res.status(200).json(posts);
+    for (let index = 0; index < posts.length; index++) {
+      const element = posts[index];
+      const user = await User.findOne(element.created_by); // Use await here to ensure user data is fetched before continuing.
+
+      // Combine user and post data into one object
+      const combinedData = {
+        post: element,
+        user: user,
+      };
+
+      postnew.push(combinedData);
+    }
+    console.log(postnew);
+    // res.status(200).json({ postnew });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
 
 //get single post
@@ -62,6 +82,7 @@ const createPost = async (req, res) => {
         // title: req.body.title,
         desc: req.body.desc,
         image: req.file.filename,
+        created_by: req.body.created_by,
       });
       res.status(200).json(post);
     } catch (error) {

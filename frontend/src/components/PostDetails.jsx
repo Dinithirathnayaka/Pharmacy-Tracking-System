@@ -82,7 +82,7 @@ export default function PostDetails({ post }) {
             </NavLink>
 
             <p className="postUserName" id="abc">
-              Username:
+              {user.username}
             </p>
 
             <span className="postDate">{timeAgo}</span>
