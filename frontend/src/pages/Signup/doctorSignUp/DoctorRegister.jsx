@@ -4,7 +4,7 @@ import { useSignup } from "../../../hooks/useSignup";
 // import "../../../Styles/Doctor.css";
 import DoctorCSS from "./DoctorRegister.module.css";
 
-export const Doctorregister = () => {
+export const DoctorRegister = () => {
   const [email, setEmail] = useState("");
   const [regiNo, setRegiNo] = useState("");
   const [username, setUsername] = useState("");

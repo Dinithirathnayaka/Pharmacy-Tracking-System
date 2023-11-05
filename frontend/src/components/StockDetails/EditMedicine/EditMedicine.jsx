@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import CircularProgress from "@mui/material/CircularProgress";
 
+import { useStockContext } from "../../../hooks/useStockContext";
+
 function EditMedicine({ setEditOpenPopup, rowId }) {
   const [pharmacyId, setPharmacyId] = useState("");
   const [batchNumber, setBatchNumber] = useState("");
@@ -17,8 +19,9 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
   const [expiryDate, setExpiryDate] = useState("");
   const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
-  const [medicine, setMedicine] = useState({});
   const { user } = useAuthContext();
+
+  const { dispatch } = useStockContext();
 
   useEffect(() => {
     setPharmacyId(user.id); // Set pharmacyId within the useEffect
@@ -38,7 +41,6 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
 
         if (response.ok) {
           const data = await response.json();
-          setMedicine(data);
           setBatchNumber(data.batchNumber);
           setName(data.name);
           setCompany(data.company);
@@ -79,6 +81,8 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
         }),
       });
 
+      const json = await response.json();
+
       if (!response.ok) {
         setLoading(false);
       }
@@ -86,6 +90,7 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
       if (response.ok) {
         setLoading(false);
         setEditOpenPopup(false);
+        dispatch({ type: "UPDATE_STOCK", payload: json });
       }
     } catch (error) {
       setLoading(false);
@@ -98,7 +103,7 @@ function EditMedicine({ setEditOpenPopup, rowId }) {
         <TitleBar
           titlePic={addmedicine}
           title="Edit Medicine"
-          description="Update the medicine details"
+          description="Update the medicine"
         />
         <IconButton
           edge="end"
