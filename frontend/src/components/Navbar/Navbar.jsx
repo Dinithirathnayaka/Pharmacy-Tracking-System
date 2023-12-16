@@ -45,7 +45,6 @@ const Navbar = () => {
 
             {user && (
               <div className="collapse navbar-collapse" id="navbarNav">
-
                 <div
                   style={{ marginRight: "3rem" }}
                   className="navbar-nav ms-auto"
@@ -155,7 +154,7 @@ const Navbar = () => {
 
             <div
               className={`offcanvas offcanvas-start d-lg-none ${NavbarCSS["offcanvasNavbar"]}`}
-              tabindex="-1"
+              tabIndex="-1"
               id="offcanvasNavbar"
               aria-labelledby="offcanvasNavbarLabel"
             >

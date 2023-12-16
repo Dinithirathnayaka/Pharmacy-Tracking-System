@@ -50,6 +50,9 @@ function AddMedicine({ setOpenPopup }) {
 
       if (!response.ok) {
         setLoading(false);
+        setOpenPopup(false);
+
+        console.log("Cannot done");
       }
 
       if (response.ok) {
@@ -63,124 +66,126 @@ function AddMedicine({ setOpenPopup }) {
   };
 
   return (
-    <div>
-      <div className={AddMedicineCSS["titleBar-container"]}>
-        <TitleBar
-          titlePic={addmedicine}
-          title="New Medicine"
-          description="Add new medicine"
-        />
-        <IconButton
-          edge="end"
-          color="inherit"
-          onClick={() => {
-            setOpenPopup(false);
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </div>
-      <hr />
-
+    <>
       <div>
-        <div className={AddMedicineCSS["addmedicine_container"]}>
-          <form onSubmit={handleSubmit}>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="batch"
-                  name="batchNo"
-                  value={batchNumber}
-                  onChange={(e) => setBatchNumber(e.target.value)}
-                  placeholder="Medicine batch no"
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="medname"
-                  name="medName"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Medicine name"
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="medcompany"
-                  name="medCompany"
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Medicine company"
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="medquantity"
-                  name="medQuantity"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  placeholder="Medicine quantity"
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="exdate"
-                  name="expiryDate"
-                  value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
-                  placeholder="Med expiry date"
-                  required
-                />
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div>
-                <input
-                  className={AddMedicineCSS["formInputs"]}
-                  type="text"
-                  id="medtype"
-                  name="medType"
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
-                  placeholder="Medicine type"
-                  required
-                />
-              </div>
-            </div>
-            <button className={AddMedicineCSS["savebutton"]}>
-              {loading ? (
-                <CircularProgress size={24} color="inherit" />
-              ) : (
-                "SAVE"
-              )}
-            </button>
-          </form>
+        <div className={AddMedicineCSS["titleBar-container"]}>
+          <TitleBar
+            titlePic={addmedicine}
+            title="New Medicine"
+            description="Add new medicine"
+          />
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={() => {
+              setOpenPopup(false);
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
         </div>
-        <Outlet />
+        <hr />
+
+        <div>
+          <div className={AddMedicineCSS["addmedicine_container"]}>
+            <form onSubmit={handleSubmit}>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="batch"
+                    name="batchNo"
+                    value={batchNumber}
+                    onChange={(e) => setBatchNumber(e.target.value)}
+                    placeholder="Medicine batch no"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="medname"
+                    name="medName"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Medicine name"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="medcompany"
+                    name="medCompany"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder="Medicine company"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="medquantity"
+                    name="medQuantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    placeholder="Medicine quantity"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="exdate"
+                    name="expiryDate"
+                    value={expiryDate}
+                    onChange={(e) => setExpiryDate(e.target.value)}
+                    placeholder="Med expiry date"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div>
+                  <input
+                    className={AddMedicineCSS["formInputs"]}
+                    type="text"
+                    id="medtype"
+                    name="medType"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    placeholder="Medicine type"
+                    required
+                  />
+                </div>
+              </div>
+              <button className={AddMedicineCSS["savebutton"]}>
+                {loading ? (
+                  <CircularProgress size={24} color="inherit" />
+                ) : (
+                  "SAVE"
+                )}
+              </button>
+            </form>
+          </div>
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

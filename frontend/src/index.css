@@ -173,21 +173,7 @@ body {
   align-items: center;
 }
 
-#searchInput {
-  width: 300px;
-  height: 40px;
-  padding: 8px;
-  border: none;
-  background-color: white;
-  font-size: 16px;
-  color: #333;
-  border-radius: 20px;
-  outline: none;
-}
 
-#searchInput::placeholder {
-  color: #999;
-}
 
 
 /* DESKTOP VERSIONS ONLY */
@@ -335,6 +321,7 @@ body {
   padding: 7px;
   border-radius: 50%;
 }
+
 
 /* After the toggler button appears */
 @media (max-width: 991px) {

@@ -34,8 +34,6 @@ const getMedicinesById = async (req, res) => {
 
 //get single medicine
 
-//get single medicine
-
 const getMedicine = async (req, res) => {
   const { id } = req.params;
 
@@ -76,6 +74,7 @@ const createMedicine = async (req, res) => {
       batchNumber,
       name,
       company,
+      type,
     });
 
     if (existingMedicine) {
@@ -128,11 +127,24 @@ const updateMedicine = async (req, res) => {
     return res.status(404).json({ error: "No such medicine" });
   }
 
+  const { pharmacyId, batchNumber, name, company, type } = req.body;
+
+  // Check if the updated batch number and name already exist in the same pharmacy
+  const existingMedicine = await Medicine.findOne({
+    pharmacyId,
+    batchNumber,
+    name,
+    company,
+    type,
+  });
+
+  if (existingMedicine && existingMedicine._id.toString() !== id) {
+    return res.status(400).json({ error: "Duplicate medicine entry" });
+  }
+
   const medicine = await Medicine.findByIdAndUpdate(
     { _id: id },
-    {
-      ...req.body,
-    },
+    { ...req.body },
     { new: true } // This option makes it return the updated document
   );
 

@@ -96,7 +96,7 @@ const LocateUs = () => {
           <SearchBox onSearch={handleSearch} />
         </div>
         {loading ? (
-          <div class={LocateCSS["loaderContainerStyle"]}>
+          <div className={LocateCSS.loaderContainerStyle}>
             <ScaleLoader
               color="#36d7b7"
               loading={loading}

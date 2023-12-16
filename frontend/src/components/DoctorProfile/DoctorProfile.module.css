@@ -1,9 +1,3 @@
-.template_Container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-
 .doctor_card:hover .doctor_profile_picture img {
   border: 7px solid cyan;
 }

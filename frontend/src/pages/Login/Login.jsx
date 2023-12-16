@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { HiMail } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
-// import "../../../Styles/Login.css";
 import LoginCSS from "./Login.module.css";
 
 //toast
@@ -15,7 +14,6 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading, errorMessage } = useLogin();
-  const navigate = useNavigate();
   const [toastKey, setToastKey] = useState(0);
 
   useEffect(() => {

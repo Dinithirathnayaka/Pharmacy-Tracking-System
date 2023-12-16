@@ -39,7 +39,25 @@ const Map = ({ zoom, markers }) => {
   const onLoad = useCallback((map) => {
     mapRef.current = map;
     setMap(map);
+    renderCircles();
   }, []);
+
+  const renderCircles = () => {
+    if (mapRef.current) {
+      renderCircle(center, 15000, closeOptions);
+      renderCircle(center, 30000, middleOptions);
+      renderCircle(center, 45000, farOptions);
+    }
+  };
+
+  const renderCircle = (center, radius, options) => {
+    const circle = new window.google.maps.Circle({
+      center,
+      radius,
+      options,
+    });
+    circle.setMap(mapRef.current);
+  };
 
   useEffect(() => {
     getUserLocation();
@@ -56,7 +74,11 @@ const Map = ({ zoom, markers }) => {
         (position) => {
           const { latitude, longitude } = position.coords;
 
-          const newLocation = { lat: latitude, lng: longitude };
+          const newLocation = {
+            lat: 6.711240078429725,
+            lng: 80.79160092414799,
+          };
+          // const newLocation = { lat: latitude, lng: longitude };6.711240078429725, 80.79160092414799
 
           localStorage.setItem("currentLocation", JSON.stringify(newLocation));
 
@@ -176,11 +198,15 @@ const Map = ({ zoom, markers }) => {
                   handleMarkerClick(marker);
                 }}
               />
-              <Circle center={center} radius={15000} options={closeOptions} />
-              <Circle center={center} radius={30000} options={middleOptions} />
-              <Circle center={center} radius={45000} options={farOptions} />
             </React.Fragment>
           ))}
+        {center && (
+          <>
+            <Circle center={center} radius={15000} options={closeOptions} />
+            <Circle center={center} radius={30000} options={middleOptions} />
+            <Circle center={center} radius={45000} options={farOptions} />
+          </>
+        )}
       </GoogleMap>
     </div>
   );
