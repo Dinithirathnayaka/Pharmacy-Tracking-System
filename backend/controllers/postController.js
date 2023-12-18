@@ -11,7 +11,8 @@ const getPosts = async (req, res) => {
 
     for (let index = 0; index < posts.length; index++) {
       const element = posts[index];
-      const user = await User.findOne(element.created_by); // Use await here to ensure user data is fetched before continuing.
+
+      const user = await User.findById(element.created_by); // Use await here to ensure user data is fetched before continuing.
 
       // Combine user and post data into one object
       const combinedData = {
@@ -22,7 +23,7 @@ const getPosts = async (req, res) => {
       postnew.push(combinedData);
     }
     console.log(postnew);
-    // res.status(200).json({ postnew });
+    res.status(200).json({ postnew });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });

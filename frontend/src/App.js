@@ -13,7 +13,7 @@ import LocateUs from "./pages/LocateUs/LocateUs";
 import StockDetails from "./pages/StockDetails/StockDetails";
 import ViewDoctor from "./pages/ViewDoctor/ViewDoctor";
 import { Login } from "./pages/Login/Login";
-import { DoctorRegister } from "./pages/Signup/doctorSignUp/DoctorRegister";
+import { DoctorRegister } from "./pages/Signup/DoctorSignup/DoctorRegister";
 import { ForgotPassword } from "./pages/ForgotPassword/ForgotPassword";
 import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 
@@ -23,7 +23,6 @@ import { ResetPassword } from "./pages/ResetPassword/ResetPassword";
 import { useAuthContext } from "./hooks/useAuthContext";
 import { Register } from "./pages/Signup/userSignUp/Register";
 import Stock from "./components/StockDetails/ViewStock/Stock";
-
 
 export default function App() {
   const { user } = useAuthContext();
@@ -55,7 +54,7 @@ export default function App() {
           />
           <Route
             path="/registerdoctor"
-            element={!user ? <DoctorRegister /> : <Navigate to="/" />}
+            element={user ? <DoctorRegister /> : <Navigate to="/login" />}
           />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />

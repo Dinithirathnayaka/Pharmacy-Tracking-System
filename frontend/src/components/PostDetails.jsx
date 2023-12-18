@@ -13,21 +13,12 @@ import {
   ChatBubbleOutline,
 } from "@mui/icons-material";
 
-export default function PostDetails({ post }) {
+export default function PostDetails({ post, user }) {
   const { dispatch } = usePostsContext();
-  const { user } = useAuthContext();
+
   const [userDetails, setUserDetails] = useState({});
 
   let timeAgo = "Invalid Date"; // Default value for timeAgo
-
-  if (post.createdAt) {
-    const createdAt = new Date(post.createdAt);
-    if (!isNaN(createdAt.getTime())) {
-      timeAgo = formatDistanceToNow(createdAt, {
-        addSuffix: true,
-      });
-    }
-  }
 
   // const [like, setLike] = useState(post.like);
   // const [isLiked, setIsLiked] = useState(false);
@@ -48,25 +39,35 @@ export default function PostDetails({ post }) {
     }
   };
 
-  // useEffect(() => {
-  //   const storedUserData = localStorage.getItem("user");
-  //   if (storedUserData) {
-  //     const userData = JSON.parse(storedUserData);
-  //     const { userid } = userData;
-  //     console.log(storedUserData);
+  useEffect(() => {
+    if (post.createdAt) {
+      const createdAt = new Date(post.createdAt);
+      if (!isNaN(createdAt.getTime())) {
+        timeAgo = formatDistanceToNow(createdAt, {
+          addSuffix: true,
+        });
+      } else {
+        console.error("Invalid createdAt date:", post.createdAt);
+      }
+    }
+    // const storedUserData = localStorage.getItem("user");
+    // if (storedUserData) {
+    //   const userData = JSON.parse(storedUserData);
+    //   const { userid } = userData;
+    //   console.log(storedUserData);
 
-  //     // Make an API request to fetch user-specific data based on userid
-  //     axios
-  //       .get(`/api/user/getuser/${userid}`)
+    //   // Make an API request to fetch user-specific data based on userid
+    //   axios
+    //     .get(`/api/user/getuser/${userid}`)
 
-  //       .then((response) => {
-  //         setUserDetails(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching user details:", error);
-  //       });
-  //   }
-  // }, []);
+    //     .then((response) => {
+    //       setUserDetails(response.data);
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error fetching user details:", error);
+    //     });
+    // }
+  }, [post.createdAt]);
 
   return (
     <div className="post">

@@ -7,7 +7,7 @@ export const postsReducer = (state, action) => {
     case "SET_POSTS":
       return {
         ...state,
-        posts: action.payload,
+        posts: action.payload.postnew,
         error: null,
       };
 

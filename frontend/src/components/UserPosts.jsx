@@ -1,34 +1,46 @@
-import React, { useEffect } from "react";
-import { usePostsContext } from "../hooks/usePostsContext";
+import React, { useEffect, useState } from "react";
 import PostDetails from "./PostDetails";
 import axios from "axios";
 import "../Styles/Post.css";
+import { usePostsContext } from "../hooks/usePostsContext";
 
 export default function UserPostDetails() {
-  const userId = "65411b6ad10c56cbb2940ebe";
   const { posts, dispatch } = usePostsContext();
-
+  console.log("Initial posts:", posts);
+  const [userData, setUserData] = useState(null);
   useEffect(() => {
-    // Make an API request to fetch all posts
-    axios.get("/api/posts").then((response) => {
-      if (response.status === 200) {
-        dispatch({ type: "SET_POSTS", payload: response.data });
-      } else {
-        dispatch({ type: "SET_ERROR", payload: "Failed to fetch posts" });
-      }
-    });
-  }, [userId, dispatch]);
+    const storedUserData = localStorage.getItem("user");
+    console.log(storedUserData);
+    if (storedUserData) {
+      const parsedUserData = JSON.parse(storedUserData);
+      setUserData(parsedUserData);
 
-  // Filter posts to show only the user's own posts
-  const userPosts = posts.filter(
-    (post) => post.created_user && post.created_user._id === userId
-  );
+      axios
+        .get("/api/posts")
+        .then((response) => {
+          if (response.status === 200) {
+            console.log(response.data);
+            dispatch({ type: "SET_POSTS", payload: response.data });
+          } else {
+            dispatch({ type: "SET_ERROR", payload: "Failed to fetch posts" });
+          }
+        })
+        .catch((error) => {
+          dispatch({
+            type: "SET_ERROR",
+            payload: "Error fetching data: " + error.message,
+          });
+        });
+    }
+  }, [dispatch]);
 
   return (
-    <div className="post">
-      {userPosts.map((post) => {
-        <PostDetails key={post._id} post={post} />;
-      })}
+    <div className="post-list">
+      {posts.map((post) =>
+        post.post.created_by === "657ea7ddc4f2bcd4c87c40c5" ? (
+          <PostDetails key={post.post._id} post={post.post} user={post.user} />
+        ) : null
+      )}
     </div>
   );
 }

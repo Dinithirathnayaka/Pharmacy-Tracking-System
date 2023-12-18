@@ -37,8 +37,17 @@ export const useSignup = () => {
       }
       if (response.ok) {
         //save the user to local storage
-        console.log("----------------------------------2");
-        localStorage.setItem("user", JSON.stringify(json));
+        const { email, role, user, userid } = json;
+        console.log(user);
+
+        const userData = {
+          email,
+          role,
+          user,
+          userid,
+        };
+        console.log(`User ID stored in local storage: ${userid}`);
+        localStorage.setItem("user", JSON.stringify(userData));
 
         console.log(JSON.stringify(json));
 

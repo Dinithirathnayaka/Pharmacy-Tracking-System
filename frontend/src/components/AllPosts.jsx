@@ -6,25 +6,7 @@ import axios from "axios";
 
 export default function AllPosts() {
   const { posts, dispatch } = usePostsContext();
-
-  // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     try {
-  //       const response = await fetch("/api/posts/");
-  //       const json = await response.json();
-
-  //       if (response.ok) {
-  //         dispatch({ type: "SET_POSTS", payload: json });
-  //       } else {
-  //         console.error("Failed to fetch single post");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchPosts();
-  // }, []);
+  console.log("Initial posts:", posts);
 
   useEffect(() => {
     // Make an API request to fetch posts
@@ -32,6 +14,7 @@ export default function AllPosts() {
       .get("/api/posts")
       .then((response) => {
         if (response.status === 200) {
+          console.log(response.data);
           dispatch({ type: "SET_POSTS", payload: response.data });
         } else {
           dispatch({ type: "SET_ERROR", payload: "Failed to fetch posts" });
@@ -48,7 +31,7 @@ export default function AllPosts() {
   return (
     <div className="post-list">
       {posts.map((post) => (
-        <PostDetails key={post._id} post={post} />
+        <PostDetails key={post.post._id} post={post.post} user={post.user} />
       ))}
     </div>
   );

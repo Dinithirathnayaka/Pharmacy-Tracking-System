@@ -3,6 +3,7 @@ import { Form, Alert } from "react-bootstrap";
 import { useSignup } from "../../../hooks/useSignup";
 // import "../../../Styles/Doctor.css";
 import DoctorCSS from "./DoctorRegister.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const DoctorRegister = () => {
   const [email, setEmail] = useState("");
@@ -15,10 +16,11 @@ export const DoctorRegister = () => {
   const [registrationNumberError, setRegistrationNumberError] = useState("");
   // const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const { signup, error, isLoading } = useSignup();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const inputVal = e.target.value;
-    // Remove any non-numeric characters
+
     const numericValue = inputVal.replace(/\D/g, "");
 
     // Ensure it has exactly 5 digits
@@ -69,6 +71,8 @@ export const DoctorRegister = () => {
       setSpecificArea("");
       setConfirmPassword("");
       setAllFieldsFilled(true);
+
+      navigate("/login");
 
       // setShowSuccessAlert(true);
     } catch (error) {
