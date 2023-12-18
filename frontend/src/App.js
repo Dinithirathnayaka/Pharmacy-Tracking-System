@@ -54,7 +54,7 @@ export default function App() {
           />
           <Route
             path="/registerdoctor"
-            element={user ? <DoctorRegister /> : <Navigate to="/login" />}
+            element={!user ? <DoctorRegister /> : <Navigate to="/" />}
           />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />

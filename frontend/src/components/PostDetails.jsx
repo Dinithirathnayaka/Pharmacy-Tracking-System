@@ -46,8 +46,6 @@ export default function PostDetails({ post, user }) {
         timeAgo = formatDistanceToNow(createdAt, {
           addSuffix: true,
         });
-      } else {
-        console.error("Invalid createdAt date:", post.createdAt);
       }
     }
     // const storedUserData = localStorage.getItem("user");
@@ -67,7 +65,7 @@ export default function PostDetails({ post, user }) {
     //       console.error("Error fetching user details:", error);
     //     });
     // }
-  }, [post.createdAt]);
+  }, []);
 
   return (
     <div className="post">
@@ -83,7 +81,7 @@ export default function PostDetails({ post, user }) {
             </NavLink>
 
             <p className="postUserName" id="abc">
-              {user.username}
+              {" Nimal"}
             </p>
 
             <span className="postDate">{timeAgo}</span>
@@ -129,70 +127,9 @@ export default function PostDetails({ post, user }) {
           />
         </div>
         <div className="postBottom">
-          {/* <div className="likeCommentCount">
-            <div className="postBottomLeft">
-              <Favorite
-                htmlColor="rgb(255,67,111)"
-                className="likeIcon"
-                // onClick={likeHandler}
-              />
-              <ThumbUp
-                htmlColor="rgb(53,70,255)"
-                className="likeIcon"
-                // onClick={likeHandler}
-              />
-              <span className="postLikeCounter">4 people like this</span>
-            </div>
-            <div className="postBottomRight">
-              <span className="postCommentText">9 comments</span>
-            </div>
-          </div> */}
+          <hr />
 
           <hr />
-          <div className="likeAndComment">
-            {/* <div className="postBottomLeft">
-              <ThumbUpOffAlt className="likeIcon" />
-              <span className="postLike">Like</span>
-            </div> */}
-            <div className="postBottomLeft">
-              <ChatBubbleOutline className="likeIcon" />
-              <span className="postLike">Comment</span>
-            </div>
-          </div>
-
-          <hr />
-          <div className="showComment">
-            <p className="postLike">View more comments</p>
-
-            <div className="commentPreview">
-              <img
-                className="commenterImg"
-                src="/assets/images/person/3.jpg"
-                alt="person3"
-              />
-
-              <div>
-                <div className="commenterDetails">
-                  <div className="commenterName">Nimali Fonseka</div>
-                  <div className="comment">I need this.</div>
-                </div>
-                <div className="commentDetails">
-                  <span className="commentDetailsText">Like</span>
-                  <span className="commentDetailsText">Comment</span>
-                  <span className="commentDetailsText">10h</span>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div className="addNewComment">
-              <img
-                className="shareProfileImg"
-                src="/assets/images/person/1.jpg"
-                alt="person1"
-              />
-              <input placeholder="Write a Comment" className="commentInput" />
-            </div>
-          </div>
         </div>
       </div>
     </div>

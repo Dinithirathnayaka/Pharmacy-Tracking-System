@@ -3,7 +3,6 @@ import PostDetails from "./PostDetails";
 import axios from "axios";
 import "../Styles/Post.css";
 import { usePostsContext } from "../hooks/usePostsContext";
-
 export default function UserPostDetails() {
   const { posts, dispatch } = usePostsContext();
   console.log("Initial posts:", posts);

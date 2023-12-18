@@ -123,47 +123,6 @@ export default function UserProfile() {
               <ul className="profileDetailsList">
                 <li className="bottomLeftListItems">
                   <info className="bottomLeftListIcon">
-                    <Info />
-                  </info>
-                  <span className="bottomLeftListIconName">
-                    Studied at Sabaragamuwa University Of Sri Lanka
-                  </span>
-                </li>
-
-                <li className="bottomLeftListItems">
-                  <info className="bottomLeftListIcon">
-                    <ThumbUp />
-                  </info>
-                  <span className="bottomLeftListIconName">
-                    1163 persons liked
-                  </span>
-                </li>
-                <li className="bottomLeftListItems">
-                  <info className="bottomLeftListIcon">
-                    <RssFeed />
-                  </info>
-                  <span className="bottomLeftListIconName">
-                    963 persons followed
-                  </span>
-                </li>
-                <li className="bottomLeftListItems">
-                  <info className="bottomLeftListIcon">
-                    <PersonSearch />
-                  </info>
-                  <span className="bottomLeftListIconName">
-                    463 persons searched
-                  </span>
-                </li>
-                <li className="bottomLeftListItems">
-                  <info className="bottomLeftListIcon">
-                    <Language />
-                  </info>
-                  <span className="bottomLeftListIconName">
-                    www.pharmacy.lk
-                  </span>
-                </li>
-                <li className="bottomLeftListItems">
-                  <info className="bottomLeftListIcon">
                     <Call />
                   </info>
                   <span className="bottomLeftListIconName">

@@ -17,44 +17,25 @@ export default function Leftbar() {
     <div className="leftbar">
       <div className="leftbarWrapper">
         <ul className="leftbarProfile">
-          <li className="leftbarProfileDetails">
-            <img
-              className="leftbarImg"
-              src="/assets/images/person/1.jpg"
-              alt="person1"
-            />
-
-            <p className="leftbarProfileName">{user.username}</p>
-          </li>
+          <li className="leftbarProfileDetails"></li>
         </ul>
         <ul className="leftbarList">
-          <li className="leftbarListItem">
-            <Info className="leftbarListIcon" />
-            <span className="leftbarlistIconName">
-              Studied at Sabaragamuwa University of Sri Lanka
-            </span>
-          </li>
-          <li className="leftbarListItem">
-            <ThumbUp className="leftbarListIcon" />
-            <span className="leftbarlistIconName">1163 persons like</span>
-          </li>
-          <li className="leftbarListItem">
-            <People className="leftbarListIcon" />
-            <span className="leftbarlistIconName">900 persons follow</span>
-          </li>
-          <li className="leftbarListItem">
-            <WhereToVote className="leftbarListIcon" />
-            <span className="leftbarlistIconName">120 persons search</span>
-          </li>
-          <li className="leftbarListItem">
-            <Link className="leftbarListIcon" />
-            <span className="leftbarlistIconName">
-              <a href="www.pharmacy.lk">www.pharmacy.lk</a>
-            </span>
-          </li>
+          <img
+            src="/assets/images/leftmain1.jpeg"
+            alt="person1"
+            style={{ width: "100%", marginBottom: "50px" }}
+          />
+
+          <img
+            src="/assets/images/leftmain2.jpeg"
+            alt="person1"
+            style={{ width: "100%", marginBottom: "50px" }}
+          />
           <li className="leftbarListItem">
             <Call className="leftbarListIcon" />
-            <span className="leftbarlistIconName">011 7584965</span>
+            <span className="leftbarlistIconName" style={{}}>
+              011 7584965
+            </span>
           </li>
           <li className="leftbarListItem">
             <Email className="leftbarListIcon" />
