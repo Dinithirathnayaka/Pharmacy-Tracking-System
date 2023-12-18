@@ -78,20 +78,6 @@ const Navbar = () => {
                   </NavLink>
                 </div>
 
-                <div className={NavbarCSS["NavBarIcons"]}>
-                  <div className={NavbarCSS["NavBarIconItem"]}>
-                    <Person />
-                    <span className={NavbarCSS["NavBarIconBadge"]}>1</span>
-                  </div>
-                  <div className={NavbarCSS["NavBarIconItem"]}>
-                    <Chat />
-                    <span className={NavbarCSS["NavBarIconBadge"]}>2</span>
-                  </div>
-                  <div className={NavbarCSS["NavBarIconItem"]}>
-                    <Notifications />
-                    <span className={NavbarCSS["NavBarIconBadge"]}>1</span>
-                  </div>
-                </div>
                 <ProfileDropdown />
               </div>
             )}

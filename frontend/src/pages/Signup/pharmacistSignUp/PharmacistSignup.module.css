@@ -57,3 +57,17 @@ div.error {
   color: red;
   border-radius: 4px;
 }
+
+@media only screen and (max-width: 600px) {
+  .form-container {
+    flex-direction: column; /* Change to column layout for small screens */
+  }
+
+  .map-container {
+    margin-top: 15px; /* Add margin to separate the map from the form on small screens */
+  }
+
+  .main-form-container {
+    height: auto;
+  }
+}

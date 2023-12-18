@@ -33,6 +33,14 @@ const ProfileDropdown = () => {
     handleLinkClick();
   };
 
+  const truncateString = (str, maxLength) => {
+    if (str.length <= maxLength) {
+      return str;
+    } else {
+      return str.slice(0, maxLength) + "...";
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -65,7 +73,8 @@ const ProfileDropdown = () => {
               {user.username}
             </p>
             <p style={{ fontSize: "15px" }} className="email">
-              {user.email}
+              {truncateString(user.email, 15)}{" "}
+              {/* Adjust the second parameter for the desired length */}
             </p>
 
             <ul>

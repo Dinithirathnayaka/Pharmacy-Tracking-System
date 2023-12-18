@@ -4,72 +4,76 @@ const validator = require("validator");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 6,
-  },
-  role: {
-    type: String,
-    enum: ["doctor", "patient", "pharmacist"],
-    required: true,
-  },
-  doctor: {
-    regi_no: {
+const userSchema = new Schema(
+  {
+    username: {
       type: String,
+      required: true,
       unique: true,
-      sparse: true,
     },
-    specific_area: String,
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
-    emailToken: {
+    email: {
       type: String,
-    },
-  },
-  pharmacist: {
-    register_no: {
-      type: String,
+      required: true,
       unique: true,
-      sparse: true,
     },
-    pharmacyName: {
+    password: {
       type: String,
-      required: false,
+      required: true,
+      minlength: 6,
     },
-    location: {
-      type: {
+    role: {
+      type: String,
+      enum: ["doctor", "patient", "pharmacist"],
+      required: true,
+    },
+    doctor: {
+      regi_no: {
         type: String,
-        enum: ["Point"],
-        required: false,
+        unique: true,
+        sparse: true,
       },
-      coordinates: {
-        type: [Number],
-        required: false,
+      specific_area: String,
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      emailToken: {
+        type: String,
       },
     },
+    pharmacist: {
+      register_no: {
+        type: String,
+        unique: true,
+        sparse: true,
+      },
+      pharmacyName: {
+        type: String,
+        required: false,
+      },
+      location: {
+        type: {
+          type: String,
+          enum: ["Point"],
+          required: false,
+        },
+        coordinates: {
+          type: [Number],
+          required: false,
+        },
+      },
+    },
+    resetToken: {
+      type: String,
+    },
+    resetTokenExpiry: {
+      type: Date,
+    },
   },
-
-  resetToken: {
-    type: String,
-  },
-  resetTokenExpiry: {
-    type: Date,
-  },
-});
+  {
+    timestamps: true, 
+  }
+);
 
 userSchema.pre("save", async function (next) {
   if (this.role === "patient") {

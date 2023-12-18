@@ -213,7 +213,7 @@ function EnhancedTableToolbar(props) {
     try {
       // Delete multiple items based on selected _id values
       for (const rowId of selected) {
-        const response = await fetch(`/api/medicines/${rowId}`, {
+        const response = await fetch(`/api/doctors/${rowId}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

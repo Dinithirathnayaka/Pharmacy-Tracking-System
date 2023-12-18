@@ -123,13 +123,12 @@ export const DoctorRegister = () => {
           />
           <br />
 
-          <label>Choose your feild:</label>
+          <label>Choose your field</label>
           <select
             id="feild"
             form="feildform"
             value={specificArea}
             onChange={(e) => setSpecificArea(e.target.value)}
-            style={{ padding: "3px", marginLeft: "15px" }}
           >
             <option value="dermatologist">Dermatologist</option>
             <option value="cardiologists">Cardiologists</option>

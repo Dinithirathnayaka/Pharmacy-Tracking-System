@@ -4,6 +4,8 @@ const crypto = require("crypto");
 const { sendMail } = require("../utils/sendMail");
 const bcrypt = require("bcrypt");
 
+const mongoose = require("mongoose");
+
 const createToken = (_id, role) => {
   return jwt.sign({ _id, role }, process.env.SECRET, { expiresIn: "3d" });
 };
@@ -84,7 +86,31 @@ const signupUser = async (req, res) => {
 //get all doctors
 const getDoctor = async (req, res) => {
   try {
-    const doctors = await User.find({ role: "doctor" }).sort({ createdAt: -1 });
+    const doctors = await User.find({
+      role: "doctor",
+      "doctor.isVerified": true,
+    }).sort({ createdAt: -1 });
+
+    if (doctors.length === 0) {
+      return res
+        .status(404)
+        .json({ message: 'No doctors found with role "doctor".' });
+    }
+
+    res.status(200).json(doctors);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+//get not approved doctors
+const getUnapprovedDoctors = async (req, res) => {
+  try {
+    const doctors = await User.find({
+      role: "doctor",
+      "doctor.isVerified": false,
+    }).sort({ createdAt: -1 });
 
     if (doctors.length === 0) {
       return res
@@ -228,6 +254,29 @@ const getUser = async (req, res) => {
   }
 };
 
+//delete a user
+
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "Invalid user ID" });
+  }
+
+  try {
+    const user = await User.findByIdAndDelete(id);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.status(200).json({ message: "User deleted successfully", user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 module.exports = {
   signupUser,
   loginUser,
@@ -236,4 +285,6 @@ module.exports = {
   forgotPassword,
   resetPassword,
   getUser,
+  deleteUser,
+  getUnapprovedDoctors,
 };

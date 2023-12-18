@@ -112,3 +112,50 @@ select option {
   font-size: 13px;
   text-align: center;
 }
+
+.doctor {
+  /* Center the form horizontally and add box shadow for depth */
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-register {
+  /* Increase font size and add margin for better visual impact */
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.doctor-form {
+  /* Increase margin for spacing between form elements */
+  margin-top: 20px;
+}
+
+
+.doctor-form input[type="text"],
+.doctor-form input[type="email"],
+.doctor-form input[type="password"] {
+  /* Adjust input field styles for better readability */
+  font-size: 14px;
+}
+
+/* Style the select element for better consistency */
+.doctor-form select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+/* Increase the font size and adjust padding for better button appearance */
+.submitbtndoctor {
+  font-size: 16px;
+  padding: 10px;
+}
+
+
+/* Style the background image for better visibility of the form */
+.doctorImg {
+  position: relative;
+  z-index: 1;
+}

@@ -60,17 +60,19 @@ export const Register = () => {
               required
             />
           </div>
-          <div className={RegisterCSS["emailconreg"]}>
-            <HiMail className={RegisterCSS["emailicon"]} />
+
+          <div className={RegisterCSS["usernameconreg"]}>
+            <HiMail className={RegisterCSS["usernameicon"]} />
             <input
               type="email"
-              placeholder="Email address"
-              className={RegisterCSS["emailreg"]}
+              placeholder="Email Address"
+              className={RegisterCSS["usernamereg"]}
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
             />
           </div>
+
           <div className={RegisterCSS["passconreg"]}>
             <FaLock className={RegisterCSS["lockiconreg"]} />
             <input

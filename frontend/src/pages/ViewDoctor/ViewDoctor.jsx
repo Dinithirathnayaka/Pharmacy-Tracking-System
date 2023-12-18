@@ -70,7 +70,7 @@ const ViewDoctor = () => {
           <input
             type="text"
             id={ViewDoctorCSS["searchInput"]}
-            placeholder="Search by type or area"
+            placeholder="Search by name or type"
             value={searchInput}
             onChange={handleSearchChange}
           />
