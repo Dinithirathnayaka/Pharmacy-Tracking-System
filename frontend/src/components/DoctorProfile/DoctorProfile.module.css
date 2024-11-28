@@ -1,0 +1,64 @@
+.doctor_card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+.doctor_profile_back img {
+  height: 150px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 100%;
+}
+
+.doctor_profile_picture img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  margin-top: -80px;
+  background-color: #fff;
+}
+
+.doctor_profile_contacts {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.doctor_profile_contacts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doctor_profile_contacts li {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.doctor_profile_contacts i {
+  margin-right: 10px;
+}
+
+.doctor_profile_socials {
+  text-align: center;
+  padding: 10px;
+}
+
+.doctor_profile_socials i {
+  font-size: 40px;
+  color: darkcyan;
+  padding: 10px 10px;
+  transition: transform 0.1s ease-in;
+}
+
+.doctor_profile_socials i:hover {
+  transform: scale(1.2);
+}

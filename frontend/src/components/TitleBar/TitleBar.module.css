@@ -1,0 +1,17 @@
+.title-bar-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+}
+
+.title-bar img {
+  height: 50px;
+  width: auto;
+  padding-right: 10px;
+}
+
+@media (max-width: 576px) {
+  .title-bar{
+    padding: 10px;
+  }
+}

@@ -1,0 +1,147 @@
+.register-container {
+    width: auto;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-image: url("../../../../public/assets/images/background_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .register {
+    height: 500px;
+    width: 450px;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .registerimg {
+    width: 90px !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+    margin-bottom: 10px;
+  }
+  .create-account {
+    text-align: center;
+    color: #0195e8;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .usernameconreg {
+    display: flex;
+    width: 400px;
+    border: 2px solid #000000;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .usernamereg {
+    border: none;
+    width: 350px;
+    height: 30px;
+  }
+  
+  .usernamereg:focus {
+    outline: none;
+  }
+  
+  .emailconreg {
+    display: flex;
+    width: 400px;
+    border: 2px solid #000000;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .emailreg {
+    border: none;
+    width: 350px;
+    height: 30px;
+  }
+  
+  .emailreg:focus {
+    outline: none;
+  }
+  
+  .passconreg {
+    display: flex;
+    width: 400px;
+    border: 2px solid #000000;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .lockiconreg {
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  
+  .passwordreg {
+    border: none;
+    width: 350px;
+    height: 30px;
+  }
+  
+  .passwordreg:focus {
+    outline: none;
+  }
+  
+  .passwordconfirmreg {
+    border: none;
+    width: 350px;
+    height: 30px;
+  }
+  
+  .passwordconfirmreg:focus {
+    outline: none;
+  }
+  
+  .registerbtn {
+    height: 40px;
+    width: 399px;
+    background-color: #0195e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .registerperson {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .error {
+    color: red;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .usernameicon {
+    margin: 5px 10px 0 0;
+  }
+  

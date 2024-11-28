@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
+    // title: {
+    //   type: String,
+    //   required: true,
+    // },
 
     desc: {
       type: String,
@@ -15,8 +15,11 @@ const postSchema = new Schema(
     },
 
     image: {
-      data: Buffer,
-      contentType: String,
+      type: String,
+    },
+    created_by: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
